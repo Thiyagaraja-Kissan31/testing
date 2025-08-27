@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booking History - RJ Sons Travels</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Frjsonstr4320back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.6"></script>
+</head>
+<body class="min-h-screen bg-background">
+    <!-- Header -->
+    <header class="bg-surface shadow-md border-b border-border-light sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="vehicle_booking.html" class="flex items-center">
+                        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mr-3">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.22.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold text-primary">RJ Sons Travels</span>
+                    </a>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="vehicle_booking.html" class="text-text-secondary hover:text-primary transition-colors">Book Vehicle</a>
+                    <a href="customer_dashboard.html" class="text-text-secondary hover:text-primary transition-colors">Dashboard</a>
+                    <a href="booking_history.html" class="text-primary font-medium">Booking History</a>
+                    <a href="reviews_ratings.html" class="text-text-secondary hover:text-primary transition-colors">Reviews</a>
+                    <a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-colors">Support</a>
+                </nav>
+
+                <!-- User Menu -->
+                <div class="flex items-center space-x-4">
+                    <div class="hidden md:flex items-center space-x-3">
+                        <span class="text-sm text-text-secondary">Rajesh Kumar</span>
+                        <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                            <span class="text-white text-sm font-medium">R</span>
+                        </div>
+                    </div>
+                    <button class="md:hidden text-text-secondary">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Page Header -->
+        <div class="mb-8">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-3xl font-bold text-text-primary mb-2">Booking History</h1>
+                    <p class="text-text-secondary">Track your rental journey and download receipts</p>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="btn-primary px-6 py-3" onclick="location.href='vehicle_booking.html'">
+                        <i class="fas fa-plus mr-2"></i>New Booking
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Customer Profile Summary -->
+        <div class="card mb-8">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-xl font-semibold text-text-primary flex items-center">
+                    <i class="fas fa-user-circle mr-3 text-primary"></i>
+                    Profile Summary
+                </h2>
+                <button class="text-primary text-sm hover:underline" onclick="toggleProfileEdit()">
+                    <i class="fas fa-edit mr-1"></i>Edit Profile
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="space-y-2">
+                    <label class="block text-sm font-medium text-text-secondary">Full Name</label>
+                    <input type="text" class="input-field text-sm" value="Rajesh Kumar" readonly id="profile-name" />
+                </div>
+                <div class="space-y-2">
+                    <label class="block text-sm font-medium text-text-secondary">Phone Number</label>
+                    <input type="tel" class="input-field text-sm" value="+91 98765 43210" readonly id="profile-phone" />
+                </div>
+                <div class="space-y-2">
+                    <label class="block text-sm font-medium text-text-secondary">NIC Number</label>
+                    <input type="text" class="input-field text-sm" value="123456789V" readonly id="profile-nic" />
+                </div>
+                <div class="space-y-2">
+                    <label class="block text-sm font-medium text-text-secondary">Address</label>
+                    <input type="text" class="input-field text-sm" value="No. 45, Galle Road, Colombo 03" readonly id="profile-address" />
+                </div>
+            </div>
+
+            <div class="hidden mt-4" id="profile-edit-actions">
+                <div class="flex space-x-3">
+                    <button class="btn-primary px-4 py-2" onclick="saveProfile()">Save Changes</button>
+                    <button class="bg-gray-200 text-text-primary px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors" onclick="cancelProfileEdit()">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filters and Search -->
+        <div class="card mb-8">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0">
+                <div class="flex flex-col sm:flex-row sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <div>
+                        <label class="block text-sm font-medium text-text-secondary mb-2">Filter by Status</label>
+                        <select class="input-field" id="status-filter">
+                            <option value="all">All Bookings</option>
+                            <option value="confirmed">Confirmed</option>
+                            <option value="completed">Completed</option>
+                            <option value="cancelled">Cancelled</option>
+                            <option value="upcoming">Upcoming</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-text-secondary mb-2">Filter by Category</label>
+                        <select class="input-field" id="category-filter">
+                            <option value="all">All Categories</option>
+                            <option value="luxury">Luxury</option>
+                            <option value="economy">Economy</option>
+                            <option value="suv">SUV</option>
+                            <option value="hatchback">Hatchback</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-text-secondary mb-2">Date Range</label>
+                        <select class="input-field" id="date-filter">
+                            <option value="all">All Time</option>
+                            <option value="last-7">Last 7 Days</option>
+                            <option value="last-30">Last 30 Days</option>
+                            <option value="last-90">Last 90 Days</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="flex-1 max-w-md">
+                    <label class="block text-sm font-medium text-text-secondary mb-2">Search Bookings</label>
+                    <div class="relative">
+                        <input type="text" placeholder="Search by Booking ID or Vehicle Model" class="input-field pl-10" id="search-input" />
+                        <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-text-secondary"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Booking Timeline -->
+        <div class="space-y-6">
+            <!-- Timeline Header -->
+            <div class="flex items-center justify-between">
+                <h2 class="text-xl font-semibold text-text-primary">Your Booking Timeline</h2>
+                <div class="flex items-center space-x-2">
+                    <button class="p-2 text-text-secondary hover:text-primary transition-colors" onclick="toggleView('list')" id="list-view-btn">
+                        <i class="fas fa-list"></i>
+                    </button>
+                    <button class="p-2 text-text-secondary hover:text-primary transition-colors" onclick="toggleView('calendar')" id="calendar-view-btn">
+                        <i class="fas fa-calendar"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Booking Cards -->
+            <div id="booking-list" class="space-y-6">
+                <!-- Upcoming Booking -->
+                <div class="card hover-lift booking-card" data-status="confirmed" data-category="luxury" data-date="2025-01-25">
+                    <div class="flex items-start space-x-4 mb-6">
+                        <div class="w-4 h-4 bg-success rounded-full mt-2 flex-shrink-0"></div>
+                        <div class="flex-1">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="flex items-start space-x-4">
+                                    <img src="https://images.pixabay.com/photo/2016/04/01/12/16/car-1300629_960_720.png" alt="BMW 3 Series" class="w-24 h-20 object-cover rounded-lg" />
+                                    <div>
+                                        <h3 class="text-xl font-semibold text-text-primary mb-1">BMW 3 Series</h3>
+                                        <p class="text-text-secondary text-sm mb-2">Luxury Sedan • Registration: CAR-2024-001</p>
+                                        <p class="text-text-secondary text-xs">Booking ID: RJ2025001236</p>
+                                        <div class="flex items-center mt-2">
+                                            <i class="fas fa-calendar-alt text-primary mr-2"></i>
+                                            <span class="text-sm font-medium">Jan 25, 2025 at 10:00 AM</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="bg-success-50 text-success-600 px-3 py-1 rounded-full text-sm font-medium border border-success-100">Confirmed</span>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                                <div class="space-y-3">
+                                    <h4 class="font-medium text-text-primary">Trip Details</h4>
+                                    <div class="space-y-2 text-sm">
+                                        <div class="flex items-center space-x-2">
+                                            <i class="fas fa-map-marker-alt text-success w-4"></i>
+                                            <span class="text-text-secondary">Pickup: Colombo Airport</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <i class="fas fa-flag-checkered text-secondary w-4"></i>
+                                            <span class="text-text-secondary">Drop: Hotel Grand Oriental</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <i class="fas fa-clock text-accent w-4"></i>
+                                            <span class="text-text-secondary">Duration: 3 days</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-3">
+                                    <h4 class="font-medium text-text-primary">Driver Information</h4>
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-user text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-medium text-text-primary">Ravi Kumar</p>
+                                            <p class="text-text-secondary text-sm">Experience: 8 years</p>
+                                            <div class="flex items-center mt-1">
+                                                <div class="flex text-yellow-400 mr-2">
+                                                    <i class="fas fa-star text-xs"></i>
+                                                    <i class="fas fa-star text-xs"></i>
+                                                    <i class="fas fa-star text-xs"></i>
+                                                    <i class="fas fa-star text-xs"></i>
+                                                    <i class="fas fa-star text-xs"></i>
+                                                </div>
+                                                <span class="text-text-secondary text-xs">4.8/5</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-3">
+                                    <h4 class="font-medium text-text-primary">Payment Breakdown</h4>
+                                    <div class="space-y-2 text-sm">
+                                        <div class="flex justify-between">
+                                            <span class="text-text-secondary">Base Fare:</span>
+                                            <span>₹22,000</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-text-secondary">Driver Charges:</span>
+                                            <span>₹2,500</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-text-secondary">GST (18%):</span>
+                                            <span>₹1,000</span>
+                                        </div>
+                                        <hr class="border-border-light" />
+                                        <div class="flex justify-between font-semibold">
+                                            <span class="text-text-primary">Total Amount:</span>
+                                            <span class="text-primary">₹25,500</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <i class="fas fa-credit-card text-success"></i>
+                                            <span class="text-success text-sm">Paid via Credit Card</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between pt-4 border-t border-border-light">
+                                <div class="flex items-center space-x-4">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-3 h-3 bg-success rounded-full"></div>
+                                        <span class="text-sm text-text-secondary">Booking Confirmed</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-3 h-3 bg-gray-300 rounded-full"></div>
+                                        <span class="text-sm text-text-secondary">Driver Assigned</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-3 h-3 bg-gray-300 rounded-full"></div>
+                                        <span class="text-sm text-text-secondary">Trip Started</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-3 h-3 bg-gray-300 rounded-full"></div>
+                                        <span class="text-sm text-text-secondary">Trip Completed</span>
+                                    </div>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <button class="bg-gray-100 text-text-primary px-4 py-2 rounded-lg text-sm hover:bg-gray-200 transition-colors" onclick="viewBookingDetails('RJ2025001236')">
+                                        <i class="fas fa-eye mr-1"></i>View Details
+                                    </button>
+                                    <button class="bg-gray-100 text-text-primary px-4 py-2 rounded-lg text-sm hover:bg-gray-200 transition-colors" onclick="downloadReceipt('RJ2025001236')">
+                                        <i class="fas fa-download mr-1"></i>Receipt
+                                    </button>
+                                    <button class="bg-secondary text-white px-4 py-2 rounded-lg text-sm hover:bg-secondary-700 transition-colors" onclick="cancelBooking('RJ2025001236')">
+                                        <i class="fas fa-times mr-1"></i>Cancel
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Completed Booking -->
+                <div class="card hover-lift booking-card" data-status="completed" data-category="luxury" data-date="2025-01-15">
+                    <div class="flex items-start space-x-4 mb-6">
+                        <div class="w-4 h-4 bg-success rounded-full mt-2 flex-shrink-0"></div>
+                        <div class="flex-1">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="flex items-start space-x-4">
+                                    <img src="https://images.pixabay.com/photo/2016/04/01/12/16/car-1300629_960_720.png" alt="BMW 3 Series" class="w-24 h-20 object-cover rounded-lg" />
+                                    <div>
+                                        <h3 class="text-xl font-semibold text-text-primary mb-1">BMW 3 Series</h3>
+                                        <p class="text-text-secondary text-sm mb-2">Luxury Sedan • Registration: CAR-2024-001</p>
+                                        <p class="text-text-secondary text-xs">Booking ID: RJ2025001234</p>
+                                        <div class="flex items-center mt-2">
+                                            <i class="fas fa-calendar-check text-success mr-2"></i>
+                                            <span class="text-sm font-medium">Jan 15-18, 2025</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="bg-success-50 text-success-600 px-3 py-1 rounded-full text-sm font-medium border border-success-100">Completed</span>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                                <div class="space-y-3">
+                                    <h4 class="font-medium text-text-primary">Trip Details</h4>
+                                    <div class="space-y-2 text-sm">
+                                        <div class="flex items-center space-x-2">
+                                            <i class="fas fa-map-marker-alt text-success w-4"></i>
+                                            <span class="text-text-secondary">Pickup: Colombo Airport</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <i class="fas fa-flag-checkered text-secondary w-4"></i>
+                                            <span class="text-text-secondary">Drop: Hotel Grand Oriental</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <i class="fas fa-clock text-accent w-4"></i>
+                                            <span class="text-text-secondary">Duration: 3 days</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <i class="fas fa-road text-primary w-4"></i>
+                                            <span class="text-text-secondary">Distance: 450 KM</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-3">
+                                    <h4 class="font-medium text-text-primary">Driver Information</h4>
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-user text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-medium text-text-primary">Ravi Kumar</p>
+                                            <p class="text-text-secondary text-sm">Experience: 8 years</p>
+                                            <div class="flex items-center mt-1">
+                                                <div class="flex text-yellow-400 mr-2">
+                                                    <i class="fas fa-star text-xs"></i>
+                                                    <i class="fas fa-star text-xs"></i>
+                                                    <i class="fas fa-star text-xs"></i>
+                                                    <i class="fas fa-star text-xs"></i>
+                                                    <i class="fas fa-star text-xs"></i>
+                                                </div>
+                                                <span class="text-text-secondary text-xs">4.8/5</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-3">
+                                    <h4 class="font-medium text-text-primary">Payment Breakdown</h4>
+                                    <div class="space-y-2 text-sm">
+                                        <div class="flex justify-between">
+                                            <span class="text-text-secondary">Base Fare:</span>
+                                            <span>₹22,000</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-text-secondary">Driver Charges:</span>
+                                            <span>₹2,500</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-text-secondary">GST (18%):</span>
+                                            <span>₹1,000</span>
+                                        </div>
+                                        <hr class="border-border-light" />
+                                        <div class="flex justify-between font-semibold">
+                                            <span class="text-text-primary">Total Amount:</span>
+                                            <span class="text-primary">₹25,500</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <i class="fas fa-check-circle text-success"></i>
+                                            <span class="text-success text-sm">Payment Completed</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between pt-4 border-t border-border-light">
+                                <div class="flex items-center space-x-4">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-3 h-3 bg-success rounded-full"></div>
+                                        <span class="text-sm text-text-secondary">Booking Confirmed</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-3 h-3 bg-success rounded-full"></div>
+                                        <span class="text-sm text-text-secondary">Driver Assigned</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-3 h-3 bg-success rounded-full"></div>
+                                        <span class="text-sm text-text-secondary">Trip Started</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-3 h-3 bg-success rounded-full"></div>
+                                        <span class="text-sm text-success">Trip Completed</span>
+                                    </div>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <button class="bg-gray-100 text-text-primary px-4 py-2 rounded-lg text-sm hover:bg-gray-200 transition-colors" onclick="viewBookingDetails('RJ2025001234')">
+                                        <i class="fas fa-eye mr-1"></i>Details
+                                    </button>
+                                    <button class="bg-gray-100 text-text-primary px-4 py-2 rounded-lg text-sm hover:bg-gray-200 transition-colors" onclick="downloadReceipt('RJ2025001234')">
+                                        <i class="fas fa-download mr-1"></i>Receipt
+                                    </button>
+                                    <button class="btn-primary px-4 py-2 text-sm" onclick="openReviewModal('RJ2025001234')">
+                                        <i class="fas fa-star mr-1"></i>Review
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Another Completed Booking -->
+                <div class="card hover-lift booking-card" data-status="completed" data-category="hatchback" data-date="2025-01-10">
+                    <div class="flex items-start space-x-4 mb-6">
+                        <div class="w-4 h-4 bg-success rounded-full mt-2 flex-shrink-0"></div>
+                        <div class="flex-1">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="flex items-start space-x-4">
+                                    <img src="https://images.pexels.com/photos/116675/pexels-photo-116675.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Maruti Swift" class="w-24 h-20 object-cover rounded-lg" />
+                                    <div>
+                                        <h3 class="text-xl font-semibold text-text-primary mb-1">Maruti Swift</h3>
+                                        <p class="text-text-secondary text-sm mb-2">Compact Hatchback • Registration: CAR-2024-005</p>
+                                        <p class="text-text-secondary text-xs">Booking ID: RJ2025001235</p>
+                                        <div class="flex items-center mt-2">
+                                            <i class="fas fa-calendar-check text-success mr-2"></i>
+                                            <span class="text-sm font-medium">Jan 10, 2025</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="bg-success-50 text-success-600 px-3 py-1 rounded-full text-sm font-medium border border-success-100">Completed</span>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                                <div class="space-y-3">
+                                    <h4 class="font-medium text-text-primary">Trip Details</h4>
+                                    <div class="space-y-2 text-sm">
+                                        <div class="flex items-center space-x-2">
+                                            <i class="fas fa-map-marker-alt text-success w-4"></i>
+                                            <span class="text-text-secondary">Pickup: Kandy Station</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <i class="fas fa-flag-checkered text-secondary w-4"></i>
+                                            <span class="text-text-secondary">Drop: Kandy Station</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <i class="fas fa-clock text-accent w-4"></i>
+                                            <span class="text-text-secondary">Duration: 1 day</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <i class="fas fa-road text-primary w-4"></i>
+                                            <span class="text-text-secondary">Distance: 85 KM</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-3">
+                                    <h4 class="font-medium text-text-primary">Driver Information</h4>
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-10 h-10 bg-accent-100 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-user-check text-accent"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-medium text-text-primary">Self Drive</p>
+                                            <p class="text-text-secondary text-sm">No driver assigned</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-3">
+                                    <h4 class="font-medium text-text-primary">Payment Breakdown</h4>
+                                    <div class="space-y-2 text-sm">
+                                        <div class="flex justify-between">
+                                            <span class="text-text-secondary">Base Fare:</span>
+                                            <span>₹1,200</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-text-secondary">Self Drive Discount:</span>
+                                            <span class="text-success">-₹200</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-text-secondary">GST (18%):</span>
+                                            <span>₹500</span>
+                                        </div>
+                                        <hr class="border-border-light" />
+                                        <div class="flex justify-between font-semibold">
+                                            <span class="text-text-primary">Total Amount:</span>
+                                            <span class="text-primary">₹1,500</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <i class="fas fa-check-circle text-success"></i>
+                                            <span class="text-success text-sm">Payment Completed</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between pt-4 border-t border-border-light">
+                                <div class="flex items-center space-x-4">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-3 h-3 bg-success rounded-full"></div>
+                                        <span class="text-sm text-text-secondary">Booking Confirmed</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-3 h-3 bg-success rounded-full"></div>
+                                        <span class="text-sm text-text-secondary">Vehicle Ready</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-3 h-3 bg-success rounded-full"></div>
+                                        <span class="text-sm text-text-secondary">Trip Started</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-3 h-3 bg-success rounded-full"></div>
+                                        <span class="text-sm text-success">Trip Completed</span>
+                                    </div>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <button class="bg-gray-100 text-text-primary px-4 py-2 rounded-lg text-sm hover:bg-gray-200 transition-colors" onclick="viewBookingDetails('RJ2025001235')">
+                                        <i class="fas fa-eye mr-1"></i>Details
+                                    </button>
+                                    <button class="bg-gray-100 text-text-primary px-4 py-2 rounded-lg text-sm hover:bg-gray-200 transition-colors" onclick="downloadReceipt('RJ2025001235')">
+                                        <i class="fas fa-download mr-1"></i>Receipt
+                                    </button>
+                                    <button class="bg-gray-100 text-text-primary px-4 py-2 rounded-lg text-sm hover:bg-gray-200 transition-colors">
+                                        <i class="fas fa-star mr-1"></i>Reviewed
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calendar View (Initially Hidden) -->
+            <div id="calendar-view" class="hidden">
+                <div class="card">
+                    <div class="text-center py-12">
+                        <i class="fas fa-calendar-alt text-6xl text-gray-300 mb-4"></i>
+                        <h3 class="text-xl font-semibold text-text-primary mb-2">Calendar View</h3>
+                        <p class="text-text-secondary">Calendar view integration coming soon</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Empty State (when no results) -->
+            <div id="empty-state" class="hidden">
+                <div class="card text-center py-12">
+                    <i class="fas fa-search text-6xl text-gray-300 mb-4"></i>
+                    <h3 class="text-xl font-semibold text-text-primary mb-2">No bookings found</h3>
+                    <p class="text-text-secondary mb-6">Try adjusting your filters or search terms</p>
+                    <button class="btn-primary px-6 py-3" onclick="clearFilters()">Clear All Filters</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Booking Details Modal -->
+    <div id="bookingDetailsModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div class="bg-surface rounded-lg max-w-4xl w-full p-6 shadow-xl max-h-96 overflow-y-auto">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-xl font-semibold text-text-primary">Complete Booking Details</h3>
+                <button class="text-text-secondary hover:text-text-primary" onclick="closeBookingDetailsModal()">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+
+            <div id="bookingDetailsContent" class="space-y-6">
+                <!-- Content will be populated dynamically -->
+            </div>
+
+            <div class="flex justify-end mt-6">
+                <button class="bg-gray-200 text-text-primary px-6 py-2 rounded-lg hover:bg-gray-300 transition-colors" onclick="closeBookingDetailsModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Review Modal -->
+    <div id="reviewModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div class="bg-surface rounded-lg max-w-md w-full p-6 shadow-xl">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-xl font-semibold text-text-primary">Rate Your Experience</h3>
+                <button class="text-text-secondary hover:text-text-primary" onclick="closeReviewModal()">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+
+            <form id="reviewForm" class="space-y-6">
+                <div id="reviewBookingInfo" class="bg-gray-50 rounded-lg p-4">
+                    <!-- Booking info will be populated here -->
+                </div>
+
+                <!-- Vehicle Rating -->
+                <div>
+                    <label class="block text-sm font-medium text-text-primary mb-2">Vehicle Rating</label>
+                    <div class="star-rating" data-rating="vehicle">
+                        <i class="fas fa-star star cursor-pointer text-2xl text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="1"></i>
+                        <i class="fas fa-star star cursor-pointer text-2xl text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="2"></i>
+                        <i class="fas fa-star star cursor-pointer text-2xl text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="3"></i>
+                        <i class="fas fa-star star cursor-pointer text-2xl text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="4"></i>
+                        <i class="fas fa-star star cursor-pointer text-2xl text-gray-300 hover:text-yellow-400 transition-colors" data-value="5"></i>
+                    </div>
+                </div>
+
+                <!-- Driver Rating (if applicable) -->
+                <div id="driverRatingSection">
+                    <label class="block text-sm font-medium text-text-primary mb-2">Driver Rating</label>
+                    <div class="star-rating" data-rating="driver">
+                        <i class="fas fa-star star cursor-pointer text-2xl text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="1"></i>
+                        <i class="fas fa-star star cursor-pointer text-2xl text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="2"></i>
+                        <i class="fas fa-star star cursor-pointer text-2xl text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="3"></i>
+                        <i class="fas fa-star star cursor-pointer text-2xl text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="4"></i>
+                        <i class="fas fa-star star cursor-pointer text-2xl text-gray-300 hover:text-yellow-400 transition-colors" data-value="5"></i>
+                    </div>
+                </div>
+
+                <!-- Review Text -->
+                <div>
+                    <label class="block text-sm font-medium text-text-primary mb-2">Your Review</label>
+                    <textarea class="input-field" rows="4" placeholder="Share your experience..." required></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="flex space-x-4">
+                    <button type="submit" class="btn-primary flex-1 py-3">Submit Review</button>
+                    <button type="button" class="bg-gray-200 text-text-primary px-6 py-3 rounded-lg hover:bg-gray-300 transition-colors" onclick="closeReviewModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeFilters();
+            initializeStarRatings();
+        });
+
+        // Initialize filters and search
+        function initializeFilters() {
+            const statusFilter = document.getElementById('status-filter');
+            const categoryFilter = document.getElementById('category-filter');
+            const dateFilter = document.getElementById('date-filter');
+            const searchInput = document.getElementById('search-input');
+
+            statusFilter.addEventListener('change', applyFilters);
+            categoryFilter.addEventListener('change', applyFilters);
+            dateFilter.addEventListener('change', applyFilters);
+            searchInput.addEventListener('input', applyFilters);
+        }
+
+        // Apply filters to booking cards
+        function applyFilters() {
+            const statusFilter = document.getElementById('status-filter').value;
+            const categoryFilter = document.getElementById('category-filter').value;
+            const dateFilter = document.getElementById('date-filter').value;
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+
+            const bookingCards = document.querySelectorAll('.booking-card');
+            let visibleCount = 0;
+
+            bookingCards.forEach(card => {
+                const status = card.dataset.status;
+                const category = card.dataset.category;
+                const date = card.dataset.date;
+                const cardText = card.textContent.toLowerCase();
+
+                let showCard = true;
+
+                // Status filter
+                if (statusFilter !== 'all' && status !== statusFilter) {
+                    showCard = false;
+                }
+
+                // Category filter
+                if (categoryFilter !== 'all' && category !== categoryFilter) {
+                    showCard = false;
+                }
+
+                // Search filter
+                if (searchTerm && !cardText.includes(searchTerm)) {
+                    showCard = false;
+                }
+
+                // Date filter (simplified logic)
+                if (dateFilter !== 'all') {
+                    const cardDate = new Date(date);
+                    const now = new Date();
+                    const daysDiff = Math.ceil((now - cardDate) / (1000 * 60 * 60 * 24));
+
+                    if (dateFilter === 'last-7' && daysDiff > 7) showCard = false;
+                    if (dateFilter === 'last-30' && daysDiff > 30) showCard = false;
+                    if (dateFilter === 'last-90' && daysDiff > 90) showCard = false;
+                }
+
+                if (showCard) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Show empty state if no results
+            const emptyState = document.getElementById('empty-state');
+            if (visibleCount === 0) {
+                emptyState.classList.remove('hidden');
+            } else {
+                emptyState.classList.add('hidden');
+            }
+        }
+
+        // Clear all filters
+        function clearFilters() {
+            document.getElementById('status-filter').value = 'all';
+            document.getElementById('category-filter').value = 'all';
+            document.getElementById('date-filter').value = 'all';
+            document.getElementById('search-input').value = '';
+            applyFilters();
+        }
+
+        // Toggle view between list and calendar
+        function toggleView(view) {
+            const bookingList = document.getElementById('booking-list');
+            const calendarView = document.getElementById('calendar-view');
+            const listBtn = document.getElementById('list-view-btn');
+            const calendarBtn = document.getElementById('calendar-view-btn');
+
+            if (view === 'list') {
+                bookingList.classList.remove('hidden');
+                calendarView.classList.add('hidden');
+                listBtn.classList.add('text-primary');
+                listBtn.classList.remove('text-text-secondary');
+                calendarBtn.classList.add('text-text-secondary');
+                calendarBtn.classList.remove('text-primary');
+            } else {
+                bookingList.classList.add('hidden');
+                calendarView.classList.remove('hidden');
+                calendarBtn.classList.add('text-primary');
+                calendarBtn.classList.remove('text-text-secondary');
+                listBtn.classList.add('text-text-secondary');
+                listBtn.classList.remove('text-primary');
+            }
+        }
+
+        // Profile editing functionality
+        function toggleProfileEdit() {
+            const inputs = document.querySelectorAll('#profile-name, #profile-phone, #profile-nic, #profile-address');
+            const editActions = document.getElementById('profile-edit-actions');
+            const isReadonly = inputs[0].readOnly;
+
+            inputs.forEach(input => {
+                input.readOnly = !isReadonly;
+                if (!isReadonly) {
+                    input.classList.add('bg-gray-100');
+                } else {
+                    input.classList.remove('bg-gray-100');
+                }
+            });
+
+            if (isReadonly) {
+                editActions.classList.remove('hidden');
+            } else {
+                editActions.classList.add('hidden');
+            }
+        }
+
+        // Save profile changes
+        function saveProfile() {
+            setTimeout(() => {
+                alert('Profile updated successfully!');
+                toggleProfileEdit();
+            }, 1000);
+        }
+
+        // Cancel profile edit
+        function cancelProfileEdit() {
+            document.getElementById('profile-name').value = 'Rajesh Kumar';
+            document.getElementById('profile-phone').value = '+91 98765 43210';
+            document.getElementById('profile-nic').value = '123456789V';
+            document.getElementById('profile-address').value = 'No. 45, Galle Road, Colombo 03';
+            toggleProfileEdit();
+        }
+
+        // View booking details
+        function viewBookingDetails(bookingId) {
+            const modal = document.getElementById('bookingDetailsModal');
+            const content = document.getElementById('bookingDetailsContent');
+            
+            // Sample detailed booking data
+            const detailsHTML = `
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div class="card bg-gray-50">
+                            <h4 class="font-semibold text-text-primary mb-4 flex items-center">
+                                <i class="fas fa-info-circle mr-2 text-primary"></i>
+                                Booking Information
+                            </h4>
+                            <div class="space-y-3 text-sm">
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Booking ID:</span>
+                                    <span class="font-medium font-data">${bookingId}</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Vehicle:</span>
+                                    <span class="font-medium">BMW 3 Series</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Registration:</span>
+                                    <span class="font-medium font-data">CAR-2024-001</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Driver:</span>
+                                    <span class="font-medium">Ravi Kumar</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Booking Date:</span>
+                                    <span class="font-medium">Jan 15, 2025</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Duration:</span>
+                                    <span class="font-medium">3 days</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card bg-gray-50">
+                            <h4 class="font-semibold text-text-primary mb-4 flex items-center">
+                                <i class="fas fa-route mr-2 text-success"></i>
+                                Trip Details
+                            </h4>
+                            <div class="space-y-3 text-sm">
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Pickup Location:</span>
+                                    <span class="font-medium">Colombo Airport</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Drop Location:</span>
+                                    <span class="font-medium">Hotel Grand Oriental</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Pickup Time:</span>
+                                    <span class="font-medium">10:00 AM</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">KM Package:</span>
+                                    <span class="font-medium">300 KM/day</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Total Distance:</span>
+                                    <span class="font-medium">450 KM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="card bg-gray-50">
+                            <h4 class="font-semibold text-text-primary mb-4 flex items-center">
+                                <i class="fas fa-user mr-2 text-accent"></i>
+                                Customer Details
+                            </h4>
+                            <div class="space-y-3 text-sm">
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Name:</span>
+                                    <span class="font-medium">Rajesh Kumar</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Phone:</span>
+                                    <span class="font-medium">+91 98765 43210</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">NIC Number:</span>
+                                    <span class="font-medium font-data">123456789V</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Address:</span>
+                                    <span class="font-medium">No. 45, Galle Road, Colombo 03</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Email:</span>
+                                    <span class="font-medium">rajesh.kumar@email.com</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card bg-primary-50 border border-primary-100">
+                            <h4 class="font-semibold text-text-primary mb-4 flex items-center">
+                                <i class="fas fa-credit-card mr-2 text-primary"></i>
+                                Payment Details
+                            </h4>
+                            <div class="space-y-3 text-sm">
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Base Fare:</span>
+                                    <span class="font-medium">₹22,000</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Driver Charges:</span>
+                                    <span class="font-medium">₹2,500</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">GST (18%):</span>
+                                    <span class="font-medium">₹1,000</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Discount:</span>
+                                    <span class="font-medium text-success">-₹0</span>
+                                </div>
+                                <hr class="border-primary-200">
+                                <div class="flex justify-between text-lg">
+                                    <span class="font-semibold text-text-primary">Total Amount:</span>
+                                    <span class="font-bold text-primary">₹25,500</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Payment Method:</span>
+                                    <span class="font-medium">Credit Card</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Transaction ID:</span>
+                                    <span class="font-medium font-data">TXN123456789</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Payment Status:</span>
+                                    <span class="font-medium text-success">Completed</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card bg-accent-50 border border-accent-100">
+                    <h4 class="font-semibold text-text-primary mb-4 flex items-center">
+                        <i class="fas fa-file-contract mr-2 text-accent"></i>
+                        Terms & Agreements
+                    </h4>
+                    <div class="text-sm text-text-secondary">
+                        <p class="mb-2">• Digital agreement signed on Jan 14, 2025 at 3:45 PM</p>
+                        <p class="mb-2">• Vehicle inspection completed before pickup</p>
+                        <p class="mb-2">• Security deposit of ₹10,000 held and released</p>
+                        <p class="mb-2">• Comprehensive insurance coverage active</p>
+                        <div class="flex space-x-4 mt-4">
+                            <button class="btn-primary px-4 py-2 text-sm">
+                                <i class="fas fa-download mr-1"></i>Download Agreement
+                            </button>
+                            <button class="bg-gray-100 text-text-primary px-4 py-2 rounded-lg text-sm hover:bg-gray-200 transition-colors">
+                                <i class="fas fa-eye mr-1"></i>View Digital Signature
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            content.innerHTML = detailsHTML;
+            modal.classList.remove('hidden');
+        }
+
+        // Close booking details modal
+        function closeBookingDetailsModal() {
+            document.getElementById('bookingDetailsModal').classList.add('hidden');
+        }
+
+        // Download receipt
+        function downloadReceipt(bookingId) {
+            // Simulate receipt download
+            const element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(`Receipt for booking ${bookingId}`));
+            element.setAttribute('download', `Receipt_${bookingId}.txt`);
+            element.style.display = 'none';
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+            
+            // Show success message
+            setTimeout(() => {
+                alert('Receipt downloaded successfully!');
+            }, 500);
+        }
+
+        // Cancel booking
+        function cancelBooking(bookingId) {
+            if (confirm('Are you sure you want to cancel this booking? Cancellation charges may apply.')) {
+                setTimeout(() => {
+                    alert('Booking cancelled successfully. You will receive a confirmation email shortly.');
+                    location.reload();
+                }, 1000);
+            }
+        }
+
+        // Initialize star ratings
+        function initializeStarRatings() {
+            document.querySelectorAll('.star-rating').forEach(rating => {
+                const stars = rating.querySelectorAll('.star');
+                let selectedRating = 0;
+
+                stars.forEach((star, index) => {
+                    star.addEventListener('click', function() {
+                        selectedRating = this.dataset.value;
+                        updateStarDisplay(rating, selectedRating);
+                        rating.dataset.selectedRating = selectedRating;
+                    });
+
+                    star.addEventListener('mouseenter', function() {
+                        updateStarDisplay(rating, this.dataset.value);
+                    });
+                });
+
+                rating.addEventListener('mouseleave', function() {
+                    updateStarDisplay(rating, selectedRating);
+                });
+            });
+        }
+
+        // Update star display
+        function updateStarDisplay(ratingContainer, rating) {
+            const stars = ratingContainer.querySelectorAll('.star');
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.classList.add('text-yellow-400');
+                    star.classList.remove('text-gray-300');
+                } else {
+                    star.classList.remove('text-yellow-400');
+                    star.classList.add('text-gray-300');
+                }
+            });
+        }
+
+        // Open review modal
+        function openReviewModal(bookingId) {
+            const modal = document.getElementById('reviewModal');
+            const bookingInfo = document.getElementById('reviewBookingInfo');
+            
+            const bookingData = {
+                'RJ2025001234': {
+                    vehicle: 'BMW 3 Series',
+                    driver: 'Ravi Kumar',
+                    date: 'Jan 15, 2025',
+                    hasDriver: true
+                },
+                'RJ2025001235': {
+                    vehicle: 'Maruti Swift',
+                    driver: null,
+                    date: 'Jan 10, 2025',
+                    hasDriver: false
+                }
+            };
+
+            const booking = bookingData[bookingId];
+            if (booking) {
+                bookingInfo.innerHTML = `
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h4 class="font-semibold text-text-primary">${booking.vehicle}</h4>
+                            <p class="text-text-secondary text-sm">Booking ID: ${bookingId}</p>
+                            <p class="text-text-secondary text-sm">Date: ${booking.date}</p>
+                        </div>
+                    </div>
+                `;
+
+                const driverSection = document.getElementById('driverRatingSection');
+                if (booking.hasDriver) {
+                    driverSection.style.display = 'block';
+                } else {
+                    driverSection.style.display = 'none';
+                }
+
+                modal.classList.remove('hidden');
+            }
+        }
+
+        // Close review modal
+        function closeReviewModal() {
+            document.getElementById('reviewModal').classList.add('hidden');
+            document.querySelectorAll('.star-rating').forEach(rating => {
+                updateStarDisplay(rating, 0);
+                rating.dataset.selectedRating = 0;
+            });
+        }
+
+        // Submit review
+        document.getElementById('reviewForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const vehicleRating = document.querySelector('[data-rating="vehicle"]').dataset.selectedRating || 0;
+            const driverSection = document.getElementById('driverRatingSection');
+            const driverRating = driverSection.style.display !== 'none' ? 
+                (document.querySelector('[data-rating="driver"]').dataset.selectedRating || 0) : 0;
+            const reviewText = document.querySelector('#reviewForm textarea').value;
+
+            if (vehicleRating === 0) {
+                alert('Please provide a vehicle rating');
+                return;
+            }
+
+            setTimeout(() => {
+                alert('Review submitted successfully! Thank you for your feedback.');
+                closeReviewModal();
+                location.reload();
+            }, 1000);
+        });
+
+        // Set initial view
+        toggleView('list');
+    </script>
+</body>
+</html>

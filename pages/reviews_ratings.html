@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reviews & Ratings - RJ Sons Travels</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Frjsonstr4320back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.6"></script>
+</head>
+<body class="min-h-screen bg-background">
+    <!-- Header -->
+    <header class="bg-surface shadow-md border-b border-border-light sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="vehicle_booking.html" class="flex items-center">
+                        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mr-3">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.22.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold text-primary">RJ Sons Travels</span>
+                    </a>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="vehicle_booking.html" class="text-text-secondary hover:text-primary transition-colors">Book Vehicle</a>
+                    <a href="customer_dashboard.html" class="text-text-secondary hover:text-primary transition-colors">Dashboard</a>
+                    <a href="booking_history.html" class="text-text-secondary hover:text-primary transition-colors">Booking History</a>
+                    <a href="reviews_ratings.html" class="text-primary font-medium">Reviews & Ratings</a>
+                    <a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-colors">Support</a>
+                </nav>
+
+                <!-- User Menu -->
+                <div class="flex items-center space-x-4">
+                    <div class="hidden md:flex items-center space-x-3">
+                        <span class="text-sm text-text-secondary">Rajesh Kumar</span>
+                        <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                            <span class="text-white text-sm font-medium">R</span>
+                        </div>
+                    </div>
+                    <button class="md:hidden text-text-secondary">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Page Header -->
+        <div class="mb-8">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-3xl font-bold text-text-primary mb-2">Reviews & Ratings</h1>
+                    <p class="text-text-secondary">Share your experiences and help other customers</p>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="btn-primary px-6 py-3" onclick="openSubmitReviewModal()">
+                        <i class="fas fa-star mr-2"></i>Submit Review
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service Overview Dashboard -->
+        <div class="card mb-8">
+            <h2 class="text-xl font-semibold text-text-primary mb-6 flex items-center">
+                <i class="fas fa-chart-line mr-3 text-primary"></i>
+                Your Service Quality Overview
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-star text-primary text-2xl"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-primary mb-1">4.7</div>
+                    <div class="text-sm text-text-secondary">Overall Rating</div>
+                    <div class="flex justify-center mt-2">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-car text-success text-2xl"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-success mb-1">4.8</div>
+                    <div class="text-sm text-text-secondary">Vehicle Rating</div>
+                    <div class="text-xs text-text-secondary mt-1">Based on cleanliness & condition</div>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-user-tie text-accent text-2xl"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-accent mb-1">4.6</div>
+                    <div class="text-sm text-text-secondary">Driver Rating</div>
+                    <div class="text-xs text-text-secondary mt-1">Punctuality & behavior</div>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-heart text-secondary text-2xl"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-secondary mb-1">95%</div>
+                    <div class="text-sm text-text-secondary">Satisfaction Rate</div>
+                    <div class="text-xs text-text-secondary mt-1">Customer satisfaction</div>
+                </div>
+            </div>
+
+            <!-- Satisfaction Trends Chart -->
+            <div class="bg-gray-50 rounded-lg p-6">
+                <h3 class="font-semibold text-text-primary mb-4">Satisfaction Trends</h3>
+                <div class="flex items-center justify-between">
+                    <div class="flex-1 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-text-secondary">Vehicle Condition</span>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-32 bg-gray-200 rounded-full h-2">
+                                    <div class="bg-success h-2 rounded-full" style="width: 96%"></div>
+                                </div>
+                                <span class="text-sm font-medium">4.8</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-text-secondary">Driver Behavior</span>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-32 bg-gray-200 rounded-full h-2">
+                                    <div class="bg-primary h-2 rounded-full" style="width: 92%"></div>
+                                </div>
+                                <span class="text-sm font-medium">4.6</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-text-secondary">Punctuality</span>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-32 bg-gray-200 rounded-full h-2">
+                                    <div class="bg-accent h-2 rounded-full" style="width: 90%"></div>
+                                </div>
+                                <span class="text-sm font-medium">4.5</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-text-secondary">Value for Money</span>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-32 bg-gray-200 rounded-full h-2">
+                                    <div class="bg-secondary h-2 rounded-full" style="width: 88%"></div>
+                                </div>
+                                <span class="text-sm font-medium">4.4</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabbed Interface -->
+        <div class="mb-8">
+            <div class="flex border-b border-border">
+                <button class="tab-button active px-6 py-3 font-medium border-b-2 border-primary text-primary" data-tab="my-reviews">
+                    <i class="fas fa-list mr-2"></i>My Reviews
+                </button>
+                <button class="tab-button px-6 py-3 font-medium border-b-2 border-transparent text-text-secondary hover:text-primary" data-tab="recent-reviews">
+                    <i class="fas fa-users mr-2"></i>Recent Customer Reviews
+                </button>
+                <button class="tab-button px-6 py-3 font-medium border-b-2 border-transparent text-text-secondary hover:text-primary" data-tab="pending-reviews">
+                    <i class="fas fa-clock mr-2"></i>Pending Reviews
+                </button>
+            </div>
+        </div>
+
+        <!-- My Reviews Tab -->
+        <div id="my-reviews-tab" class="tab-content">
+            <div class="space-y-6">
+                <!-- Review 1 -->
+                <div class="card hover-lift">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="flex items-start space-x-4">
+                            <img src="https://images.pexels.com/photos/116675/pexels-photo-116675.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Maruti Swift" class="w-20 h-16 object-cover rounded-lg" />
+                            <div>
+                                <h3 class="text-lg font-semibold text-text-primary mb-1">Maruti Swift</h3>
+                                <p class="text-text-secondary text-sm mb-2">Booking ID: RJ2025001235 • Jan 10, 2025</p>
+                                <div class="flex items-center space-x-4">
+                                    <div class="flex items-center">
+                                        <span class="text-sm text-text-secondary mr-2">Vehicle:</span>
+                                        <div class="flex text-yellow-400 mr-2">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <span class="text-sm text-text-secondary">5.0</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-xs text-text-secondary">Reviewed on Jan 11, 2025</span>
+                            <div class="flex items-center space-x-2 mt-2">
+                                <button class="text-primary text-sm hover:underline" onclick="editReview('RJ2025001235')">
+                                    <i class="fas fa-edit mr-1"></i>Edit
+                                </button>
+                                <button class="text-secondary text-sm hover:underline" onclick="deleteReview('RJ2025001235')">
+                                    <i class="fas fa-trash mr-1"></i>Delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <p class="text-text-secondary text-sm leading-relaxed">
+                            "Excellent service! The car was in pristine condition, very clean and well-maintained. Perfect for city driving with great fuel efficiency. The self-drive experience was smooth and hassle-free. The pickup and drop process was quick and professional. Highly recommend for short city trips!"
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                        <div class="bg-gray-50 rounded-lg p-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-text-secondary">Cleanliness:</span>
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-text-secondary">Condition:</span>
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-text-secondary">Fuel Efficiency:</span>
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 pt-4 border-t border-border-light">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-4">
+                                <span class="text-xs text-success bg-success-50 px-2 py-1 rounded-full">Verified Purchase</span>
+                                <span class="text-xs text-text-secondary">2 people found this helpful</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <button class="text-text-secondary hover:text-primary text-sm">
+                                    <i class="fas fa-thumbs-up mr-1"></i>Helpful
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Management Response -->
+                        <div class="mt-4 bg-primary-50 border border-primary-100 rounded-lg p-4">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                                    <i class="fas fa-building text-white text-sm"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-center space-x-2 mb-2">
+                                        <h4 class="font-medium text-primary text-sm">RJ Sons Travels Team</h4>
+                                        <span class="text-xs text-primary bg-primary-100 px-2 py-1 rounded-full">Management Response</span>
+                                    </div>
+                                    <p class="text-text-secondary text-sm">
+                                        Thank you for your wonderful feedback, Rajesh! We're delighted that you had such a positive experience with our Maruti Swift. We take great pride in maintaining our vehicles in excellent condition and ensuring a seamless self-drive experience for our customers. We look forward to serving you again soon!
+                                    </p>
+                                    <div class="text-xs text-text-secondary mt-2">Responded on Jan 11, 2025</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Empty State for More Reviews -->
+                <div class="card text-center py-12 border-2 border-dashed border-border">
+                    <i class="fas fa-star text-4xl text-gray-300 mb-4"></i>
+                    <h3 class="text-lg font-semibold text-text-primary mb-2">Share More Experiences</h3>
+                    <p class="text-text-secondary mb-6">Have you completed any recent trips? Help others by sharing your feedback.</p>
+                    <button class="btn-primary px-6 py-3" onclick="showTab('pending-reviews')">
+                        <i class="fas fa-clock mr-2"></i>View Pending Reviews
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Customer Reviews Tab -->
+        <div id="recent-reviews-tab" class="tab-content hidden">
+            <div class="space-y-6">
+                <div class="mb-6">
+                    <p class="text-text-secondary text-sm">See what other customers are saying about our service</p>
+                </div>
+
+                <!-- Customer Review 1 -->
+                <div class="card">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
+                                <span class="text-primary font-medium">A</span>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-text-primary mb-1">Anonymous Customer</h3>
+                                <p class="text-text-secondary text-sm mb-2">BMW 5 Series • Jan 18, 2025</p>
+                                <div class="flex items-center">
+                                    <div class="flex text-yellow-400 mr-2">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="text-sm text-text-secondary">5.0 stars</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="text-xs text-text-secondary">3 days ago</span>
+                    </div>
+                    <p class="text-text-secondary text-sm mb-4">
+                        "Outstanding luxury experience! The BMW was immaculate and the driver was incredibly professional and courteous. Made our wedding celebration even more special. Worth every penny!"
+                    </p>
+                    <div class="flex items-center space-x-4 text-xs text-text-secondary">
+                        <span class="bg-success-50 text-success px-2 py-1 rounded-full">Verified</span>
+                        <span>5 people found this helpful</span>
+                    </div>
+                </div>
+
+                <!-- Customer Review 2 -->
+                <div class="card">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-accent-100 rounded-full flex items-center justify-center">
+                                <span class="text-accent font-medium">P</span>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-text-primary mb-1">Anonymous Customer</h3>
+                                <p class="text-text-secondary text-sm mb-2">Toyota Innova • Jan 16, 2025</p>
+                                <div class="flex items-center">
+                                    <div class="flex text-yellow-400 mr-2">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star text-gray-300"></i>
+                                    </div>
+                                    <span class="text-sm text-text-secondary">4.0 stars</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="text-xs text-text-secondary">5 days ago</span>
+                    </div>
+                    <p class="text-text-secondary text-sm mb-4">
+                        "Great for family trips. Spacious, comfortable, and reliable. Driver was knowledgeable about local routes. Only minor issue was pickup was 15 minutes late, but overall good service."
+                    </p>
+                    <div class="flex items-center space-x-4 text-xs text-text-secondary">
+                        <span class="bg-success-50 text-success px-2 py-1 rounded-full">Verified</span>
+                        <span>8 people found this helpful</span>
+                    </div>
+                </div>
+
+                <!-- Customer Review 3 -->
+                <div class="card">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-secondary-100 rounded-full flex items-center justify-center">
+                                <span class="text-secondary font-medium">M</span>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-text-primary mb-1">Anonymous Customer</h3>
+                                <p class="text-text-secondary text-sm mb-2">Maruti Alto • Jan 14, 2025</p>
+                                <div class="flex items-center">
+                                    <div class="flex text-yellow-400 mr-2">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="text-sm text-text-secondary">4.5 stars</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="text-xs text-text-secondary">1 week ago</span>
+                    </div>
+                    <p class="text-text-secondary text-sm mb-4">
+                        "Budget-friendly option that exceeded expectations. Self-drive was smooth, paperwork was quick, and the car was clean. Perfect for solo city travel."
+                    </p>
+                    <div class="flex items-center space-x-4 text-xs text-text-secondary">
+                        <span class="bg-success-50 text-success px-2 py-1 rounded-full">Verified</span>
+                        <span>3 people found this helpful</span>
+                    </div>
+                </div>
+
+                <div class="text-center py-6">
+                    <button class="bg-gray-100 text-text-primary px-6 py-3 rounded-lg font-medium hover:bg-gray-200 transition-colors">
+                        <i class="fas fa-chevron-down mr-2"></i>Load More Reviews
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pending Reviews Tab -->
+        <div id="pending-reviews-tab" class="tab-content hidden">
+            <div class="space-y-6">
+                <div class="mb-6">
+                    <p class="text-text-secondary text-sm">Complete your experience by reviewing these recent trips</p>
+                </div>
+
+                <!-- Pending Review 1 -->
+                <div class="card hover-lift border-accent-200 bg-accent-50">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="flex items-start space-x-4">
+                            <img src="https://images.pixabay.com/photo/2016/04/01/12/16/car-1300629_960_720.png" alt="BMW 3 Series" class="w-20 h-16 object-cover rounded-lg" />
+                            <div>
+                                <h3 class="text-lg font-semibold text-text-primary mb-1">BMW 3 Series</h3>
+                                <p class="text-text-secondary text-sm mb-2">Booking ID: RJ2025001234</p>
+                                <p class="text-text-secondary text-sm">Trip completed: Jan 15-18, 2025</p>
+                                <p class="text-text-secondary text-sm">Driver: Ravi Kumar</p>
+                            </div>
+                        </div>
+                        <span class="bg-warning text-white px-3 py-1 rounded-full text-sm font-medium">Review Pending</span>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg p-4 mb-4">
+                        <p class="text-text-secondary text-sm mb-2">Help other customers by sharing your experience:</p>
+                        <ul class="text-xs text-text-secondary space-y-1">
+                            <li>• How was the vehicle condition and cleanliness?</li>
+                            <li>• Was the driver punctual and professional?</li>
+                            <li>• How was your overall experience?</li>
+                        </ul>
+                    </div>
+
+                    <div class="flex space-x-3">
+                        <button class="btn-primary px-6 py-2" onclick="openReviewModal('RJ2025001234', true)">
+                            <i class="fas fa-star mr-2"></i>Write Review
+                        </button>
+                        <button class="bg-gray-200 text-text-primary px-6 py-2 rounded-lg hover:bg-gray-300 transition-colors" onclick="remindLater('RJ2025001234')">
+                            <i class="fas fa-clock mr-2"></i>Remind Later
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Empty State -->
+                <div class="card text-center py-12">
+                    <i class="fas fa-check-circle text-4xl text-success mb-4"></i>
+                    <h3 class="text-lg font-semibold text-text-primary mb-2">All Caught Up!</h3>
+                    <p class="text-text-secondary mb-6">You're all up to date with your reviews. Thank you for helping other customers!</p>
+                    <button class="btn-primary px-6 py-3" onclick="location.href='vehicle_booking.html'">
+                        <i class="fas fa-plus mr-2"></i>Book Another Trip
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Submit Review Modal -->
+    <div id="submitReviewModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div class="bg-surface rounded-lg max-w-2xl w-full p-6 shadow-xl max-h-screen overflow-y-auto">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-xl font-semibold text-text-primary">Submit Your Review</h3>
+                <button class="text-text-secondary hover:text-text-primary" onclick="closeSubmitReviewModal()">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+
+            <form id="submitReviewForm" class="space-y-6">
+                <!-- Booking Selection -->
+                <div>
+                    <label class="block text-sm font-medium text-text-primary mb-2">Select Completed Trip</label>
+                    <select class="input-field" id="booking-select" onchange="updateReviewForm()">
+                        <option value>Choose a booking to review</option>
+                        <option value="RJ2025001234" data-vehicle="BMW 3 Series" data-driver="Ravi Kumar" data-date="Jan 15-18, 2025">RJ2025001234 - BMW 3 Series (Jan 15-18, 2025)</option>
+                        <option value="RJ2025001235" data-vehicle="Maruti Swift" data-driver data-date="Jan 10, 2025">RJ2025001235 - Maruti Swift - Self Drive (Jan 10, 2025)</option>
+                    </select>
+                </div>
+
+                <div id="review-form-content" class="hidden space-y-6">
+                    <!-- Booking Info Display -->
+                    <div id="selected-booking-info" class="bg-gray-50 rounded-lg p-4">
+                        <!-- Booking details will be populated here -->
+                    </div>
+
+                    <!-- Vehicle Review Section -->
+                    <div class="border border-border rounded-lg p-4">
+                        <h4 class="font-semibold text-text-primary mb-4 flex items-center">
+                            <i class="fas fa-car mr-2 text-primary"></i>
+                            Vehicle Review
+                        </h4>
+                        
+                        <!-- Overall Vehicle Rating -->
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-text-primary mb-2">Overall Vehicle Rating</label>
+                            <div class="star-rating" data-rating="vehicle-overall">
+                                <i class="fas fa-star star cursor-pointer text-3xl text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="1"></i>
+                                <i class="fas fa-star star cursor-pointer text-3xl text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="2"></i>
+                                <i class="fas fa-star star cursor-pointer text-3xl text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="3"></i>
+                                <i class="fas fa-star star cursor-pointer text-3xl text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="4"></i>
+                                <i class="fas fa-star star cursor-pointer text-3xl text-gray-300 hover:text-yellow-400 transition-colors" data-value="5"></i>
+                            </div>
+                        </div>
+
+                        <!-- Specific Criteria -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-2">Cleanliness</label>
+                                <div class="star-rating" data-rating="cleanliness">
+                                    <i class="fas fa-star star cursor-pointer text-lg text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="1"></i>
+                                    <i class="fas fa-star star cursor-pointer text-lg text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="2"></i>
+                                    <i class="fas fa-star star cursor-pointer text-lg text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="3"></i>
+                                    <i class="fas fa-star star cursor-pointer text-lg text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="4"></i>
+                                    <i class="fas fa-star star cursor-pointer text-lg text-gray-300 hover:text-yellow-400 transition-colors" data-value="5"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-2">Condition</label>
+                                <div class="star-rating" data-rating="condition">
+                                    <i class="fas fa-star star cursor-pointer text-lg text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="1"></i>
+                                    <i class="fas fa-star star cursor-pointer text-lg text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="2"></i>
+                                    <i class="fas fa-star star cursor-pointer text-lg text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="3"></i>
+                                    <i class="fas fa-star star cursor-pointer text-lg text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="4"></i>
+                                    <i class="fas fa-star star cursor-pointer text-lg text-gray-300 hover:text-yellow-400 transition-colors" data-value="5"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-2">Fuel Efficiency</label>
+                                <div class="star-rating" data-rating="fuel-efficiency">
+                                    <i class="fas fa-star star cursor-pointer text-lg text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="1"></i>
+                                    <i class="fas fa-star star cursor-pointer text-lg text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="2"></i>
+                                    <i class="fas fa-star star cursor-pointer text-lg text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="3"></i>
+                                    <i class="fas fa-star star cursor-pointer text-lg text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="4"></i>
+                                    <i class="fas fa-star star cursor-pointer text-lg text-gray-300 hover:text-yellow-400 transition-colors" data-value="5"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Vehicle Feedback -->
+                        <div class="mt-4">
+                            <label class="block text-sm font-medium text-text-primary mb-2">Vehicle Feedback</label>
+                            <textarea class="input-field" rows="3" placeholder="Share your thoughts about the vehicle condition, cleanliness, features, etc." id="vehicle-feedback"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Driver Review Section -->
+                    <div id="driver-review-section" class="border border-border rounded-lg p-4 hidden">
+                        <h4 class="font-semibold text-text-primary mb-4 flex items-center">
+                            <i class="fas fa-user-tie mr-2 text-accent"></i>
+                            Driver Review
+                        </h4>
+                        
+                        <!-- Overall Driver Rating -->
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-text-primary mb-2">Overall Driver Rating</label>
+                            <div class="star-rating" data-rating="driver-overall">
+                                <i class="fas fa-star star cursor-pointer text-3xl text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="1"></i>
+                                <i class="fas fa-star star cursor-pointer text-3xl text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="2"></i>
+                                <i class="fas fa-star star cursor-pointer text-3xl text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="3"></i>
+                                <i class="fas fa-star star cursor-pointer text-3xl text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="4"></i>
+                                <i class="fas fa-star star cursor-pointer text-3xl text-gray-300 hover:text-yellow-400 transition-colors" data-value="5"></i>
+                            </div>
+                        </div>
+
+                        <!-- Driver Specific Criteria -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-2">Punctuality</label>
+                                <div class="star-rating" data-rating="punctuality">
+                                    <i class="fas fa-star star cursor-pointer text-lg text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="1"></i>
+                                    <i class="fas fa-star star cursor-pointer text-lg text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="2"></i>
+                                    <i class="fas fa-star star cursor-pointer text-lg text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="3"></i>
+                                    <i class="fas fa-star star cursor-pointer text-lg text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="4"></i>
+                                    <i class="fas fa-star star cursor-pointer text-lg text-gray-300 hover:text-yellow-400 transition-colors" data-value="5"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-2">Behavior</label>
+                                <div class="star-rating" data-rating="behavior">
+                                    <i class="fas fa-star star cursor-pointer text-lg text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="1"></i>
+                                    <i class="fas fa-star star cursor-pointer text-lg text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="2"></i>
+                                    <i class="fas fa-star star cursor-pointer text-lg text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="3"></i>
+                                    <i class="fas fa-star star cursor-pointer text-lg text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="4"></i>
+                                    <i class="fas fa-star star cursor-pointer text-lg text-gray-300 hover:text-yellow-400 transition-colors" data-value="5"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-2">Driving Skills</label>
+                                <div class="star-rating" data-rating="driving-skills">
+                                    <i class="fas fa-star star cursor-pointer text-lg text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="1"></i>
+                                    <i class="fas fa-star star cursor-pointer text-lg text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="2"></i>
+                                    <i class="fas fa-star star cursor-pointer text-lg text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="3"></i>
+                                    <i class="fas fa-star star cursor-pointer text-lg text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="4"></i>
+                                    <i class="fas fa-star star cursor-pointer text-lg text-gray-300 hover:text-yellow-400 transition-colors" data-value="5"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Driver Feedback -->
+                        <div class="mt-4">
+                            <label class="block text-sm font-medium text-text-primary mb-2">Driver Feedback</label>
+                            <textarea class="input-field" rows="3" placeholder="Share your experience with the driver's punctuality, behavior, driving skills, etc." id="driver-feedback"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Overall Service Review -->
+                    <div class="border border-border rounded-lg p-4">
+                        <h4 class="font-semibold text-text-primary mb-4 flex items-center">
+                            <i class="fas fa-heart mr-2 text-secondary"></i>
+                            Overall Service Review
+                        </h4>
+                        
+                        <!-- Overall Rating -->
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-text-primary mb-2">Overall Experience Rating</label>
+                            <div class="star-rating" data-rating="overall-service">
+                                <i class="fas fa-star star cursor-pointer text-3xl text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="1"></i>
+                                <i class="fas fa-star star cursor-pointer text-3xl text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="2"></i>
+                                <i class="fas fa-star star cursor-pointer text-3xl text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="3"></i>
+                                <i class="fas fa-star star cursor-pointer text-3xl text-gray-300 hover:text-yellow-400 transition-colors mr-1" data-value="4"></i>
+                                <i class="fas fa-star star cursor-pointer text-3xl text-gray-300 hover:text-yellow-400 transition-colors" data-value="5"></i>
+                            </div>
+                        </div>
+
+                        <!-- Overall Feedback -->
+                        <div>
+                            <label class="block text-sm font-medium text-text-primary mb-2">Detailed Review</label>
+                            <textarea class="input-field" rows="4" placeholder="Tell us about your overall experience. What went well? Any suggestions for improvement?" id="overall-feedback" required></textarea>
+                        </div>
+
+                        <!-- Photo Upload -->
+                        <div class="mt-4">
+                            <label class="block text-sm font-medium text-text-primary mb-2">Add Photos (Optional)</label>
+                            <div class="border-2 border-dashed border-border rounded-lg p-6 text-center">
+                                <i class="fas fa-camera text-2xl text-gray-300 mb-2"></i>
+                                <p class="text-text-secondary text-sm mb-2">Upload photos to support your review</p>
+                                <input type="file" class="hidden" id="photo-upload" multiple accept="image/*" />
+                                <button type="button" class="btn-primary px-4 py-2" onclick="document.getElementById('photo-upload').click()">
+                                    <i class="fas fa-upload mr-2"></i>Choose Photos
+                                </button>
+                            </div>
+                            <div id="photo-preview" class="mt-4 flex flex-wrap gap-2 hidden">
+                                <!-- Preview images will be shown here -->
+                            </div>
+                        </div>
+
+                        <!-- Recommendation -->
+                        <div class="mt-4">
+                            <label class="block text-sm font-medium text-text-primary mb-2">Would you recommend RJ Sons Travels?</label>
+                            <div class="flex space-x-4">
+                                <label class="flex items-center">
+                                    <input type="radio" name="recommend" value="yes" class="mr-2" />
+                                    <span class="text-sm">Yes, definitely!</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="recommend" value="maybe" class="mr-2" />
+                                    <span class="text-sm">Maybe</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="recommend" value="no" class="mr-2" />
+                                    <span class="text-sm">No</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="flex space-x-4">
+                    <button type="submit" class="btn-primary flex-1 py-3">
+                        <i class="fas fa-paper-plane mr-2"></i>Submit Review
+                    </button>
+                    <button type="button" class="bg-gray-200 text-text-primary px-6 py-3 rounded-lg hover:bg-gray-300 transition-colors" onclick="closeSubmitReviewModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeTabs();
+            initializeStarRatings();
+        });
+
+        // Initialize tabs
+        function initializeTabs() {
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const tabId = this.dataset.tab;
+                    showTab(tabId);
+                });
+            });
+        }
+
+        // Show specific tab
+        function showTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+
+            // Show target tab
+            document.getElementById(`${tabId}-tab`).classList.remove('hidden');
+
+            // Update tab buttons
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active', 'border-primary', 'text-primary');
+                button.classList.add('border-transparent', 'text-text-secondary');
+            });
+
+            const activeButton = document.querySelector(`[data-tab="${tabId}"]`);
+            if (activeButton) {
+                activeButton.classList.add('active', 'border-primary', 'text-primary');
+                activeButton.classList.remove('border-transparent', 'text-text-secondary');
+            }
+        }
+
+        // Initialize star ratings
+        function initializeStarRatings() {
+            document.querySelectorAll('.star-rating').forEach(rating => {
+                const stars = rating.querySelectorAll('.star');
+                let selectedRating = 0;
+
+                stars.forEach((star, index) => {
+                    star.addEventListener('click', function() {
+                        selectedRating = this.dataset.value;
+                        updateStarDisplay(rating, selectedRating);
+                        rating.dataset.selectedRating = selectedRating;
+                    });
+
+                    star.addEventListener('mouseenter', function() {
+                        updateStarDisplay(rating, this.dataset.value);
+                    });
+                });
+
+                rating.addEventListener('mouseleave', function() {
+                    updateStarDisplay(rating, selectedRating);
+                });
+            });
+        }
+
+        // Update star display
+        function updateStarDisplay(ratingContainer, rating) {
+            const stars = ratingContainer.querySelectorAll('.star');
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.classList.add('text-yellow-400');
+                    star.classList.remove('text-gray-300');
+                } else {
+                    star.classList.remove('text-yellow-400');
+                    star.classList.add('text-gray-300');
+                }
+            });
+        }
+
+        // Open submit review modal
+        function openSubmitReviewModal() {
+            document.getElementById('submitReviewModal').classList.remove('hidden');
+        }
+
+        // Close submit review modal
+        function closeSubmitReviewModal() {
+            document.getElementById('submitReviewModal').classList.add('hidden');
+            document.getElementById('submitReviewForm').reset();
+            document.getElementById('review-form-content').classList.add('hidden');
+            resetAllStarRatings();
+        }
+
+        // Reset all star ratings
+        function resetAllStarRatings() {
+            document.querySelectorAll('.star-rating').forEach(rating => {
+                updateStarDisplay(rating, 0);
+                rating.dataset.selectedRating = 0;
+            });
+        }
+
+        // Update review form based on booking selection
+        function updateReviewForm() {
+            const select = document.getElementById('booking-select');
+            const selectedOption = select.options[select.selectedIndex];
+            const formContent = document.getElementById('review-form-content');
+            const bookingInfo = document.getElementById('selected-booking-info');
+            const driverSection = document.getElementById('driver-review-section');
+
+            if (select.value) {
+                const vehicle = selectedOption.dataset.vehicle;
+                const driver = selectedOption.dataset.driver;
+                const date = selectedOption.dataset.date;
+
+                bookingInfo.innerHTML = `
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h4 class="font-semibold text-text-primary">${vehicle}</h4>
+                            <p class="text-text-secondary text-sm">Booking ID: ${select.value}</p>
+                            <p class="text-text-secondary text-sm">Trip Date: ${date}</p>
+                            ${driver ? `<p class="text-text-secondary text-sm">Driver: ${driver}</p>` : '<p class="text-text-secondary text-sm">Self Drive</p>'}
+                        </div>
+                    </div>
+                `;
+
+                // Show/hide driver section based on whether there was a driver
+                if (driver) {
+                    driverSection.classList.remove('hidden');
+                } else {
+                    driverSection.classList.add('hidden');
+                }
+
+                formContent.classList.remove('hidden');
+            } else {
+                formContent.classList.add('hidden');
+            }
+        }
+
+        // Open review modal for specific booking
+        function openReviewModal(bookingId, isPending = false) {
+            if (isPending) {
+                // For pending reviews, pre-select the booking
+                openSubmitReviewModal();
+                document.getElementById('booking-select').value = bookingId;
+                updateReviewForm();
+            } else {
+                openSubmitReviewModal();
+            }
+        }
+
+        // Edit existing review
+        function editReview(bookingId) {
+            alert(`Edit functionality for review ${bookingId} would be implemented here. This would open a modal with pre-filled review data.`);
+        }
+
+        // Delete review
+        function deleteReview(bookingId) {
+            if (confirm('Are you sure you want to delete this review? This action cannot be undone.')) {
+                setTimeout(() => {
+                    alert('Review deleted successfully.');
+                    location.reload();
+                }, 1000);
+            }
+        }
+
+        // Remind later for pending reviews
+        function remindLater(bookingId) {
+            setTimeout(() => {
+                alert('We will remind you to review this trip in 3 days.');
+                // In real implementation, this would update the reminder preference
+                location.reload();
+            }, 500);
+        }
+
+        // Photo upload handling
+        document.getElementById('photo-upload').addEventListener('change', function(e) {
+            const files = Array.from(e.target.files);
+            const preview = document.getElementById('photo-preview');
+            
+            if (files.length > 0) {
+                preview.classList.remove('hidden');
+                preview.innerHTML = files.map(file => {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        img.className = 'w-20 h-20 object-cover rounded-lg border border-border';
+                        preview.appendChild(img);
+                    };
+                    reader.readAsDataURL(file);
+                    return `<div class="w-20 h-20 bg-gray-200 rounded-lg border border-border flex items-center justify-center">
+                        <i class="fas fa-image text-gray-400"></i>
+                    </div>`;
+                }).join('');
+            }
+        });
+
+        // Submit review form
+        document.getElementById('submitReviewForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const bookingId = document.getElementById('booking-select').value;
+            const vehicleRating = document.querySelector('[data-rating="vehicle-overall"]').dataset.selectedRating || 0;
+            const overallRating = document.querySelector('[data-rating="overall-service"]').dataset.selectedRating || 0;
+            const overallFeedback = document.getElementById('overall-feedback').value;
+
+            if (!bookingId) {
+                alert('Please select a booking to review.');
+                return;
+            }
+
+            if (vehicleRating === 0 || overallRating === 0) {
+                alert('Please provide ratings for both vehicle and overall service.');
+                return;
+            }
+
+            if (!overallFeedback.trim()) {
+                alert('Please provide detailed feedback about your experience.');
+                return;
+            }
+
+            // Simulate API call
+            setTimeout(() => {
+                alert('Thank you for your review! Your feedback helps us improve our service and helps other customers make informed decisions.');
+                closeSubmitReviewModal();
+                location.reload();
+            }, 1500);
+        });
+
+        // Initialize with first tab
+        showTab('my-reviews');
+    </script>
+</body>
+</html>

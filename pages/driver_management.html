@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Driver Management - RJ Sons Travels</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Frjsonstr4320back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.6"></script>
+</head>
+<body class="min-h-screen bg-background">
+    <!-- Fixed Header -->
+    <header class="fixed top-0 left-0 right-0 bg-surface border-b border-border z-50 shadow-sm">
+        <div class="flex items-center justify-between px-6 py-4">
+            <!-- Logo & Company Name -->
+            <div class="flex items-center space-x-3">
+                <div class="flex items-center justify-center w-10 h-10 bg-primary rounded-lg">
+                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.22.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold text-primary">RJ Sons Travels</h1>
+                    <p class="text-xs text-text-secondary">Admin Portal</p>
+                </div>
+            </div>
+
+            <!-- Main Navigation -->
+            <nav class="hidden lg:flex items-center space-x-8">
+                <a href="admin_dashboard.html" class="flex items-center space-x-2 px-3 py-2 rounded-lg text-text-secondary hover:text-primary hover:bg-primary-50 transition-colors">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="vehicle_management.html" class="flex items-center space-x-2 px-3 py-2 rounded-lg text-text-secondary hover:text-primary hover:bg-primary-50 transition-colors">
+                    <i class="fas fa-car"></i>
+                    <span>Vehicles</span>
+                </a>
+                <a href="driver_management.html" class="flex items-center space-x-2 px-3 py-2 rounded-lg bg-primary-50 text-primary font-medium">
+                    <i class="fas fa-users"></i>
+                    <span>Drivers</span>
+                </a>
+                <a href="booking_management.html" class="flex items-center space-x-2 px-3 py-2 rounded-lg text-text-secondary hover:text-primary hover:bg-primary-50 transition-colors">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Bookings</span>
+                </a>
+                <a href="javascript:void(0)" class="flex items-center space-x-2 px-3 py-2 rounded-lg text-text-secondary hover:text-primary hover:bg-primary-50 transition-colors">
+                    <i class="fas fa-user-friends"></i>
+                    <span>Customers</span>
+                </a>
+                <a href="javascript:void(0)" class="flex items-center space-x-2 px-3 py-2 rounded-lg text-text-secondary hover:text-primary hover:bg-primary-50 transition-colors">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Reports</span>
+                </a>
+            </nav>
+
+            <!-- Right Side Actions -->
+            <div class="flex items-center space-x-4">
+                <!-- Notifications -->
+                <div class="relative">
+                    <button class="relative p-2 text-text-secondary hover:text-primary transition-colors">
+                        <i class="fas fa-bell text-lg"></i>
+                        <span class="absolute -top-1 -right-1 w-5 h-5 bg-secondary text-white text-xs rounded-full flex items-center justify-center">3</span>
+                    </button>
+                </div>
+
+                <!-- Admin Profile Dropdown -->
+                <div class="relative">
+                    <button id="profileDropdown" class="flex items-center space-x-2 p-2 rounded-lg hover:bg-primary-50 transition-colors">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Admin" class="w-8 h-8 rounded-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                        <span class="text-sm font-medium text-text-primary hidden md:block">Admin</span>
+                        <i class="fas fa-chevron-down text-xs text-text-secondary"></i>
+                    </button>
+                    
+                    <!-- Dropdown Menu -->
+                    <div id="profileMenu" class="hidden absolute right-0 mt-2 w-48 bg-surface rounded-lg shadow-lg border border-border py-2">
+                        <a href="javascript:void(0)" class="flex items-center space-x-2 px-4 py-2 text-text-secondary hover:bg-primary-50 hover:text-primary">
+                            <i class="fas fa-user"></i>
+                            <span>Profile</span>
+                        </a>
+                        <a href="javascript:void(0)" class="flex items-center space-x-2 px-4 py-2 text-text-secondary hover:bg-primary-50 hover:text-primary">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                        <hr class="my-2 border-border" />
+                        <a href="admin_login.html" class="flex items-center space-x-2 px-4 py-2 text-secondary hover:bg-secondary-50">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <button id="mobileMenuToggle" class="lg:hidden p-2 text-text-secondary hover:text-primary">
+                    <i class="fas fa-bars text-lg"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobileMenu" class="hidden lg:hidden border-t border-border bg-surface">
+            <nav class="px-6 py-4 space-y-2">
+                <a href="admin_dashboard.html" class="flex items-center space-x-2 px-3 py-2 rounded-lg text-text-secondary hover:text-primary hover:bg-primary-50 transition-colors">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="vehicle_management.html" class="flex items-center space-x-2 px-3 py-2 rounded-lg text-text-secondary hover:text-primary hover:bg-primary-50 transition-colors">
+                    <i class="fas fa-car"></i>
+                    <span>Vehicles</span>
+                </a>
+                <a href="driver_management.html" class="flex items-center space-x-2 px-3 py-2 rounded-lg bg-primary-50 text-primary font-medium">
+                    <i class="fas fa-users"></i>
+                    <span>Drivers</span>
+                </a>
+                <a href="booking_management.html" class="flex items-center space-x-2 px-3 py-2 rounded-lg text-text-secondary hover:text-primary hover:bg-primary-50 transition-colors">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Bookings</span>
+                </a>
+                <a href="javascript:void(0)" class="flex items-center space-x-2 px-3 py-2 rounded-lg text-text-secondary hover:text-primary hover:bg-primary-50 transition-colors">
+                    <i class="fas fa-user-friends"></i>
+                    <span>Customers</span>
+                </a>
+                <a href="javascript:void(0)" class="flex items-center space-x-2 px-3 py-2 rounded-lg text-text-secondary hover:text-primary hover:bg-primary-50 transition-colors">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Reports</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-20 px-6 pb-6">
+        <!-- Breadcrumb -->
+        <div class="mb-6">
+            <nav class="flex items-center space-x-2 text-sm text-text-secondary">
+                <a href="admin_dashboard.html" class="hover:text-primary transition-colors">
+                    <i class="fas fa-home"></i>
+                </a>
+                <span class="mx-2">/</span>
+                <span class="text-primary font-medium">Drivers</span>
+            </nav>
+        </div>
+
+        <!-- Page Header -->
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-8">
+            <div>
+                <h1 class="text-3xl font-bold text-text-primary mb-2">Driver Management</h1>
+                <p class="text-text-secondary">Manage driver profiles, schedules, and performance tracking</p>
+            </div>
+            <div class="flex items-center space-x-3 mt-4 lg:mt-0">
+                <div class="flex items-center space-x-2 text-sm text-text-secondary">
+                    <i class="fas fa-clock"></i>
+                    <span>Last updated: 14 Jul 2025, 3:00 PM</span>
+                </div>
+                <button class="btn-primary" onclick="openAddDriverModal()">
+                    <i class="fas fa-plus mr-2"></i>Add Driver
+                </button>
+                <button class="btn-accent">
+                    <i class="fas fa-download mr-2"></i>Export
+                </button>
+            </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-8">
+            <!-- Total Drivers -->
+            <div class="card hover-lift">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-text-secondary text-sm font-medium">Total Drivers</p>
+                        <p class="text-2xl font-bold text-text-primary mt-1">78</p>
+                        <div class="flex items-center mt-2">
+                            <span class="text-success-600 text-sm font-medium">+6</span>
+                            <span class="text-text-secondary text-sm ml-1">this month</span>
+                        </div>
+                    </div>
+                    <div class="w-12 h-12 bg-primary-50 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-users text-primary text-xl"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Available Drivers -->
+            <div class="card hover-lift">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-text-secondary text-sm font-medium">Available</p>
+                        <p class="text-2xl font-bold text-text-primary mt-1">42</p>
+                        <div class="flex items-center mt-2">
+                            <span class="text-success-600 text-sm font-medium">Ready</span>
+                            <span class="text-text-secondary text-sm ml-1">for duty</span>
+                        </div>
+                    </div>
+                    <div class="w-12 h-12 bg-success-50 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-check-circle text-success-600 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- On Duty */
+            <div class="card hover-lift">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-text-secondary text-sm font-medium">On Duty</p>
+                        <p class="text-2xl font-bold text-text-primary mt-1">28</p>
+                        <div class="flex items-center mt-2">
+                            <span class="text-warning text-sm font-medium">Active</span>
+                            <span class="text-text-secondary text-sm ml-1">trips</span>
+                        </div>
+                    </div>
+                    <div class="w-12 h-12 bg-warning-50 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-route text-warning text-xl"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- On Leave -->
+            <div class="card hover-lift">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-text-secondary text-sm font-medium">On Leave</p>
+                        <p class="text-2xl font-bold text-text-primary mt-1">8</p>
+                        <div class="flex items-center mt-2">
+                            <span class="text-secondary text-sm font-medium">3</span>
+                            <span class="text-text-secondary text-sm ml-1">sick leave</span>
+                        </div>
+                    </div>
+                    <div class="w-12 h-12 bg-secondary-50 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-user-clock text-secondary text-xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filters & Search -->
+        <div class="card mb-6">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0 lg:space-x-4">
+                <!-- Search -->
+                <div class="relative flex-1 max-w-md">
+                    <input type="text" id="searchInput" placeholder="Search by Driver Name or ID..." class="input-field pl-10 pr-4" />
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <i class="fas fa-search text-text-secondary"></i>
+                    </div>
+                </div>
+
+                <!-- Filters -->
+                <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3">
+                    <select id="statusFilter" class="input-field min-w-40">
+                        <option value>All Status</option>
+                        <option value="available">Available</option>
+                        <option value="on-duty">On Duty</option>
+                        <option value="on-leave">On Leave</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+
+                    <select id="licenseFilter" class="input-field min-w-40">
+                        <option value>All Licenses</option>
+                        <option value="light-vehicle">Light Vehicle</option>
+                        <option value="heavy-vehicle">Heavy Vehicle</option>
+                        <option value="commercial">Commercial</option>
+                        <option value="transport">Transport</option>
+                    </select>
+
+                    <select id="experienceFilter" class="input-field min-w-40">
+                        <option value>All Experience</option>
+                        <option value="0-2">0-2 Years</option>
+                        <option value="3-5">3-5 Years</option>
+                        <option value="6-10">6-10 Years</option>
+                        <option value="10+">10+ Years</option>
+                    </select>
+
+                    <button id="resetFilters" class="bg-gray-200 text-text-primary px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors">
+                        <i class="fas fa-undo mr-2"></i>Reset
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Driver Table -->
+        <div class="card overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead class="bg-gray-50 border-b border-border">
+                        <tr>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
+                                <input type="checkbox" id="selectAll" class="w-4 h-4 text-primary border-border rounded focus:ring-primary-500" />
+                            </th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Driver</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">License</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Status</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Vehicle</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Experience</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Rating</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Last Active</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="driverTableBody" class="bg-surface divide-y divide-border">
+                        <!-- Driver Row 1 -->
+                        <tr class="hover:bg-gray-50 transition-colors cursor-pointer" data-driver-id="DR001">
+                            <td class="px-6 py-4">
+                                <input type="checkbox" class="driver-checkbox w-4 h-4 text-primary border-border rounded focus:ring-primary-500" />
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flex items-center">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Driver" class="w-10 h-10 rounded-full object-cover mr-3" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                    <div>
+                                        <p class="text-sm font-medium text-text-primary">Rajesh Kumar</p>
+                                        <p class="text-xs text-text-secondary">ID: DR001 • +91 9876543210</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div>
+                                    <p class="text-sm font-medium text-text-primary">Light Vehicle</p>
+                                    <p class="text-xs text-text-secondary">Expires: 15/03/2026</p>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium status-success">
+                                    <i class="fas fa-circle text-xs mr-1"></i>Available
+                                </span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flex items-center">
+                                    <i class="fas fa-car text-primary mr-2"></i>
+                                    <span class="text-sm text-text-primary">Toyota Innova</span>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div>
+                                    <p class="text-sm font-medium text-text-primary">8 Years</p>
+                                    <p class="text-xs text-text-secondary">Professional</p>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flex items-center">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                        <span class="text-sm font-medium text-text-primary">4.8</span>
+                                    </div>
+                                    <span class="text-xs text-text-secondary ml-2">(124 reviews)</span>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div>
+                                    <p class="text-sm text-text-primary">2 hours ago</p>
+                                    <p class="text-xs text-text-secondary">Chennai</p>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flex items-center space-x-2">
+                                    <button class="text-primary hover:text-primary-700 transition-colors" title="View Details" onclick="openDriverModal('DR001')">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="text-accent hover:text-accent-600 transition-colors" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="text-success-600 hover:text-success-700 transition-colors" title="Schedule">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- Driver Row 2 -->
+                        <tr class="hover:bg-gray-50 transition-colors cursor-pointer" data-driver-id="DR002">
+                            <td class="px-6 py-4">
+                                <input type="checkbox" class="driver-checkbox w-4 h-4 text-primary border-border rounded focus:ring-primary-500" />
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flex items-center">
+                                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Driver" class="w-10 h-10 rounded-full object-cover mr-3" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                    <div>
+                                        <p class="text-sm font-medium text-text-primary">Suresh Babu</p>
+                                        <p class="text-xs text-text-secondary">ID: DR002 • +91 9876543211</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div>
+                                    <p class="text-sm font-medium text-text-primary">Commercial</p>
+                                    <p class="text-xs text-text-secondary">Expires: 22/08/2025</p>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium status-warning">
+                                    <i class="fas fa-circle text-xs mr-1"></i>On Duty
+                                </span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flex items-center">
+                                    <i class="fas fa-car text-accent mr-2"></i>
+                                    <span class="text-sm text-text-primary">Mercedes E-Class</span>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div>
+                                    <p class="text-sm font-medium text-text-primary">12 Years</p>
+                                    <p class="text-xs text-text-secondary">Expert</p>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flex items-center">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                        <span class="text-sm font-medium text-text-primary">4.9</span>
+                                    </div>
+                                    <span class="text-xs text-text-secondary ml-2">(87 reviews)</span>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div>
+                                    <p class="text-sm text-text-primary">Currently active</p>
+                                    <p class="text-xs text-text-secondary">Coimbatore</p>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flex items-center space-x-2">
+                                    <button class="text-primary hover:text-primary-700 transition-colors" title="View Details" onclick="openDriverModal('DR002')">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="text-accent hover:text-accent-600 transition-colors" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="text-success-600 hover:text-success-700 transition-colors" title="Schedule">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- Driver Row 3 -->
+                        <tr class="hover:bg-gray-50 transition-colors cursor-pointer" data-driver-id="DR003">
+                            <td class="px-6 py-4">
+                                <input type="checkbox" class="driver-checkbox w-4 h-4 text-primary border-border rounded focus:ring-primary-500" />
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flex items-center">
+                                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Driver" class="w-10 h-10 rounded-full object-cover mr-3" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                    <div>
+                                        <p class="text-sm font-medium text-text-primary">Arun Patel</p>
+                                        <p class="text-xs text-text-secondary">ID: DR003 • +91 9876543212</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div>
+                                    <p class="text-sm font-medium text-text-primary">Heavy Vehicle</p>
+                                    <p class="text-xs text-error-500">Expires: 28/07/2025</p>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium status-error">
+                                    <i class="fas fa-circle text-xs mr-1"></i>On Leave
+                                </span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <span class="text-sm text-text-secondary">Unassigned</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div>
+                                    <p class="text-sm font-medium text-text-primary">5 Years</p>
+                                    <p class="text-xs text-text-secondary">Experienced</p>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flex items-center">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                        <span class="text-sm font-medium text-text-primary">4.6</span>
+                                    </div>
+                                    <span class="text-xs text-text-secondary ml-2">(56 reviews)</span>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div>
+                                    <p class="text-sm text-text-primary">5 days ago</p>
+                                    <p class="text-xs text-text-secondary">Madurai</p>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flex items-center space-x-2">
+                                    <button class="text-primary hover:text-primary-700 transition-colors" title="View Details" onclick="openDriverModal('DR003')">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="text-accent hover:text-accent-600 transition-colors" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="text-success-600 hover:text-success-700 transition-colors" title="Schedule">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- Driver Row 4 -->
+                        <tr class="hover:bg-gray-50 transition-colors cursor-pointer" data-driver-id="DR004">
+                            <td class="px-6 py-4">
+                                <input type="checkbox" class="driver-checkbox w-4 h-4 text-primary border-border rounded focus:ring-primary-500" />
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flex items-center">
+                                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Driver" class="w-10 h-10 rounded-full object-cover mr-3" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                    <div>
+                                        <p class="text-sm font-medium text-text-primary">Vijay Shankar</p>
+                                        <p class="text-xs text-text-secondary">ID: DR004 • +91 9876543213</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div>
+                                    <p class="text-sm font-medium text-text-primary">Transport</p>
+                                    <p class="text-xs text-text-secondary">Expires: 12/11/2025</p>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium status-success">
+                                    <i class="fas fa-circle text-xs mr-1"></i>Available
+                                </span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flex items-center">
+                                    <i class="fas fa-truck text-secondary mr-2"></i>
+                                    <span class="text-sm text-text-primary">Mahindra Bolero</span>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div>
+                                    <p class="text-sm font-medium text-text-primary">6 Years</p>
+                                    <p class="text-xs text-text-secondary">Professional</p>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flex items-center">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                        <span class="text-sm font-medium text-text-primary">4.7</span>
+                                    </div>
+                                    <span class="text-xs text-text-secondary ml-2">(95 reviews)</span>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div>
+                                    <p class="text-sm text-text-primary">1 hour ago</p>
+                                    <p class="text-xs text-text-secondary">Salem</p>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flex items-center space-x-2">
+                                    <button class="text-primary hover:text-primary-700 transition-colors" title="View Details" onclick="openDriverModal('DR004')">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="text-accent hover:text-accent-600 transition-colors" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="text-success-600 hover:text-success-700 transition-colors" title="Schedule">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            <div class="px-6 py-4 border-t border-border">
+                <div class="flex items-center justify-between">
+                    <div class="text-sm text-text-secondary">
+                        Showing <span class="font-medium">1</span> to <span class="font-medium">4</span> of <span class="font-medium">78</span> results
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <button class="px-3 py-1 text-sm border border-border rounded-lg text-text-secondary hover:bg-gray-50 transition-colors disabled:opacity-50" disabled>
+                            Previous
+                        </button>
+                        <button class="px-3 py-1 text-sm bg-primary text-white rounded-lg">1</button>
+                        <button class="px-3 py-1 text-sm border border-border rounded-lg text-text-secondary hover:bg-gray-50 transition-colors">2</button>
+                        <button class="px-3 py-1 text-sm border border-border rounded-lg text-text-secondary hover:bg-gray-50 transition-colors">3</button>
+                        <button class="px-3 py-1 text-sm border border-border rounded-lg text-text-secondary hover:bg-gray-50 transition-colors">
+                            Next
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Driver Details Modal -->
+    <div id="driverModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div class="bg-surface rounded-lg max-w-6xl w-full max-h-[90vh] overflow-y-auto">
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between p-6 border-b border-border">
+                <div class="flex items-center space-x-4">
+                    <img id="modalDriverPhoto" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Driver" class="w-16 h-16 rounded-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                    <div>
+                        <h3 id="modalDriverName" class="text-xl font-semibold text-text-primary">Rajesh Kumar</h3>
+                        <p id="modalDriverInfo" class="text-text-secondary">Driver ID: DR001 • +91 9876543210</p>
+                    </div>
+                </div>
+                <button id="closeModal" class="text-text-secondary hover:text-text-primary transition-colors">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Modal Content -->
+            <div class="p-6">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Left Column - Personal Information -->
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-lg font-semibold text-text-primary mb-4">Personal Information</h4>
+                            <div class="space-y-3">
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Full Name:</span>
+                                    <span class="text-text-primary font-medium">Rajesh Kumar Singh</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Age:</span>
+                                    <span class="text-text-primary font-medium">32 years</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Gender:</span>
+                                    <span class="text-text-primary font-medium">Male</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Email:</span>
+                                    <span class="text-text-primary font-medium">rajesh.kumar@email.com</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Phone:</span>
+                                    <span class="text-text-primary font-medium">+91 9876543210</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Alternative Phone:</span>
+                                    <span class="text-text-primary font-medium">+91 9876543211</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Address:</span>
+                                    <span class="text-text-primary font-medium">123 Main Street, Chennai - 600001</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Emergency Contact -->
+                        <div>
+                            <h4 class="text-lg font-semibold text-text-primary mb-4">Emergency Contact</h4>
+                            <div class="space-y-3">
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Name:</span>
+                                    <span class="text-text-primary font-medium">Priya Kumar</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Relationship:</span>
+                                    <span class="text-text-primary font-medium">Wife</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Phone:</span>
+                                    <span class="text-text-primary font-medium">+91 9876543220</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Languages -->
+                        <div>
+                            <h4 class="text-lg font-semibold text-text-primary mb-4">Languages</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-primary-50 text-primary rounded-full text-sm">Tamil</span>
+                                <span class="px-3 py-1 bg-primary-50 text-primary rounded-full text-sm">English</span>
+                                <span class="px-3 py-1 bg-primary-50 text-primary rounded-full text-sm">Hindi</span>
+                                <span class="px-3 py-1 bg-primary-50 text-primary rounded-full text-sm">Telugu</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Middle Column - License & Vehicle -->
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-lg font-semibold text-text-primary mb-4">License Information</h4>
+                            <div class="space-y-3">
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">License Type:</span>
+                                    <span class="text-text-primary font-medium">Light Vehicle</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">License Number:</span>
+                                    <span class="text-text-primary font-medium">TN0123456789</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Issue Date:</span>
+                                    <span class="text-text-primary font-medium">15/03/2016</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Expiry Date:</span>
+                                    <span class="text-success-600 font-medium">15/03/2026</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Status:</span>
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium status-success">
+                                        Valid
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Vehicle Assignment -->
+                        <div>
+                            <h4 class="text-lg font-semibold text-text-primary mb-4">Vehicle Assignment</h4>
+                            <div class="border border-border rounded-lg p-4">
+                                <div class="flex items-center space-x-3 mb-3">
+                                    <div class="w-10 h-10 bg-primary-50 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-car text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-medium text-text-primary">Toyota Innova Crysta</p>
+                                        <p class="text-xs text-text-secondary">VH001 • TN 01 AB 1234</p>
+                                    </div>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between">
+                                        <span class="text-text-secondary text-sm">Assigned Date:</span>
+                                        <span class="text-text-primary text-sm">01/01/2025</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-text-secondary text-sm">Vehicle Status:</span>
+                                        <span class="text-success-600 text-sm">Available</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Experience -->
+                        <div>
+                            <h4 class="text-lg font-semibold text-text-primary mb-4">Experience</h4>
+                            <div class="space-y-3">
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Total Experience:</span>
+                                    <span class="text-text-primary font-medium">8 Years</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">With Company:</span>
+                                    <span class="text-text-primary font-medium">3 Years</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Specialization:</span>
+                                    <span class="text-text-primary font-medium">Tourist Packages</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Joining Date:</span>
+                                    <span class="text-text-primary font-medium">15/06/2022</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column - Performance & Schedule -->
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-lg font-semibold text-text-primary mb-4">Performance Metrics</h4>
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 rounded-lg p-4">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-text-secondary">Customer Rating</span>
+                                        <div class="flex items-center">
+                                            <i class="fas fa-star text-yellow-400 mr-1"></i>
+                                            <span class="text-text-primary font-medium">4.8</span>
+                                        </div>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-yellow-400 h-2 rounded-full" style="width: 96%"></div>
+                                    </div>
+                                    <p class="text-text-secondary text-sm mt-1">124 reviews</p>
+                                </div>
+
+                                <div class="bg-gray-50 rounded-lg p-4">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-text-secondary">Trips Completed</span>
+                                        <span class="text-text-primary font-medium">342</span>
+                                    </div>
+                                    <p class="text-text-secondary text-sm">This year: 89 trips</p>
+                                </div>
+
+                                <div class="bg-gray-50 rounded-lg p-4">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-text-secondary">Punctuality</span>
+                                        <span class="text-success-600 font-medium">95%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-success-600 h-2 rounded-full" style="width: 95%"></div>
+                                    </div>
+                                </div>
+
+                                <div class="bg-gray-50 rounded-lg p-4">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-text-secondary">Earnings (This Month)</span>
+                                        <span class="text-text-primary font-medium">₹28,450</span>
+                                    </div>
+                                    <p class="text-text-secondary text-sm">Average: ₹32,000</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Current Status -->
+                        <div>
+                            <h4 class="text-lg font-semibold text-text-primary mb-4">Current Status</h4>
+                            <div class="space-y-3">
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Status:</span>
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium status-success">
+                                        <i class="fas fa-circle text-xs mr-1"></i>Available
+                                    </span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Location:</span>
+                                    <span class="text-text-primary font-medium">Chennai</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Last Active:</span>
+                                    <span class="text-text-primary font-medium">2 hours ago</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Next Shift:</span>
+                                    <span class="text-text-primary font-medium">Tomorrow 9:00 AM</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Actions -->
+                        <div>
+                            <h4 class="text-lg font-semibold text-text-primary mb-4">Quick Actions</h4>
+                            <div class="space-y-3">
+                                <button class="w-full btn-primary text-left">
+                                    <i class="fas fa-calendar-alt mr-2"></i>Schedule Shift
+                                </button>
+                                <button class="w-full btn-accent text-left">
+                                    <i class="fas fa-car mr-2"></i>Assign Vehicle
+                                </button>
+                                <button class="w-full bg-success-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-success-700 transition-colors text-left">
+                                    <i class="fas fa-phone mr-2"></i>Contact Driver
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Document Management -->
+                <div class="mt-8 pt-6 border-t border-border">
+                    <h4 class="text-lg font-semibold text-text-primary mb-4">Document Management</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="border border-border rounded-lg p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-text-secondary">ID Proof</span>
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium status-success">
+                                    Verified
+                                </span>
+                            </div>
+                            <p class="text-text-primary font-medium">Aadhaar Card</p>
+                            <button class="text-primary hover:text-primary-700 transition-colors text-sm mt-2">
+                                <i class="fas fa-download mr-1"></i>Download
+                            </button>
+                        </div>
+
+                        <div class="border border-border rounded-lg p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-text-secondary">License</span>
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium status-success">
+                                    Valid
+                                </span>
+                            </div>
+                            <p class="text-text-primary font-medium">Driving License</p>
+                            <button class="text-primary hover:text-primary-700 transition-colors text-sm mt-2">
+                                <i class="fas fa-download mr-1"></i>Download
+                            </button>
+                        </div>
+
+                        <div class="border border-border rounded-lg p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-text-secondary">Background Check</span>
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium status-success">
+                                    Cleared
+                                </span>
+                            </div>
+                            <p class="text-text-primary font-medium">Police Verification</p>
+                            <button class="text-primary hover:text-primary-700 transition-colors text-sm mt-2">
+                                <i class="fas fa-download mr-1"></i>Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activities -->
+                <div class="mt-8 pt-6 border-t border-border">
+                    <h4 class="text-lg font-semibold text-text-primary mb-4">Recent Activities</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
+                            <div class="w-8 h-8 bg-success-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-check text-success-600 text-xs"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-medium text-text-primary">Trip Completed</p>
+                                <p class="text-xs text-text-secondary">Chennai to Coimbatore - Customer: Priya Sharma</p>
+                                <p class="text-xs text-text-secondary">2 hours ago</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
+                            <div class="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-star text-primary text-xs"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-medium text-text-primary">Received 5-Star Rating</p>
+                                <p class="text-xs text-text-secondary">Excellent service and punctuality</p>
+                                <p class="text-xs text-text-secondary">5 hours ago</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
+                            <div class="w-8 h-8 bg-warning-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-clock text-warning text-xs"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-medium text-text-primary">Shift Started</p>
+                                <p class="text-xs text-text-secondary">Morning shift 9:00 AM - 6:00 PM</p>
+                                <p class="text-xs text-text-secondary">6 hours ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="flex items-center justify-end space-x-3 p-6 border-t border-border">
+                <button id="closeModalBtn" class="bg-gray-200 text-text-primary px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors">
+                    Close
+                </button>
+                <button class="btn-accent">
+                    <i class="fas fa-edit mr-2"></i>Edit Profile
+                </button>
+                <button class="btn-primary">
+                    <i class="fas fa-calendar-alt mr-2"></i>Schedule Shift
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Driver Modal -->
+    <div id="addDriverModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div class="bg-surface rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between p-6 border-b border-border">
+                <h3 class="text-xl font-semibold text-text-primary">Add New Driver</h3>
+                <button id="closeAddModal" class="text-text-secondary hover:text-text-primary transition-colors">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Modal Content -->
+            <div class="p-6">
+                <form id="addDriverForm" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Personal Information -->
+                        <div class="space-y-4">
+                            <h4 class="text-lg font-semibold text-text-primary">Personal Information</h4>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-text-secondary mb-2">Full Name *</label>
+                                <input type="text" class="input-field" placeholder="Enter full name" required />
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-text-secondary mb-2">Age *</label>
+                                <input type="number" class="input-field" placeholder="Enter age" min="18" max="65" required />
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-text-secondary mb-2">Gender *</label>
+                                <select class="input-field" required>
+                                    <option value>Select gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-text-secondary mb-2">Phone Number *</label>
+                                <input type="tel" class="input-field" placeholder="+91 9876543210" required />
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-text-secondary mb-2">Email</label>
+                                <input type="email" class="input-field" placeholder="Enter email address" />
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-text-secondary mb-2">Address *</label>
+                                <textarea class="input-field" rows="3" placeholder="Enter full address" required></textarea>
+                            </div>
+                        </div>
+
+                        <!-- License & Professional Information -->
+                        <div class="space-y-4">
+                            <h4 class="text-lg font-semibold text-text-primary">License & Professional Info</h4>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-text-secondary mb-2">License Type *</label>
+                                <select class="input-field" required>
+                                    <option value>Select license type</option>
+                                    <option value="light-vehicle">Light Vehicle</option>
+                                    <option value="heavy-vehicle">Heavy Vehicle</option>
+                                    <option value="commercial">Commercial</option>
+                                    <option value="transport">Transport</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-text-secondary mb-2">License Number *</label>
+                                <input type="text" class="input-field" placeholder="Enter license number" required />
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-text-secondary mb-2">License Expiry Date *</label>
+                                <input type="date" class="input-field" required />
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-text-secondary mb-2">Experience (Years) *</label>
+                                <input type="number" class="input-field" placeholder="Enter years of experience" min="0" required />
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-text-secondary mb-2">Specialization</label>
+                                <select class="input-field">
+                                    <option value>Select specialization</option>
+                                    <option value="tourist">Tourist Packages</option>
+                                    <option value="local">Local Transport</option>
+                                    <option value="luxury">Luxury Vehicles</option>
+                                    <option value="commercial">Commercial Transport</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-text-secondary mb-2">Languages</label>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-2" value="tamil" />
+                                        <span class="text-sm">Tamil</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-2" value="english" />
+                                        <span class="text-sm">English</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-2" value="hindi" />
+                                        <span class="text-sm">Hindi</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-2" value="telugu" />
+                                        <span class="text-sm">Telugu</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Emergency Contact -->
+                    <div class="border-t border-border pt-6">
+                        <h4 class="text-lg font-semibold text-text-primary mb-4">Emergency Contact</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-text-secondary mb-2">Contact Name *</label>
+                                <input type="text" class="input-field" placeholder="Enter contact name" required />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-text-secondary mb-2">Relationship *</label>
+                                <select class="input-field" required>
+                                    <option value>Select relationship</option>
+                                    <option value="spouse">Spouse</option>
+                                    <option value="parent">Parent</option>
+                                    <option value="sibling">Sibling</option>
+                                    <option value="child">Child</option>
+                                    <option value="friend">Friend</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-text-secondary mb-2">Contact Phone *</label>
+                                <input type="tel" class="input-field" placeholder="+91 9876543210" required />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Document Upload -->
+                    <div class="border-t border-border pt-6">
+                        <h4 class="text-lg font-semibold text-text-primary mb-4">Document Upload</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-text-secondary mb-2">ID Proof *</label>
+                                <input type="file" class="input-field" accept=".pdf,.jpg,.jpeg,.png" required />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-text-secondary mb-2">Driving License *</label>
+                                <input type="file" class="input-field" accept=".pdf,.jpg,.jpeg,.png" required />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-text-secondary mb-2">Profile Photo</label>
+                                <input type="file" class="input-field" accept=".jpg,.jpeg,.png" />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-text-secondary mb-2">Background Verification</label>
+                                <input type="file" class="input-field" accept=".pdf,.jpg,.jpeg,.png" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="flex items-center justify-end space-x-3 p-6 border-t border-border">
+                <button id="cancelAddDriver" class="bg-gray-200 text-text-primary px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors">
+                    Cancel
+                </button>
+                <button type="submit" form="addDriverForm" class="btn-primary">
+                    <i class="fas fa-save mr-2"></i>Add Driver
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuToggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Profile dropdown toggle
+        document.getElementById('profileDropdown').addEventListener('click', function() {
+            const profileMenu = document.getElementById('profileMenu');
+            profileMenu.classList.toggle('hidden');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const profileDropdown = document.getElementById('profileDropdown');
+            const profileMenu = document.getElementById('profileMenu');
+            
+            if (!profileDropdown.contains(event.target)) {
+                profileMenu.classList.add('hidden');
+            }
+        });
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const rows = document.querySelectorAll('#driverTableBody tr');
+            
+            rows.forEach(row => {
+                const driverName = row.querySelector('td:nth-child(2)').textContent.toLowerCase();
+                const driverId = row.querySelector('td:nth-child(2)').textContent.toLowerCase();
+                
+                if (driverName.includes(searchTerm) || driverId.includes(searchTerm)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+
+        // Filter functionality
+        function applyFilters() {
+            const statusFilter = document.getElementById('statusFilter').value;
+            const licenseFilter = document.getElementById('licenseFilter').value;
+            const experienceFilter = document.getElementById('experienceFilter').value;
+            const rows = document.querySelectorAll('#driverTableBody tr');
+            
+            rows.forEach(row => {
+                const status = row.querySelector('td:nth-child(4) span').textContent.toLowerCase();
+                const license = row.querySelector('td:nth-child(3)').textContent.toLowerCase();
+                const experience = row.querySelector('td:nth-child(6)').textContent.toLowerCase();
+                
+                let showRow = true;
+                
+                if (statusFilter && !status.includes(statusFilter.replace('-', ' '))) {
+                    showRow = false;
+                }
+                if (licenseFilter && !license.includes(licenseFilter.replace('-', ' '))) {
+                    showRow = false;
+                }
+                if (experienceFilter) {
+                    const years = parseInt(experience.match(/\d+/));
+                    if (experienceFilter === '0-2' && (years < 0 || years > 2)) showRow = false;
+                    if (experienceFilter === '3-5' && (years < 3 || years > 5)) showRow = false;
+                    if (experienceFilter === '6-10' && (years < 6 || years > 10)) showRow = false;
+                    if (experienceFilter === '10+' && years < 10) showRow = false;
+                }
+                
+                row.style.display = showRow ? '' : 'none';
+            });
+        }
+
+        document.getElementById('statusFilter').addEventListener('change', applyFilters);
+        document.getElementById('licenseFilter').addEventListener('change', applyFilters);
+        document.getElementById('experienceFilter').addEventListener('change', applyFilters);
+
+        // Reset filters
+        document.getElementById('resetFilters').addEventListener('click', function() {
+            document.getElementById('statusFilter').value = '';
+            document.getElementById('licenseFilter').value = '';
+            document.getElementById('experienceFilter').value = '';
+            document.getElementById('searchInput').value = '';
+            
+            const rows = document.querySelectorAll('#driverTableBody tr');
+            rows.forEach(row => {
+                row.style.display = '';
+            });
+        });
+
+        // Select all checkbox
+        document.getElementById('selectAll').addEventListener('change', function() {
+            const checkboxes = document.querySelectorAll('.driver-checkbox');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = this.checked;
+            });
+        });
+
+        // Driver details modal
+        const driverModal = document.getElementById('driverModal');
+        const closeModal = document.getElementById('closeModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+
+        // Open driver modal
+        function openDriverModal(driverId) {
+            // Sample driver data - in real app, this would come from API
+            const driverData = {
+                'DR001': {
+                    name: 'Rajesh Kumar',
+                    photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                    id: 'DR001',
+                    phone: '+91 9876543210'
+                },
+                'DR002': {
+                    name: 'Suresh Babu',
+                    photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                    id: 'DR002',
+                    phone: '+91 9876543211'
+                },
+                'DR003': {
+                    name: 'Arun Patel',
+                    photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                    id: 'DR003',
+                    phone: '+91 9876543212'
+                },
+                'DR004': {
+                    name: 'Vijay Shankar',
+                    photo: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                    id: 'DR004',
+                    phone: '+91 9876543213'
+                }
+            };
+
+            const driver = driverData[driverId];
+            if (driver) {
+                document.getElementById('modalDriverName').textContent = driver.name;
+                document.getElementById('modalDriverInfo').textContent = `Driver ID: ${driver.id} • ${driver.phone}`;
+                document.getElementById('modalDriverPhoto').src = driver.photo;
+            }
+
+            driverModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close modal
+        [closeModal, closeModalBtn].forEach(btn => {
+            btn.addEventListener('click', function() {
+                driverModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // Close modal when clicking outside
+        driverModal.addEventListener('click', function(e) {
+            if (e.target === driverModal) {
+                driverModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Add driver modal
+        const addDriverModal = document.getElementById('addDriverModal');
+        const closeAddModal = document.getElementById('closeAddModal');
+        const cancelAddDriver = document.getElementById('cancelAddDriver');
+
+        function openAddDriverModal() {
+            addDriverModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close add driver modal
+        [closeAddModal, cancelAddDriver].forEach(btn => {
+            btn.addEventListener('click', function() {
+                addDriverModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // Close add driver modal when clicking outside
+        addDriverModal.addEventListener('click', function(e) {
+            if (e.target === addDriverModal) {
+                addDriverModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Add driver form submission
+        document.getElementById('addDriverForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show success message (in real app, this would send data to API)
+            alert('Driver added successfully!');
+            
+            // Close modal and reset form
+            addDriverModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            this.reset();
+        });
+
+        // ESC key to close modals
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                driverModal.classList.add('hidden');
+                addDriverModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>

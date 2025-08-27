@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer Dashboard - RJ Sons Travels</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Frjsonstr4320back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.6"></script>
+</head>
+<body class="min-h-screen bg-background">
+    <!-- Header -->
+    <header class="bg-surface shadow-md border-b border-border-light sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="vehicle_booking.html" class="flex items-center">
+                        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mr-3">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.22.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold text-primary">RJ Sons Travels</span>
+                    </a>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="vehicle_booking.html" class="text-text-secondary hover:text-primary transition-colors">Book Vehicle</a>
+                    <a href="customer_dashboard.html" class="text-primary font-medium">Dashboard</a>
+                    <a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-colors">Offers</a>
+                    <a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-colors">Support</a>
+                </nav>
+
+                <!-- User Menu -->
+                <div class="flex items-center space-x-4">
+                    <div class="hidden md:flex items-center space-x-3">
+                        <span class="text-sm text-text-secondary">Welcome, Rajesh Kumar</span>
+                        <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                            <span class="text-white text-sm font-medium">R</span>
+                        </div>
+                    </div>
+                    <button class="md:hidden text-text-secondary">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Welcome Section -->
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-text-primary mb-2">Welcome back, Rajesh!</h1>
+            <p class="text-text-secondary">Manage your bookings and explore our services</p>
+            <div class="mt-4 inline-flex items-center px-3 py-1 rounded-full text-sm bg-accent-50 text-accent-600 border border-accent-100">
+                <i class="fas fa-crown mr-2"></i>
+                Premium Member
+            </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="card hover-lift">
+                <div class="flex items-center">
+                    <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mr-4">
+                        <i class="fas fa-calendar-check text-primary text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-text-primary">12</h3>
+                        <p class="text-text-secondary text-sm">Total Bookings</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card hover-lift">
+                <div class="flex items-center">
+                    <div class="w-12 h-12 bg-success-100 rounded-lg flex items-center justify-center mr-4">
+                        <i class="fas fa-car text-success text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-text-primary">2</h3>
+                        <p class="text-text-secondary text-sm">Upcoming Trips</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card hover-lift">
+                <div class="flex items-center">
+                    <div class="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center mr-4">
+                        <i class="fas fa-star text-accent text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-text-primary">2,450</h3>
+                        <p class="text-text-secondary text-sm">Loyalty Points</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="flex flex-wrap gap-4 mb-8">
+            <button class="btn-primary px-6 py-3" onclick="location.href='vehicle_booking.html'">
+                <i class="fas fa-plus mr-2"></i>New Booking
+            </button>
+            <button class="bg-gray-100 text-text-primary px-6 py-3 rounded-lg font-medium hover:bg-gray-200 transition-colors" onclick="showSection('bookings')">
+                <i class="fas fa-list mr-2"></i>View All Bookings
+            </button>
+            <button class="bg-gray-100 text-text-primary px-6 py-3 rounded-lg font-medium hover:bg-gray-200 transition-colors" onclick="showSection('support')">
+                <i class="fas fa-headset mr-2"></i>Contact Support
+            </button>
+        </div>
+
+        <!-- Dashboard Content -->
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            <!-- Sidebar Navigation -->
+            <div class="lg:col-span-1">
+                <div class="card">
+                    <nav class="space-y-2">
+                        <button class="dashboard-nav-btn active w-full text-left px-4 py-3 rounded-lg font-medium transition-colors" data-section="overview">
+                            <i class="fas fa-tachometer-alt mr-3"></i>Overview
+                        </button>
+                        <button class="dashboard-nav-btn w-full text-left px-4 py-3 rounded-lg font-medium transition-colors" data-section="profile">
+                            <i class="fas fa-user mr-3"></i>Profile
+                        </button>
+                        <button class="dashboard-nav-btn w-full text-left px-4 py-3 rounded-lg font-medium transition-colors" data-section="bookings">
+                            <i class="fas fa-calendar-alt mr-3"></i>Booking History
+                        </button>
+                        <button class="dashboard-nav-btn w-full text-left px-4 py-3 rounded-lg font-medium transition-colors" data-section="reviews">
+                            <i class="fas fa-star mr-3"></i>Reviews
+                        </button>
+                        <button class="dashboard-nav-btn w-full text-left px-4 py-3 rounded-lg font-medium transition-colors" data-section="offers">
+                            <i class="fas fa-gift mr-3"></i>Offers & Deals
+                        </button>
+                        <button class="dashboard-nav-btn w-full text-left px-4 py-3 rounded-lg font-medium transition-colors" data-section="agreements">
+                            <i class="fas fa-file-contract mr-3"></i>Agreements
+                        </button>
+                        <button class="dashboard-nav-btn w-full text-left px-4 py-3 rounded-lg font-medium transition-colors" data-section="support">
+                            <i class="fas fa-headset mr-3"></i>Support
+                        </button>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="lg:col-span-3">
+                <!-- Overview Section -->
+                <div id="overview-section" class="dashboard-section">
+                    <div class="space-y-6">
+                        <div class="card">
+                            <h2 class="text-xl font-semibold text-text-primary mb-4">Recent Activity</h2>
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-4 p-4 bg-gray-50 rounded-lg">
+                                    <div class="w-10 h-10 bg-success-100 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-check text-success"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="font-medium text-text-primary">Booking Confirmed</h4>
+                                        <p class="text-text-secondary text-sm">Your BMW 3 Series booking for Jan 25, 2025 is confirmed</p>
+                                        <p class="text-text-secondary text-xs mt-1">2 hours ago</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4 p-4 bg-gray-50 rounded-lg">
+                                    <div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-star text-primary"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="font-medium text-text-primary">Review Submitted</h4>
+                                        <p class="text-text-secondary text-sm">You reviewed your trip with Maruti Swift</p>
+                                        <p class="text-text-secondary text-xs mt-1">1 day ago</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4 p-4 bg-gray-50 rounded-lg">
+                                    <div class="w-10 h-10 bg-accent-100 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-gift text-accent"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="font-medium text-text-primary">New Offer Available</h4>
+                                        <p class="text-text-secondary text-sm">25% off on luxury vehicles this weekend</p>
+                                        <p class="text-text-secondary text-xs mt-1">3 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h2 class="text-xl font-semibold text-text-primary mb-4">Upcoming Bookings</h2>
+                            <div class="space-y-4">
+                                <div class="border border-border rounded-lg p-4">
+                                    <div class="flex items-start justify-between mb-3">
+                                        <div>
+                                            <h4 class="font-semibold text-text-primary">BMW 3 Series</h4>
+                                            <p class="text-text-secondary text-sm">Luxury Sedan</p>
+                                        </div>
+                                        <span class="bg-success-50 text-success-600 px-2 py-1 rounded-full text-xs font-medium">Confirmed</span>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-4 text-sm">
+                                        <div>
+                                            <p class="text-text-secondary">Date</p>
+                                            <p class="font-medium">Jan 25, 2025</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-text-secondary">Duration</p>
+                                            <p class="font-medium">3 days</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-between items-center mt-4">
+                                        <span class="text-lg font-bold text-primary">₹25,500</span>
+                                        <button class="btn-primary px-4 py-2">View Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Section -->
+                <div id="profile-section" class="dashboard-section hidden">
+                    <div class="card">
+                        <div class="flex items-center justify-between mb-6">
+                            <h2 class="text-xl font-semibold text-text-primary">Profile Information</h2>
+                            <button class="btn-primary px-4 py-2" onclick="toggleProfileEdit()">
+                                <i class="fas fa-edit mr-2"></i>Edit Profile
+                            </button>
+                        </div>
+
+                        <form id="profileForm" class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-text-primary mb-2">Full Name</label>
+                                    <input type="text" class="input-field" value="Rajesh Kumar" readonly />
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-text-primary mb-2">Email</label>
+                                    <input type="email" class="input-field" value="rajesh.kumar@email.com" readonly />
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-text-primary mb-2">Phone</label>
+                                    <input type="tel" class="input-field" value="+91 98765 43210" readonly />
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-text-primary mb-2">NIC Number</label>
+                                    <input type="text" class="input-field" value="123456789V" readonly />
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-2">Address</label>
+                                <textarea class="input-field" rows="3" readonly>No. 45, Galle Road, Colombo 03, Sri Lanka</textarea>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-text-primary mb-2">Emergency Contact</label>
+                                    <input type="tel" class="input-field" value="+91 98765 43211" readonly />
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-text-primary mb-2">Driving License</label>
+                                    <input type="text" class="input-field" value="LIC123456789" readonly />
+                                </div>
+                            </div>
+
+                            <div class="hidden" id="profileEditButtons">
+                                <div class="flex space-x-4">
+                                    <button type="submit" class="btn-primary px-6 py-2">Save Changes</button>
+                                    <button type="button" class="bg-gray-200 text-text-primary px-6 py-2 rounded-lg hover:bg-gray-300 transition-colors" onclick="toggleProfileEdit()">Cancel</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Booking History Section -->
+                <div id="bookings-section" class="dashboard-section hidden">
+                    <div class="card">
+                        <div class="flex items-center justify-between mb-6">
+                            <h2 class="text-xl font-semibold text-text-primary">Booking History</h2>
+                            <div class="flex space-x-2">
+                                <select class="input-field text-sm">
+                                    <option>All Bookings</option>
+                                    <option>Completed</option>
+                                    <option>Cancelled</option>
+                                    <option>Upcoming</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <!-- Booking 1 -->
+                            <div class="border border-border rounded-lg p-4 hover:border-primary transition-colors">
+                                <div class="flex items-start justify-between mb-4">
+                                    <div class="flex items-start space-x-4">
+                                        <img src="https://images.pixabay.com/photo/2016/04/01/12/16/car-1300629_960_720.png" alt="BMW 3 Series" class="w-20 h-16 object-cover rounded-lg" />
+                                        <div>
+                                            <h4 class="font-semibold text-text-primary">BMW 3 Series</h4>
+                                            <p class="text-text-secondary text-sm">Luxury Sedan</p>
+                                            <p class="text-text-secondary text-sm">Booking ID: RJ2025001234</p>
+                                        </div>
+                                    </div>
+                                    <span class="bg-success-50 text-success-600 px-3 py-1 rounded-full text-sm font-medium">Completed</span>
+                                </div>
+
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4 text-sm">
+                                    <div>
+                                        <p class="text-text-secondary">Date & Time</p>
+                                        <p class="font-medium">Jan 15, 2025 - 10:00 AM</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-text-secondary">Duration</p>
+                                        <p class="font-medium">3 days</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-text-secondary">Driver</p>
+                                        <p class="font-medium">Ravi Kumar</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <span class="text-lg font-bold text-primary">₹25,500</span>
+                                        <span class="text-text-secondary text-sm ml-2">Paid</span>
+                                    </div>
+                                    <div class="flex space-x-2">
+                                        <button class="bg-gray-100 text-text-primary px-4 py-2 rounded-lg text-sm hover:bg-gray-200 transition-colors" onclick="viewBookingDetails('RJ2025001234')">
+                                            <i class="fas fa-eye mr-1"></i>Details
+                                        </button>
+                                        <button class="bg-gray-100 text-text-primary px-4 py-2 rounded-lg text-sm hover:bg-gray-200 transition-colors">
+                                            <i class="fas fa-download mr-1"></i>Receipt
+                                        </button>
+                                        <button class="btn-primary px-4 py-2 text-sm" onclick="openReviewModal('RJ2025001234')">
+                                            <i class="fas fa-star mr-1"></i>Review
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Booking 2 -->
+                            <div class="border border-border rounded-lg p-4 hover:border-primary transition-colors">
+                                <div class="flex items-start justify-between mb-4">
+                                    <div class="flex items-start space-x-4">
+                                        <img src="https://images.pexels.com/photos/116675/pexels-photo-116675.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Maruti Swift" class="w-20 h-16 object-cover rounded-lg" />
+                                        <div>
+                                            <h4 class="font-semibold text-text-primary">Maruti Swift</h4>
+                                            <p class="text-text-secondary text-sm">Compact Hatchback</p>
+                                            <p class="text-text-secondary text-sm">Booking ID: RJ2025001235</p>
+                                        </div>
+                                    </div>
+                                    <span class="bg-success-50 text-success-600 px-3 py-1 rounded-full text-sm font-medium">Completed</span>
+                                </div>
+
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4 text-sm">
+                                    <div>
+                                        <p class="text-text-secondary">Date & Time</p>
+                                        <p class="font-medium">Jan 10, 2025 - 2:00 PM</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-text-secondary">Duration</p>
+                                        <p class="font-medium">1 day</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-text-secondary">Driver</p>
+                                        <p class="font-medium">Self Drive</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <span class="text-lg font-bold text-primary">₹1,500</span>
+                                        <span class="text-text-secondary text-sm ml-2">Paid</span>
+                                    </div>
+                                    <div class="flex space-x-2">
+                                        <button class="bg-gray-100 text-text-primary px-4 py-2 rounded-lg text-sm hover:bg-gray-200 transition-colors" onclick="viewBookingDetails('RJ2025001235')">
+                                            <i class="fas fa-eye mr-1"></i>Details
+                                        </button>
+                                        <button class="bg-gray-100 text-text-primary px-4 py-2 rounded-lg text-sm hover:bg-gray-200 transition-colors">
+                                            <i class="fas fa-download mr-1"></i>Receipt
+                                        </button>
+                                        <button class="bg-gray-100 text-text-primary px-4 py-2 rounded-lg text-sm hover:bg-gray-200 transition-colors">
+                                            <i class="fas fa-star mr-1"></i>Reviewed
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reviews Section -->
+                <div id="reviews-section" class="dashboard-section hidden">
+                    <div class="card">
+                        <h2 class="text-xl font-semibold text-text-primary mb-6">Your Reviews</h2>
+                        
+                        <div class="space-y-4">
+                            <!-- Review 1 -->
+                            <div class="border border-border rounded-lg p-4">
+                                <div class="flex items-start justify-between mb-3">
+                                    <div>
+                                        <h4 class="font-semibold text-text-primary">Maruti Swift - RJ2025001235</h4>
+                                        <div class="flex items-center mt-1">
+                                            <div class="flex text-yellow-400 mr-2">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <span class="text-text-secondary text-sm">5.0 stars</span>
+                                        </div>
+                                    </div>
+                                    <span class="text-text-secondary text-sm">Jan 11, 2025</span>
+                                </div>
+                                <p class="text-text-secondary text-sm">Excellent service! The car was clean and well-maintained. Perfect for city driving. Driver Ravi was very professional and courteous.</p>
+                            </div>
+
+                            <!-- Add Review Prompt -->
+                            <div class="border-2 border-dashed border-border rounded-lg p-8 text-center">
+                                <i class="fas fa-star text-4xl text-gray-300 mb-4"></i>
+                                <h3 class="text-lg font-semibold text-text-primary mb-2">Share Your Experience</h3>
+                                <p class="text-text-secondary mb-4">Help others by reviewing your recent trips</p>
+                                <button class="btn-primary px-6 py-2" onclick="showSection('bookings')">View Bookings to Review</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Offers Section -->
+                <div id="offers-section" class="dashboard-section hidden">
+                    <div class="space-y-6">
+                        <!-- Premium Member Offers -->
+                        <div class="card">
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-crown text-accent mr-3 text-xl"></i>
+                                <h2 class="text-xl font-semibold text-text-primary">Premium Member Exclusive</h2>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="border border-accent-100 bg-accent-50 rounded-lg p-4">
+                                    <div class="flex items-start justify-between mb-3">
+                                        <div>
+                                            <h3 class="font-semibold text-text-primary">25% Off Luxury Vehicles</h3>
+                                            <p class="text-text-secondary text-sm">Valid on BMW, Audi, Mercedes</p>
+                                        </div>
+                                        <span class="bg-accent text-white px-2 py-1 rounded-full text-xs font-medium">Premium</span>
+                                    </div>
+                                    <p class="text-sm text-text-secondary mb-4">Book any luxury vehicle and get 25% discount. Minimum booking 2 days.</p>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-text-secondary text-xs">Valid till: Jan 31, 2025</span>
+                                        <button class="btn-primary px-4 py-2 text-sm">Use Offer</button>
+                                    </div>
+                                </div>
+
+                                <div class="border border-accent-100 bg-accent-50 rounded-lg p-4">
+                                    <div class="flex items-start justify-between mb-3">
+                                        <div>
+                                            <h3 class="font-semibold text-text-primary">Free Driver Upgrade</h3>
+                                            <p class="text-text-secondary text-sm">Experience driver at no extra cost</p>
+                                        </div>
+                                        <span class="bg-accent text-white px-2 py-1 rounded-full text-xs font-medium">Premium</span>
+                                    </div>
+                                    <p class="text-sm text-text-secondary mb-4">Get our most experienced drivers for your next trip at no additional cost.</p>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-text-secondary text-xs">Valid till: Feb 15, 2025</span>
+                                        <button class="btn-primary px-4 py-2 text-sm">Use Offer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- General Offers -->
+                        <div class="card">
+                            <h2 class="text-xl font-semibold text-text-primary mb-4">Current Offers</h2>
+                            
+                            <div class="space-y-4">
+                                <div class="border border-border rounded-lg p-4">
+                                    <div class="flex items-start justify-between mb-3">
+                                        <div>
+                                            <h3 class="font-semibold text-text-primary">Weekend Special</h3>
+                                            <p class="text-text-secondary text-sm">15% off on weekend bookings</p>
+                                        </div>
+                                        <span class="bg-success-50 text-success-600 px-2 py-1 rounded-full text-xs font-medium">Active</span>
+                                    </div>
+                                    <p class="text-sm text-text-secondary mb-4">Book for Saturday or Sunday and get 15% discount on all vehicle categories.</p>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-text-secondary text-xs">Valid: Every Weekend</span>
+                                        <button class="btn-primary px-4 py-2 text-sm">Book Now</button>
+                                    </div>
+                                </div>
+
+                                <div class="border border-border rounded-lg p-4">
+                                    <div class="flex items-start justify-between mb-3">
+                                        <div>
+                                            <h3 class="font-semibold text-text-primary">Monthly Package</h3>
+                                            <p class="text-text-secondary text-sm">30% off on monthly subscriptions</p>
+                                        </div>
+                                        <span class="bg-primary-50 text-primary px-2 py-1 rounded-full text-xs font-medium">Limited</span>
+                                    </div>
+                                    <p class="text-sm text-text-secondary mb-4">Subscribe to our monthly package and save big on regular rentals.</p>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-text-secondary text-xs">Valid till: Jan 31, 2025</span>
+                                        <button class="btn-primary px-4 py-2 text-sm">Subscribe</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agreements Section -->
+                <div id="agreements-section" class="dashboard-section hidden">
+                    <div class="card">
+                        <h2 class="text-xl font-semibold text-text-primary mb-6">Rental Agreements & Terms</h2>
+                        
+                        <div class="space-y-6">
+                            <!-- Rental Terms -->
+                            <div class="border border-border rounded-lg p-4">
+                                <h3 class="font-semibold text-text-primary mb-4 flex items-center">
+                                    <i class="fas fa-file-contract mr-2 text-primary"></i>
+                                    General Rental Terms
+                                </h3>
+                                <div class="space-y-3 text-sm text-text-secondary">
+                                    <div class="flex items-start space-x-3">
+                                        <i class="fas fa-check-circle text-success mt-1"></i>
+                                        <p>Minimum age requirement: 21 years with valid driving license</p>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <i class="fas fa-check-circle text-success mt-1"></i>
+                                        <p>Security deposit required: ₹5,000 - ₹25,000 (varies by vehicle)</p>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <i class="fas fa-check-circle text-success mt-1"></i>
+                                        <p>Fuel charges are separate and borne by customer</p>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <i class="fas fa-check-circle text-success mt-1"></i>
+                                        <p>Late return charges: ₹200 per hour after grace period</p>
+                                    </div>
+                                </div>
+                                <button class="btn-primary px-4 py-2 mt-4 text-sm">View Full Terms</button>
+                            </div>
+
+                            <!-- Self-Drive Specific -->
+                            <div class="border border-border rounded-lg p-4">
+                                <h3 class="font-semibold text-text-primary mb-4 flex items-center">
+                                    <i class="fas fa-car mr-2 text-primary"></i>
+                                    Self-Drive Specific Terms
+                                </h3>
+                                <div class="space-y-3 text-sm text-text-secondary">
+                                    <div class="flex items-start space-x-3">
+                                        <i class="fas fa-info-circle text-primary mt-1"></i>
+                                        <p>Vehicle inspection required before and after rental</p>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <i class="fas fa-info-circle text-primary mt-1"></i>
+                                        <p>Customer responsible for traffic violations and fines</p>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <i class="fas fa-info-circle text-primary mt-1"></i>
+                                        <p>Comprehensive insurance coverage included</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tax Information -->
+                            <div id="tax-info" class="border border-accent-100 bg-accent-50 rounded-lg p-4">
+                                <h3 class="font-semibold text-text-primary mb-4 flex items-center">
+                                    <i class="fas fa-receipt mr-2 text-accent"></i>
+                                    Tax Information (Self-Drive Only)
+                                </h3>
+                                <div class="space-y-3 text-sm">
+                                    <div class="bg-white rounded-lg p-3">
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-text-secondary">Base Rental Tax (GST):</span>
+                                            <span class="font-medium">18%</span>
+                                        </div>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-3">
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-text-secondary">Road Tax (State):</span>
+                                            <span class="font-medium">₹150/day</span>
+                                        </div>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-3">
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-text-secondary">Service Tax:</span>
+                                            <span class="font-medium">5%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-text-secondary mt-3">*Tax rates may vary based on vehicle category and state regulations</p>
+                            </div>
+
+                            <!-- Insurance Coverage -->
+                            <div class="border border-border rounded-lg p-4">
+                                <h3 class="font-semibold text-text-primary mb-4 flex items-center">
+                                    <i class="fas fa-shield-alt mr-2 text-success"></i>
+                                    Insurance Coverage
+                                </h3>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                                    <div class="space-y-3">
+                                        <div class="flex items-start space-x-3">
+                                            <i class="fas fa-check text-success mt-1"></i>
+                                            <p class="text-text-secondary">Comprehensive motor insurance</p>
+                                        </div>
+                                        <div class="flex items-start space-x-3">
+                                            <i class="fas fa-check text-success mt-1"></i>
+                                            <p class="text-text-secondary">Third-party liability coverage</p>
+                                        </div>
+                                        <div class="flex items-start space-x-3">
+                                            <i class="fas fa-check text-success mt-1"></i>
+                                            <p class="text-text-secondary">Personal accident coverage</p>
+                                        </div>
+                                    </div>
+                                    <div class="space-y-3">
+                                        <div class="flex items-start space-x-3">
+                                            <i class="fas fa-times text-secondary mt-1"></i>
+                                            <p class="text-text-secondary">Damage due to negligence</p>
+                                        </div>
+                                        <div class="flex items-start space-x-3">
+                                            <i class="fas fa-times text-secondary mt-1"></i>
+                                            <p class="text-text-secondary">Loss of personal belongings</p>
+                                        </div>
+                                        <div class="flex items-start space-x-3">
+                                            <i class="fas fa-times text-secondary mt-1"></i>
+                                            <p class="text-text-secondary">Alcohol-related incidents</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Support Section -->
+                <div id="support-section" class="dashboard-section hidden">
+                    <div class="space-y-6">
+                        <!-- Quick Support Options -->
+                        <div class="card">
+                            <h2 class="text-xl font-semibold text-text-primary mb-6">Quick Support</h2>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                                <div class="text-center p-4 border border-border rounded-lg hover:border-primary transition-colors cursor-pointer" onclick="openSupportModal('emergency')">
+                                    <i class="fas fa-phone-alt text-secondary text-3xl mb-3"></i>
+                                    <h3 class="font-semibold text-text-primary mb-2">Emergency Support</h3>
+                                    <p class="text-text-secondary text-sm">24/7 emergency assistance</p>
+                                    <p class="text-primary font-bold mt-2">+91 98765 00000</p>
+                                </div>
+                                
+                                <div class="text-center p-4 border border-border rounded-lg hover:border-primary transition-colors cursor-pointer" onclick="openSupportModal('general')">
+                                    <i class="fas fa-headset text-primary text-3xl mb-3"></i>
+                                    <h3 class="font-semibold text-text-primary mb-2">General Queries</h3>
+                                    <p class="text-text-secondary text-sm">Booking & account help</p>
+                                    <p class="text-primary font-bold mt-2">Submit Ticket</p>
+                                </div>
+                                
+                                <div class="text-center p-4 border border-border rounded-lg hover:border-primary transition-colors cursor-pointer" onclick="openSupportModal('feedback')">
+                                    <i class="fas fa-comment text-success text-3xl mb-3"></i>
+                                    <h3 class="font-semibold text-text-primary mb-2">Feedback</h3>
+                                    <p class="text-text-secondary text-sm">Share your suggestions</p>
+                                    <p class="text-primary font-bold mt-2">Send Feedback</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Section -->
+                        <div class="card">
+                            <h2 class="text-xl font-semibold text-text-primary mb-6">Frequently Asked Questions</h2>
+                            
+                            <div class="space-y-4">
+                                <div class="border border-border rounded-lg">
+                                    <button class="w-full text-left p-4 font-medium text-text-primary hover:bg-gray-50 transition-colors faq-toggle" data-target="faq1">
+                                        <div class="flex items-center justify-between">
+                                            <span>How can I cancel my booking?</span>
+                                            <i class="fas fa-chevron-down transition-transform"></i>
+                                        </div>
+                                    </button>
+                                    <div id="faq1" class="hidden px-4 pb-4">
+                                        <p class="text-text-secondary text-sm">You can cancel your booking up to 24 hours before the scheduled pickup time through your dashboard or by calling our support team. Cancellation charges may apply based on the timing.</p>
+                                    </div>
+                                </div>
+
+                                <div class="border border-border rounded-lg">
+                                    <button class="w-full text-left p-4 font-medium text-text-primary hover:bg-gray-50 transition-colors faq-toggle" data-target="faq2">
+                                        <div class="flex items-center justify-between">
+                                            <span>What documents do I need for self-drive?</span>
+                                            <i class="fas fa-chevron-down transition-transform"></i>
+                                        </div>
+                                    </button>
+                                    <div id="faq2" class="hidden px-4 pb-4">
+                                        <p class="text-text-secondary text-sm">You need a valid driving license, government-issued photo ID (Aadhar/PAN/Passport), and address proof. For premium vehicles, additional verification may be required.</p>
+                                    </div>
+                                </div>
+
+                                <div class="border border-border rounded-lg">
+                                    <button class="w-full text-left p-4 font-medium text-text-primary hover:bg-gray-50 transition-colors faq-toggle" data-target="faq3">
+                                        <div class="flex items-center justify-between">
+                                            <span>Is fuel included in the rental price?</span>
+                                            <i class="fas fa-chevron-down transition-transform"></i>
+                                        </div>
+                                    </button>
+                                    <div id="faq3" class="hidden px-4 pb-4">
+                                        <p class="text-text-secondary text-sm">No, fuel is not included in the rental price. You are responsible for fuel costs during your rental period. The vehicle will be provided with a full tank and should be returned with the same fuel level.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Support Tickets -->
+                        <div class="card">
+                            <h2 class="text-xl font-semibold text-text-primary mb-6">Your Support Tickets</h2>
+                            
+                            <div class="space-y-4">
+                                <div class="border border-border rounded-lg p-4">
+                                    <div class="flex items-start justify-between mb-3">
+                                        <div>
+                                            <h4 class="font-semibold text-text-primary">Refund Request - RJ2025001234</h4>
+                                            <p class="text-text-secondary text-sm">Requested refund for cancelled booking</p>
+                                        </div>
+                                        <span class="bg-warning-50 text-warning px-2 py-1 rounded-full text-xs font-medium">In Progress</span>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-text-secondary text-xs">Created: Jan 20, 2025</span>
+                                        <button class="text-primary text-sm hover:underline">View Details</button>
+                                    </div>
+                                </div>
+
+                                <div class="text-center py-8 text-text-secondary">
+                                    <i class="fas fa-ticket-alt text-4xl text-gray-300 mb-4"></i>
+                                    <p>No other support tickets</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Review Modal -->
+    <div id="reviewModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div class="bg-surface rounded-lg max-w-md w-full p-6 shadow-xl">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-xl font-semibold text-text-primary">Rate Your Experience</h3>
+                <button class="text-text-secondary hover:text-text-primary" onclick="closeReviewModal()">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+
+            <form id="reviewForm" class="space-y-6">
+                <div id="reviewBookingInfo" class="bg-gray-50 rounded-lg p-4">
+                    <!-- Booking info will be populated here -->
+                </div>
+
+                <!-- Vehicle Rating -->
+                <div>
+                    <label class="block text-sm font-medium text-text-primary mb-2">Vehicle Rating</label>
+                    <div class="star-rating" data-rating="vehicle">
+                        <i class="fas fa-star star" data-value="1"></i>
+                        <i class="fas fa-star star" data-value="2"></i>
+                        <i class="fas fa-star star" data-value="3"></i>
+                        <i class="fas fa-star star" data-value="4"></i>
+                        <i class="fas fa-star star" data-value="5"></i>
+                    </div>
+                </div>
+
+                <!-- Driver Rating (if applicable) -->
+                <div id="driverRatingSection">
+                    <label class="block text-sm font-medium text-text-primary mb-2">Driver Rating</label>
+                    <div class="star-rating" data-rating="driver">
+                        <i class="fas fa-star star" data-value="1"></i>
+                        <i class="fas fa-star star" data-value="2"></i>
+                        <i class="fas fa-star star" data-value="3"></i>
+                        <i class="fas fa-star star" data-value="4"></i>
+                        <i class="fas fa-star star" data-value="5"></i>
+                    </div>
+                </div>
+
+                <!-- Review Text -->
+                <div>
+                    <label class="block text-sm font-medium text-text-primary mb-2">Your Review</label>
+                    <textarea class="input-field" rows="4" placeholder="Share your experience..." required></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="flex space-x-4">
+                    <button type="submit" class="btn-primary flex-1 py-3">Submit Review</button>
+                    <button type="button" class="bg-gray-200 text-text-primary px-6 py-3 rounded-lg hover:bg-gray-300 transition-colors" onclick="closeReviewModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Support Modal -->
+    <div id="supportModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div class="bg-surface rounded-lg max-w-md w-full p-6 shadow-xl">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-xl font-semibold text-text-primary" id="supportModalTitle">Contact Support</h3>
+                <button class="text-text-secondary hover:text-text-primary" onclick="closeSupportModal()">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+
+            <form id="supportForm" class="space-y-6">
+                <!-- Support Type -->
+                <div>
+                    <label class="block text-sm font-medium text-text-primary mb-2">Issue Category</label>
+                    <select class="input-field" required>
+                        <option value>Select category</option>
+                        <option value="booking">Booking Issues</option>
+                        <option value="payment">Payment Problems</option>
+                        <option value="vehicle">Vehicle Issues</option>
+                        <option value="driver">Driver Concerns</option>
+                        <option value="refund">Refund Request</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <!-- Subject -->
+                <div>
+                    <label class="block text-sm font-medium text-text-primary mb-2">Subject</label>
+                    <input type="text" class="input-field" placeholder="Brief description of your issue" required />
+                </div>
+
+                <!-- Message -->
+                <div>
+                    <label class="block text-sm font-medium text-text-primary mb-2">Message</label>
+                    <textarea class="input-field" rows="4" placeholder="Please describe your issue in detail..." required></textarea>
+                </div>
+
+                <!-- Priority -->
+                <div>
+                    <label class="block text-sm font-medium text-text-primary mb-2">Priority</label>
+                    <div class="flex space-x-4">
+                        <label class="flex items-center">
+                            <input type="radio" name="priority" value="low" class="mr-2" />
+                            <span class="text-sm">Low</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="priority" value="medium" class="mr-2" checked />
+                            <span class="text-sm">Medium</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="priority" value="high" class="mr-2" />
+                            <span class="text-sm">High</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="flex space-x-4">
+                    <button type="submit" class="btn-primary flex-1 py-3">Submit Ticket</button>
+                    <button type="button" class="bg-gray-200 text-text-primary px-6 py-3 rounded-lg hover:bg-gray-300 transition-colors" onclick="closeSupportModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Booking Details Modal -->
+    <div id="bookingDetailsModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div class="bg-surface rounded-lg max-w-2xl w-full p-6 shadow-xl max-h-96 overflow-y-auto">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-xl font-semibold text-text-primary">Booking Details</h3>
+                <button class="text-text-secondary hover:text-text-primary" onclick="closeBookingDetailsModal()">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+
+            <div id="bookingDetailsContent" class="space-y-6">
+                <!-- Content will be populated dynamically -->
+            </div>
+
+            <div class="flex justify-end mt-6">
+                <button class="bg-gray-200 text-text-primary px-6 py-2 rounded-lg hover:bg-gray-300 transition-colors" onclick="closeBookingDetailsModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeDashboard();
+            initializeStarRatings();
+            initializeFAQs();
+        });
+
+        // Initialize dashboard functionality
+        function initializeDashboard() {
+            // Navigation buttons
+            document.querySelectorAll('.dashboard-nav-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const section = this.dataset.section;
+                    showSection(section);
+                });
+            });
+
+            // Profile form submission
+            document.getElementById('profileForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                saveProfile();
+            });
+
+            // Review form submission
+            document.getElementById('reviewForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                submitReview();
+            });
+
+            // Support form submission
+            document.getElementById('supportForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                submitSupportTicket();
+            });
+        }
+
+        // Show specific dashboard section
+        function showSection(sectionName) {
+            // Hide all sections
+            document.querySelectorAll('.dashboard-section').forEach(section => {
+                section.classList.add('hidden');
+            });
+
+            // Show target section
+            document.getElementById(`${sectionName}-section`).classList.remove('hidden');
+
+            // Update navigation
+            document.querySelectorAll('.dashboard-nav-btn').forEach(btn => {
+                btn.classList.remove('active', 'bg-primary', 'text-white');
+                btn.classList.add('text-text-secondary', 'hover:bg-gray-100');
+            });
+
+            const activeBtn = document.querySelector(`[data-section="${sectionName}"]`);
+            if (activeBtn) {
+                activeBtn.classList.add('active', 'bg-primary', 'text-white');
+                activeBtn.classList.remove('text-text-secondary', 'hover:bg-gray-100');
+            }
+        }
+
+        // Profile editing functionality
+        function toggleProfileEdit() {
+            const inputs = document.querySelectorAll('#profileForm input, #profileForm textarea');
+            const editButtons = document.getElementById('profileEditButtons');
+            const isReadonly = inputs[0].readOnly;
+
+            inputs.forEach(input => {
+                input.readOnly = !isReadonly;
+                if (!isReadonly) {
+                    input.classList.add('bg-gray-100');
+                } else {
+                    input.classList.remove('bg-gray-100');
+                }
+            });
+
+            if (isReadonly) {
+                editButtons.classList.remove('hidden');
+            } else {
+                editButtons.classList.add('hidden');
+            }
+        }
+
+        // Save profile changes
+        function saveProfile() {
+            // Simulate API call
+            setTimeout(() => {
+                alert('Profile updated successfully!');
+                toggleProfileEdit();
+            }, 1000);
+        }
+
+        // Initialize star ratings
+        function initializeStarRatings() {
+            document.querySelectorAll('.star-rating').forEach(rating => {
+                const stars = rating.querySelectorAll('.star');
+                let selectedRating = 0;
+
+                stars.forEach((star, index) => {
+                    star.addEventListener('click', function() {
+                        selectedRating = this.dataset.value;
+                        updateStarDisplay(rating, selectedRating);
+                        rating.dataset.selectedRating = selectedRating;
+                    });
+
+                    star.addEventListener('mouseenter', function() {
+                        updateStarDisplay(rating, this.dataset.value);
+                    });
+                });
+
+                rating.addEventListener('mouseleave', function() {
+                    updateStarDisplay(rating, selectedRating);
+                });
+            });
+        }
+
+        // Update star display
+        function updateStarDisplay(ratingContainer, rating) {
+            const stars = ratingContainer.querySelectorAll('.star');
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.classList.add('text-yellow-400');
+                    star.classList.remove('text-gray-300');
+                } else {
+                    star.classList.remove('text-yellow-400');
+                    star.classList.add('text-gray-300');
+                }
+            });
+        }
+
+        // Open review modal
+        function openReviewModal(bookingId) {
+            const modal = document.getElementById('reviewModal');
+            const bookingInfo = document.getElementById('reviewBookingInfo');
+            
+            // Sample booking data - would come from API
+            const bookingData = {
+                'RJ2025001234': {
+                    vehicle: 'BMW 3 Series',
+                    driver: 'Ravi Kumar',
+                    date: 'Jan 15, 2025',
+                    hasDriver: true
+                }
+            };
+
+            const booking = bookingData[bookingId];
+            if (booking) {
+                bookingInfo.innerHTML = `
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h4 class="font-semibold text-text-primary">${booking.vehicle}</h4>
+                            <p class="text-text-secondary text-sm">Booking ID: ${bookingId}</p>
+                            <p class="text-text-secondary text-sm">Date: ${booking.date}</p>
+                        </div>
+                    </div>
+                `;
+
+                // Show/hide driver rating section
+                const driverSection = document.getElementById('driverRatingSection');
+                if (booking.hasDriver) {
+                    driverSection.style.display = 'block';
+                } else {
+                    driverSection.style.display = 'none';
+                }
+
+                modal.classList.remove('hidden');
+            }
+        }
+
+        // Close review modal
+        function closeReviewModal() {
+            document.getElementById('reviewModal').classList.add('hidden');
+            // Reset star ratings
+            document.querySelectorAll('.star-rating').forEach(rating => {
+                updateStarDisplay(rating, 0);
+                rating.dataset.selectedRating = 0;
+            });
+        }
+
+        // Submit review
+        function submitReview() {
+            const vehicleRating = document.querySelector('[data-rating="vehicle"]').dataset.selectedRating || 0;
+            const driverRating = document.querySelector('[data-rating="driver"]').dataset.selectedRating || 0;
+            const reviewText = document.querySelector('#reviewForm textarea').value;
+
+            if (vehicleRating === 0) {
+                alert('Please provide a vehicle rating');
+                return;
+            }
+
+            // Simulate API call
+            setTimeout(() => {
+                alert('Review submitted successfully!');
+                closeReviewModal();
+                // Refresh the page or update the reviews section
+                location.reload();
+            }, 1000);
+        }
+
+        // Open support modal
+        function openSupportModal(type) {
+            const modal = document.getElementById('supportModal');
+            const title = document.getElementById('supportModalTitle');
+            
+            const titles = {
+                'emergency': 'Emergency Support',
+                'general': 'General Support',
+                'feedback': 'Send Feedback'
+            };
+
+            title.textContent = titles[type] || 'Contact Support';
+            modal.classList.remove('hidden');
+        }
+
+        // Close support modal
+        function closeSupportModal() {
+            document.getElementById('supportModal').classList.add('hidden');
+            document.getElementById('supportForm').reset();
+        }
+
+        // Submit support ticket
+        function submitSupportTicket() {
+            // Simulate API call
+            setTimeout(() => {
+                alert('Support ticket submitted successfully! We will get back to you soon.');
+                closeSupportModal();
+            }, 1000);
+        }
+
+        // View booking details
+        function viewBookingDetails(bookingId) {
+            const modal = document.getElementById('bookingDetailsModal');
+            const content = document.getElementById('bookingDetailsContent');
+            
+            // Sample detailed booking data - would come from API
+            const detailsHTML = `
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <h4 class="font-semibold text-text-primary border-b border-border pb-2">Booking Information</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">Booking ID:</span>
+                                <span class="font-medium">${bookingId}</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">Vehicle:</span>
+                                <span class="font-medium">BMW 3 Series</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">Driver:</span>
+                                <span class="font-medium">Ravi Kumar</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">Duration:</span>
+                                <span class="font-medium">3 days</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <h4 class="font-semibold text-text-primary border-b border-border pb-2">Customer Information</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">Name:</span>
+                                <span class="font-medium">Rajesh Kumar</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">Phone:</span>
+                                <span class="font-medium">+91 98765 43210</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">NIC:</span>
+                                <span class="font-medium">123456789V</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">Address:</span>
+                                <span class="font-medium">No. 45, Galle Road, Colombo 03</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4 md:col-span-2">
+                        <h4 class="font-semibold text-text-primary border-b border-border pb-2">Trip Details</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                            <div class="space-y-2">
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Pickup Location:</span>
+                                    <span class="font-medium">Colombo Airport</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Drop Location:</span>
+                                    <span class="font-medium">Hotel Grand Oriental</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Pickup Date:</span>
+                                    <span class="font-medium">Jan 15, 2025 - 10:00 AM</span>
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">KM Package:</span>
+                                    <span class="font-medium">300 KM/day</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Total Amount:</span>
+                                    <span class="font-medium text-primary">₹25,500</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Payment Status:</span>
+                                    <span class="font-medium text-success">Paid</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            content.innerHTML = detailsHTML;
+            modal.classList.remove('hidden');
+        }
+
+        // Close booking details modal
+        function closeBookingDetailsModal() {
+            document.getElementById('bookingDetailsModal').classList.add('hidden');
+        }
+
+        // Initialize FAQs
+        function initializeFAQs() {
+            document.querySelectorAll('.faq-toggle').forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    const target = document.getElementById(this.dataset.target);
+                    const icon = this.querySelector('i');
+                    
+                    if (target.classList.contains('hidden')) {
+                        target.classList.remove('hidden');
+                        icon.style.transform = 'rotate(180deg)';
+                    } else {
+                        target.classList.add('hidden');
+                        icon.style.transform = 'rotate(0deg)';
+                    }
+                });
+            });
+        }
+
+        // Initialize with overview section
+        showSection('overview');
+    </script>
+</body>
+</html>

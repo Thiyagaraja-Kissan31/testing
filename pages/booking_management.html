@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booking Management - RJ Sons Travels</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Frjsonstr4320back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.6"></script>
+</head>
+<body class="min-h-screen bg-background">
+    <!-- Header -->
+    <header class="bg-surface shadow-md border-b border-border-light sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mr-3">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.22.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-semibold text-text-primary">RJ Sons Travels</span>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="admin_dashboard.html" class="text-text-secondary hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">
+                        <i class="fas fa-tachometer-alt mr-2"></i>Dashboard
+                    </a>
+                    <a href="vehicle_management.html" class="text-text-secondary hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">
+                        <i class="fas fa-car mr-2"></i>Vehicles
+                    </a>
+                    <a href="booking_management.html" class="bg-primary-50 text-primary border-b-2 border-primary px-3 py-2 rounded-md text-sm font-medium">
+                        <i class="fas fa-calendar-check mr-2"></i>Bookings
+                    </a>
+                    <a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">
+                        <i class="fas fa-users mr-2"></i>Drivers
+                    </a>
+                    <a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">
+                        <i class="fas fa-chart-bar mr-2"></i>Reports
+                    </a>
+                </nav>
+
+                <!-- User Menu -->
+                <div class="flex items-center space-x-4">
+                    <button class="text-text-secondary hover:text-primary transition-colors">
+                        <i class="fas fa-bell text-lg"></i>
+                        <span class="absolute -mt-1 ml-2 px-1.5 py-0.5 text-xs bg-secondary text-white rounded-full">3</span>
+                    </button>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                            <i class="fas fa-user text-white text-sm"></i>
+                        </div>
+                        <div class="hidden md:block">
+                            <p class="text-sm font-medium text-text-primary">Admin User</p>
+                            <p class="text-xs text-text-secondary">Administrator</p>
+                        </div>
+                        <button class="text-text-secondary hover:text-primary transition-colors">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Page Header -->
+        <div class="mb-8">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-3xl font-bold text-text-primary">Booking Management</h1>
+                    <p class="text-text-secondary mt-1">Manage and track all customer bookings</p>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <button class="btn-accent">
+                        <i class="fas fa-download mr-2"></i>Export Data
+                    </button>
+                    <button class="btn-primary">
+                        <i class="fas fa-plus mr-2"></i>New Booking
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="card">
+                <div class="flex items-center">
+                    <div class="p-3 bg-primary-50 rounded-lg">
+                        <i class="fas fa-calendar-check text-primary text-xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm text-text-secondary">Total Bookings</p>
+                        <p class="text-2xl font-semibold text-text-primary">1,247</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="flex items-center">
+                    <div class="p-3 bg-success-50 rounded-lg">
+                        <i class="fas fa-check-circle text-success text-xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm text-text-secondary">Confirmed</p>
+                        <p class="text-2xl font-semibold text-text-primary">892</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="flex items-center">
+                    <div class="p-3 bg-warning-50 rounded-lg">
+                        <i class="fas fa-clock text-warning text-xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm text-text-secondary">Pending</p>
+                        <p class="text-2xl font-semibold text-text-primary">234</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="flex items-center">
+                    <div class="p-3 bg-accent-50 rounded-lg">
+                        <i class="fas fa-rupee-sign text-accent text-xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm text-text-secondary">Revenue</p>
+                        <p class="text-2xl font-semibold text-text-primary">₹8,45,230</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filters Section -->
+        <div class="card mb-6">
+            <div class="flex flex-wrap items-center gap-4">
+                <!-- Search -->
+                <div class="flex-1 min-w-64">
+                    <div class="relative">
+                        <input type="text" id="searchBooking" placeholder="Search by booking ID or customer name..." class="input-field pl-10 pr-4" />
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-search text-text-secondary"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Date Range -->
+                <div class="flex items-center space-x-2">
+                    <input type="date" id="startDate" class="input-field" value="2025-01-01" />
+                    <span class="text-text-secondary">to</span>
+                    <input type="date" id="endDate" class="input-field" value="2025-07-14" />
+                </div>
+
+                <!-- Status Filter -->
+                <select id="statusFilter" class="input-field">
+                    <option value>All Status</option>
+                    <option value="confirmed">Confirmed</option>
+                    <option value="pending">Pending</option>
+                    <option value="cancelled">Cancelled</option>
+                    <option value="completed">Completed</option>
+                </select>
+
+                <!-- Category Filter -->
+                <select id="categoryFilter" class="input-field">
+                    <option value>All Categories</option>
+                    <option value="self-drive">Self-Drive Rental</option>
+                    <option value="event">Event Hire</option>
+                    <option value="tourist">Tourist Packages</option>
+                    <option value="corporate">Corporate Booking</option>
+                    <option value="luxury">Luxury Vehicles</option>
+                </select>
+
+                <!-- Payment Filter -->
+                <select id="paymentFilter" class="input-field">
+                    <option value>All Payments</option>
+                    <option value="paid">Paid</option>
+                    <option value="pending">Pending</option>
+                    <option value="partial">Partial</option>
+                </select>
+
+                <!-- Reset Button -->
+                <button id="resetFilters" class="px-4 py-2 bg-gray-100 text-text-secondary rounded-lg hover:bg-gray-200 transition-colors">
+                    <i class="fas fa-undo mr-2"></i>Reset
+                </button>
+            </div>
+        </div>
+
+        <!-- Bookings Table -->
+        <div class="card overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-border">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
+                                Booking ID
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
+                                Date
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
+                                Customer
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
+                                Vehicle
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
+                                Driver
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
+                                Duration
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
+                                Purpose
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
+                                Payment
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
+                                Status
+                            </th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
+                                Actions
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="bookingsTableBody" class="bg-white divide-y divide-border">
+                        <!-- Booking rows will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            <div class="bg-gray-50 px-6 py-3 flex items-center justify-between border-t border-border">
+                <div class="flex-1 flex justify-between sm:hidden">
+                    <button class="relative inline-flex items-center px-4 py-2 border border-border text-sm font-medium rounded-md text-text-secondary bg-white hover:bg-gray-50">
+                        Previous
+                    </button>
+                    <button class="ml-3 relative inline-flex items-center px-4 py-2 border border-border text-sm font-medium rounded-md text-text-secondary bg-white hover:bg-gray-50">
+                        Next
+                    </button>
+                </div>
+                <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+                    <div>
+                        <p class="text-sm text-text-secondary">
+                            Showing <span class="font-medium">1</span> to <span class="font-medium">10</span> of <span class="font-medium">97</span> results
+                        </p>
+                    </div>
+                    <div>
+                        <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px">
+                            <button class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-border bg-white text-sm font-medium text-text-secondary hover:bg-gray-50">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="relative inline-flex items-center px-4 py-2 border border-border bg-primary text-sm font-medium text-white">1</button>
+                            <button class="relative inline-flex items-center px-4 py-2 border border-border bg-white text-sm font-medium text-text-secondary hover:bg-gray-50">2</button>
+                            <button class="relative inline-flex items-center px-4 py-2 border border-border bg-white text-sm font-medium text-text-secondary hover:bg-gray-50">3</button>
+                            <button class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-border bg-white text-sm font-medium text-text-secondary hover:bg-gray-50">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Booking Details Modal -->
+    <div id="bookingModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div class="bg-surface rounded-lg max-w-4xl w-full max-h-screen overflow-y-auto">
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between p-6 border-b border-border">
+                <h3 class="text-xl font-semibold text-text-primary">Booking Details</h3>
+                <button id="closeModal" class="text-text-secondary hover:text-text-primary transition-colors">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Modal Content -->
+            <div class="p-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Booking Information -->
+                    <div>
+                        <h4 class="text-lg font-medium text-text-primary mb-4">Booking Information</h4>
+                        <div class="space-y-3">
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">Booking ID:</span>
+                                <span class="font-medium text-text-primary" id="modalBookingId">BK001</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">Booking Date:</span>
+                                <span class="font-medium text-text-primary" id="modalBookingDate">14/07/2025</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">Vehicle:</span>
+                                <span class="font-medium text-text-primary" id="modalVehicle">Toyota Innova</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">Driver:</span>
+                                <span class="font-medium text-text-primary" id="modalDriver">Rajesh Kumar</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">Duration:</span>
+                                <span class="font-medium text-text-primary" id="modalDuration">3 Days</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">Purpose:</span>
+                                <span class="font-medium text-text-primary" id="modalPurpose">Tourist Package</span>
+                            </div>
+                        </div>
+
+                        <!-- Pickup/Drop Locations -->
+                        <div class="mt-6">
+                            <h5 class="font-medium text-text-primary mb-3">Locations</h5>
+                            <div class="space-y-2">
+                                <div class="flex items-start">
+                                    <i class="fas fa-map-marker-alt text-success mt-1 mr-2"></i>
+                                    <div>
+                                        <p class="text-sm text-text-secondary">Pickup</p>
+                                        <p class="font-medium text-text-primary" id="modalPickup">Chennai Airport</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-map-marker-alt text-secondary mt-1 mr-2"></i>
+                                    <div>
+                                        <p class="text-sm text-text-secondary">Drop</p>
+                                        <p class="font-medium text-text-primary" id="modalDrop">Coimbatore Railway Station</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Customer & Payment Information -->
+                    <div>
+                        <h4 class="text-lg font-medium text-text-primary mb-4">Customer Details</h4>
+                        <div class="space-y-3">
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">Name:</span>
+                                <span class="font-medium text-text-primary" id="modalCustomerName">Priya Sharma</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">Phone:</span>
+                                <span class="font-medium text-text-primary" id="modalCustomerPhone">+91 98765 43210</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">Email:</span>
+                                <span class="font-medium text-text-primary" id="modalCustomerEmail">priya.sharma@email.com</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">NIC:</span>
+                                <span class="font-medium text-text-primary" id="modalCustomerNIC">1234 5678 9012</span>
+                            </div>
+                        </div>
+
+                        <!-- Payment Information -->
+                        <div class="mt-6">
+                            <h5 class="font-medium text-text-primary mb-3">Payment Details</h5>
+                            <div class="space-y-3">
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Total Amount:</span>
+                                    <span class="font-semibold text-text-primary text-lg" id="modalAmount">₹15,500</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Payment Mode:</span>
+                                    <span class="font-medium text-text-primary" id="modalPaymentMode">Card</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-text-secondary">Payment Status:</span>
+                                    <span class="px-2 py-1 text-xs font-medium rounded-full bg-success-50 text-success-600" id="modalPaymentStatus">Paid</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="mt-6 space-y-3">
+                            <button class="w-full btn-primary">
+                                <i class="fas fa-download mr-2"></i>Download Invoice
+                            </button>
+                            <div class="grid grid-cols-2 gap-3">
+                                <button class="btn-accent">
+                                    <i class="fas fa-edit mr-2"></i>Modify
+                                </button>
+                                <button class="bg-secondary text-white px-4 py-2 rounded-lg font-medium hover:bg-secondary-700 transition-colors">
+                                    <i class="fas fa-times mr-2"></i>Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample booking data
+        const bookingsData = [
+            {
+                id: 'BK001',
+                date: '14/07/2025',
+                customer: 'Priya Sharma',
+                vehicle: 'Toyota Innova',
+                driver: 'Rajesh Kumar',
+                duration: '3 Days',
+                purpose: 'Tourist Package',
+                amount: '₹15,500',
+                paymentMode: 'Card',
+                paymentStatus: 'paid',
+                status: 'confirmed',
+                pickup: 'Chennai Airport',
+                drop: 'Coimbatore Railway Station',
+                phone: '+91 98765 43210',
+                email: 'priya.sharma@email.com',
+                nic: '1234 5678 9012'
+            },
+            {
+                id: 'BK002',
+                date: '13/07/2025',
+                customer: 'Arjun Patel',
+                vehicle: 'Maruti Swift',
+                driver: 'Self-Drive',
+                duration: '1 Day',
+                purpose: 'Self-Drive Rental',
+                amount: '₹2,800',
+                paymentMode: 'Cash',
+                paymentStatus: 'pending',
+                status: 'pending',
+                pickup: 'T. Nagar, Chennai',
+                drop: 'T. Nagar, Chennai',
+                phone: '+91 87654 32109',
+                email: 'arjun.patel@email.com',
+                nic: '2345 6789 0123'
+            },
+            {
+                id: 'BK003',
+                date: '12/07/2025',
+                customer: 'Meera Reddy',
+                vehicle: 'BMW 5 Series',
+                driver: 'Suresh Babu',
+                duration: '2 Days',
+                purpose: 'Corporate Booking',
+                amount: '₹25,000',
+                paymentMode: 'Card',
+                paymentStatus: 'paid',
+                status: 'completed',
+                pickup: 'IT Park, Chennai',
+                drop: 'Airport, Chennai',
+                phone: '+91 76543 21098',
+                email: 'meera.reddy@company.com',
+                nic: '3456 7890 1234'
+            },
+            {
+                id: 'BK004',
+                date: '11/07/2025',
+                customer: 'Vikram Singh',
+                vehicle: 'Tempo Traveller',
+                driver: 'Murugan',
+                duration: '1 Day',
+                purpose: 'Event Hire',
+                amount: '₹8,500',
+                paymentMode: 'Card',
+                paymentStatus: 'partial',
+                status: 'confirmed',
+                pickup: 'Wedding Hall, Coimbatore',
+                drop: 'Wedding Hall, Coimbatore',
+                phone: '+91 65432 10987',
+                email: 'vikram.singh@email.com',
+                nic: '4567 8901 2345'
+            },
+            {
+                id: 'BK005',
+                date: '10/07/2025',
+                customer: 'Anita Krishnan',
+                vehicle: 'Audi A6',
+                driver: 'Ravi Kumar',
+                duration: '4 Hours',
+                purpose: 'Luxury Vehicles',
+                amount: '₹12,000',
+                paymentMode: 'Card',
+                paymentStatus: 'paid',
+                status: 'confirmed',
+                pickup: 'Hotel Taj, Chennai',
+                drop: 'Marina Beach, Chennai',
+                phone: '+91 54321 09876',
+                email: 'anita.krishnan@email.com',
+                nic: '5678 9012 3456'
+            }
+        ];
+
+        // Function to get status badge HTML
+        function getStatusBadge(status) {
+            const statusClasses = {
+                'confirmed': 'bg-success-50 text-success-600',
+                'pending': 'bg-warning-50 text-warning-600',
+                'cancelled': 'bg-error-50 text-error-500',
+                'completed': 'bg-primary-50 text-primary'
+            };
+            return `<span class="px-2 py-1 text-xs font-medium rounded-full ${statusClasses[status] || 'bg-gray-50 text-gray-600'}">${status.charAt(0).toUpperCase() + status.slice(1)}</span>`;
+        }
+
+        // Function to get payment status badge HTML
+        function getPaymentBadge(status) {
+            const statusClasses = {
+                'paid': 'bg-success-50 text-success-600',
+                'pending': 'bg-warning-50 text-warning-600',
+                'partial': 'bg-accent-50 text-accent-600'
+            };
+            return `<span class="px-2 py-1 text-xs font-medium rounded-full ${statusClasses[status] || 'bg-gray-50 text-gray-600'}">${status.charAt(0).toUpperCase() + status.slice(1)}</span>`;
+        }
+
+        // Function to render bookings table
+        function renderBookingsTable(data = bookingsData) {
+            const tbody = document.getElementById('bookingsTableBody');
+            tbody.innerHTML = '';
+
+            data.forEach(booking => {
+                const row = document.createElement('tr');
+                row.className = 'hover:bg-gray-50 cursor-pointer';
+                row.onclick = () => openBookingModal(booking);
+                
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-primary">${booking.id}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-text-primary">${booking.date}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-text-primary">${booking.customer}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-text-primary">${booking.vehicle}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-text-primary">${booking.driver}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-text-primary">${booking.duration}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-text-primary">${booking.purpose}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-text-primary">${getPaymentBadge(booking.paymentStatus)}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-text-primary">${getStatusBadge(booking.status)}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-text-primary">
+                        <div class="flex space-x-2">
+                            <button class="text-primary hover:text-primary-700 transition-colors" onclick="event.stopPropagation(); openBookingModal(${JSON.stringify(booking).replace(/"/g, '&quot;')})">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="text-accent hover:text-accent-600 transition-colors" onclick="event.stopPropagation();">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="text-secondary hover:text-secondary-700 transition-colors" onclick="event.stopPropagation();">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        // Function to open booking modal
+        function openBookingModal(booking) {
+            document.getElementById('modalBookingId').textContent = booking.id;
+            document.getElementById('modalBookingDate').textContent = booking.date;
+            document.getElementById('modalVehicle').textContent = booking.vehicle;
+            document.getElementById('modalDriver').textContent = booking.driver;
+            document.getElementById('modalDuration').textContent = booking.duration;
+            document.getElementById('modalPurpose').textContent = booking.purpose;
+            document.getElementById('modalPickup').textContent = booking.pickup;
+            document.getElementById('modalDrop').textContent = booking.drop;
+            document.getElementById('modalCustomerName').textContent = booking.customer;
+            document.getElementById('modalCustomerPhone').textContent = booking.phone;
+            document.getElementById('modalCustomerEmail').textContent = booking.email;
+            document.getElementById('modalCustomerNIC').textContent = booking.nic;
+            document.getElementById('modalAmount').textContent = booking.amount;
+            document.getElementById('modalPaymentMode').textContent = booking.paymentMode;
+            document.getElementById('modalPaymentStatus').innerHTML = getPaymentBadge(booking.paymentStatus);
+            
+            document.getElementById('bookingModal').classList.remove('hidden');
+        }
+
+        // Function to close booking modal
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.add('hidden');
+        }
+
+        // Function to filter bookings
+        function filterBookings() {
+            const searchTerm = document.getElementById('searchBooking').value.toLowerCase();
+            const statusFilter = document.getElementById('statusFilter').value;
+            const categoryFilter = document.getElementById('categoryFilter').value;
+            const paymentFilter = document.getElementById('paymentFilter').value;
+            const startDate = document.getElementById('startDate').value;
+            const endDate = document.getElementById('endDate').value;
+
+            let filteredData = bookingsData.filter(booking => {
+                const matchesSearch = booking.id.toLowerCase().includes(searchTerm) || 
+                                    booking.customer.toLowerCase().includes(searchTerm);
+                const matchesStatus = !statusFilter || booking.status === statusFilter;
+                const matchesPayment = !paymentFilter || booking.paymentStatus === paymentFilter;
+                
+                return matchesSearch && matchesStatus && matchesPayment;
+            });
+
+            renderBookingsTable(filteredData);
+        }
+
+        // Function to reset filters
+        function resetFilters() {
+            document.getElementById('searchBooking').value = '';
+            document.getElementById('statusFilter').value = '';
+            document.getElementById('categoryFilter').value = '';
+            document.getElementById('paymentFilter').value = '';
+            document.getElementById('startDate').value = '2025-01-01';
+            document.getElementById('endDate').value = '2025-07-14';
+            renderBookingsTable();
+        }
+
+        // Event listeners
+        document.getElementById('closeModal').addEventListener('click', closeBookingModal);
+        document.getElementById('bookingModal').addEventListener('click', function(e) {
+            if (e.target === this) closeBookingModal();
+        });
+
+        document.getElementById('searchBooking').addEventListener('input', filterBookings);
+        document.getElementById('statusFilter').addEventListener('change', filterBookings);
+        document.getElementById('categoryFilter').addEventListener('change', filterBookings);
+        document.getElementById('paymentFilter').addEventListener('change', filterBookings);
+        document.getElementById('startDate').addEventListener('change', filterBookings);
+        document.getElementById('endDate').addEventListener('change', filterBookings);
+        document.getElementById('resetFilters').addEventListener('click', resetFilters);
+
+        // Initialize table
+        renderBookingsTable();
+
+        // Escape key to close modal
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeBookingModal();
+            }
+        });
+    </script>
+</body>
+</html>

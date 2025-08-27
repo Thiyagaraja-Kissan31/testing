@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Login - RJ Sons Travels</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Frjsonstr4320back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.6"></script>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-primary-50 via-background to-accent-50 flex items-center justify-center p-4">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-5">
+        <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,<svg width=" 60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23000000" fill-opacity="0.1"><circle cx="30" cy="30" r="2"></circle></g>'); background-size: 60px 60px;"></g></div>
+    </div>
+
+    <!-- Login Container -->
+    <div class="relative w-full max-w-md">
+        <!-- Company Branding -->
+        <div class="text-center mb-8">
+            <div class="inline-flex items-center justify-center w-20 h-20 bg-primary rounded-2xl shadow-lg mb-4">
+                <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.22.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/>
+                </svg>
+            </div>
+            <h1 class="text-3xl font-bold text-primary mb-2">RJ Sons Travels</h1>
+            <p class="text-text-secondary">Admin Portal Access</p>
+        </div>
+
+        <!-- Login Card -->
+        <div class="card shadow-xl border-0 bg-surface/95 backdrop-blur-sm">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-semibold text-text-primary mb-2">Welcome Back</h2>
+                <p class="text-text-secondary">Sign in to your admin account</p>
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="space-y-6">
+                <!-- Email Field -->
+                <div>
+                    <label for="email" class="block text-sm font-medium text-text-primary mb-2">
+                        <i class="fas fa-envelope mr-2 text-primary"></i>Email Address
+                    </label>
+                    <div class="relative">
+                        <input type="email" id="email" name="email" class="input-field pl-10 pr-4" placeholder="admin@rjsonstravels.com" required />
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-envelope text-text-secondary"></i>
+                        </div>
+                    </div>
+                    <div id="emailError" class="hidden mt-1 text-sm text-error-500">
+                        <i class="fas fa-exclamation-circle mr-1"></i>
+                        Please enter a valid email address
+                    </div>
+                </div>
+
+                <!-- Password Field -->
+                <div>
+                    <label for="password" class="block text-sm font-medium text-text-primary mb-2">
+                        <i class="fas fa-lock mr-2 text-primary"></i>Password
+                    </label>
+                    <div class="relative">
+                        <input type="password" id="password" name="password" class="input-field pl-10 pr-12" placeholder="Enter your password" required />
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-lock text-text-secondary"></i>
+                        </div>
+                        <button type="button" id="togglePassword" class="absolute inset-y-0 right-0 pr-3 flex items-center text-text-secondary hover:text-primary transition-colors">
+                            <i class="fas fa-eye" id="eyeIcon"></i>
+                        </button>
+                    </div>
+                    <div id="passwordError" class="hidden mt-1 text-sm text-error-500">
+                        <i class="fas fa-exclamation-circle mr-1"></i>
+                        Password is required
+                    </div>
+                </div>
+
+                <!-- Remember Me & Forgot Password -->
+                <div class="flex items-center justify-between">
+                    <label class="flex items-center">
+                        <input type="checkbox" id="rememberMe" class="w-4 h-4 text-primary border-border rounded focus:ring-primary-500 focus:ring-2" />
+                        <span class="ml-2 text-sm text-text-secondary">Remember me</span>
+                    </label>
+                    <a href="javascript:void(0)" class="text-sm text-primary hover:text-primary-700 transition-colors">
+                        Forgot password?
+                    </a>
+                </div>
+
+                <!-- Login Button -->
+                <button type="submit" id="loginBtn" class="w-full btn-primary py-3 text-base font-medium hover-lift disabled:opacity-50 disabled:cursor-not-allowed">
+                    <span id="loginBtnText">
+                        <i class="fas fa-sign-in-alt mr-2"></i>Sign In
+                    </span>
+                    <span id="loginSpinner" class="hidden">
+                        <i class="fas fa-spinner fa-spin mr-2"></i>Signing In...
+                    </span>
+                </button>
+
+                <!-- Error Message -->
+                <div id="loginError" class="hidden p-3 bg-error-50 border border-error-100 rounded-lg">
+                    <div class="flex items-center">
+                        <i class="fas fa-exclamation-triangle text-error-500 mr-2"></i>
+                        <span class="text-sm text-error-500" id="loginErrorText">Invalid credentials. Please try again.</span>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Additional Links -->
+            <div class="mt-6 pt-6 border-t border-border-light">
+                <div class="text-center">
+                    <p class="text-sm text-text-secondary mb-3">Not an admin?</p>
+                    <a href="customer_login_registration.html" class="inline-flex items-center text-primary hover:text-primary-700 transition-colors font-medium">
+                        <i class="fas fa-user mr-2"></i>Customer Login
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center mt-8">
+            <p class="text-sm text-text-secondary">
+                © 2025 RJ Sons Travels. All Rights Reserved.
+            </p>
+            <div class="flex items-center justify-center mt-2 space-x-4">
+                <span class="inline-flex items-center text-xs text-success-600">
+                    <i class="fas fa-shield-alt mr-1"></i>Secure Login
+                </span>
+                <span class="inline-flex items-center text-xs text-primary">
+                    <i class="fas fa-clock mr-1"></i>24/7 Support
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Session Timeout Warning Modal (Hidden by default) -->
+    <div id="sessionModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-surface rounded-lg p-6 max-w-sm mx-4 shadow-xl">
+            <div class="text-center">
+                <i class="fas fa-clock text-warning-500 text-3xl mb-4"></i>
+                <h3 class="text-lg font-semibold text-text-primary mb-2">Session Timeout Warning</h3>
+                <p class="text-text-secondary mb-4">Your session will expire in 5 minutes. Would you like to extend it?</p>
+                <div class="flex space-x-3">
+                    <button class="flex-1 btn-primary py-2">Extend Session</button>
+                    <button class="flex-1 bg-gray-200 text-text-primary py-2 px-4 rounded-lg hover:bg-gray-300 transition-colors">Logout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Password visibility toggle
+        document.getElementById('togglePassword').addEventListener('click', function() {
+            const passwordField = document.getElementById('password');
+            const eyeIcon = document.getElementById('eyeIcon');
+            
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordField.type = 'password';
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            }
+        });
+
+        // Form validation and submission
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const loginBtn = document.getElementById('loginBtn');
+            const loginBtnText = document.getElementById('loginBtnText');
+            const loginSpinner = document.getElementById('loginSpinner');
+            const loginError = document.getElementById('loginError');
+            const emailError = document.getElementById('emailError');
+            const passwordError = document.getElementById('passwordError');
+            
+            // Reset errors
+            loginError.classList.add('hidden');
+            emailError.classList.add('hidden');
+            passwordError.classList.add('hidden');
+            
+            // Basic validation
+            let isValid = true;
+            
+            if (!email || !email.includes('@')) {
+                emailError.classList.remove('hidden');
+                isValid = false;
+            }
+            
+            if (!password) {
+                passwordError.classList.remove('hidden');
+                isValid = false;
+            }
+            
+            if (!isValid) return;
+            
+            // Show loading state
+            loginBtn.disabled = true;
+            loginBtnText.classList.add('hidden');
+            loginSpinner.classList.remove('hidden');
+            
+            // Simulate authentication (replace with actual API call)
+            setTimeout(() => {
+                // Mock authentication - replace with real logic
+                if (email === 'admin@rjsonstravels.com' && password === 'admin123') {
+                    // Success - redirect to dashboard
+                    window.location.href = 'admin_dashboard.html';
+                } else {
+                    // Show error
+                    loginError.classList.remove('hidden');
+                    loginBtn.disabled = false;
+                    loginBtnText.classList.remove('hidden');
+                    loginSpinner.classList.add('hidden');
+                }
+            }, 1500);
+        });
+
+        // Auto-focus email field
+        document.getElementById('email').focus();
+
+        // Enter key handling
+        document.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('loginForm').dispatchEvent(new Event('submit'));
+            }
+        });
+    </script>
+</body>
+</html>

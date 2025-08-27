@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer Support - RJ Sons Travels</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Frjsonstr4320back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.6"></script>
+</head>
+<body class="min-h-screen bg-background">
+    <!-- Header -->
+    <header class="bg-surface shadow-md border-b border-border-light sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="vehicle_booking.html" class="flex items-center">
+                        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mr-3">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.22.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold text-primary">RJ Sons Travels</span>
+                    </a>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="vehicle_booking.html" class="text-text-secondary hover:text-primary transition-colors">Book Vehicle</a>
+                    <a href="customer_dashboard.html" class="text-text-secondary hover:text-primary transition-colors">Dashboard</a>
+                    <a href="javascript:void(0)" class="text-text-secondary hover:text-primary transition-colors">Offers</a>
+                    <a href="customer_support.html" class="text-primary font-medium">Support</a>
+                </nav>
+
+                <!-- User Menu -->
+                <div class="flex items-center space-x-4">
+                    <div class="hidden md:flex items-center space-x-3">
+                        <span class="text-sm text-text-secondary">Welcome, Rajesh Kumar</span>
+                        <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                            <span class="text-white text-sm font-medium">R</span>
+                        </div>
+                    </div>
+                    <button class="md:hidden text-text-secondary">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Page Header -->
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-text-primary mb-2">Customer Support</h1>
+            <p class="text-text-secondary">We're here to help with all your travel needs</p>
+        </div>
+
+        <!-- Emergency Contact Banner -->
+        <div class="bg-secondary-50 border border-secondary-100 rounded-lg p-6 mb-8">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <i class="fas fa-exclamation-triangle text-secondary text-2xl mr-4"></i>
+                    <div>
+                        <h3 class="text-lg font-semibold text-text-primary">Emergency Support</h3>
+                        <p class="text-text-secondary text-sm">24/7 emergency assistance for urgent travel situations</p>
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+                    <a href="tel:+919876500000" class="btn-secondary px-6 py-3 text-center">
+                        <i class="fas fa-phone mr-2"></i>Call Now
+                    </a>
+                    <a href="sms:+919876500000" class="bg-white text-secondary border border-secondary px-6 py-3 rounded-lg font-medium hover:bg-secondary-50 transition-colors text-center">
+                        <i class="fas fa-sms mr-2"></i>SMS
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Main Support Content -->
+            <div class="lg:col-span-2 space-y-8">
+                <!-- Support Ticket Form -->
+                <div class="card">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-xl font-semibold text-text-primary">Submit Support Ticket</h2>
+                        <span class="bg-success-50 text-success-600 px-3 py-1 rounded-full text-sm font-medium">
+                            <i class="fas fa-clock mr-1"></i>Response within 2 hours
+                        </span>
+                    </div>
+
+                    <form id="supportTicketForm" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-2">Issue Category *</label>
+                                <select class="input-field" required>
+                                    <option value>Select category</option>
+                                    <option value="booking">Booking Issues</option>
+                                    <option value="payment">Payment Problems</option>
+                                    <option value="vehicle">Vehicle Concerns</option>
+                                    <option value="driver">Driver Feedback</option>
+                                    <option value="refund">Refund Request</option>
+                                    <option value="technical">Technical Issues</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-2">Priority Level</label>
+                                <select class="input-field">
+                                    <option value="medium" selected>Medium</option>
+                                    <option value="low">Low</option>
+                                    <option value="high">High</option>
+                                    <option value="urgent">Urgent</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-text-primary mb-2">Subject *</label>
+                            <input type="text" class="input-field" placeholder="Brief description of your issue" required />
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-text-primary mb-2">Booking ID (if applicable)</label>
+                            <input type="text" class="input-field" placeholder="e.g., RJ2025001234" />
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-text-primary mb-2">Detailed Description *</label>
+                            <textarea class="input-field" rows="5" placeholder="Please describe your issue in detail. Include any error messages, steps you took, and what you expected to happen." required></textarea>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-text-primary mb-2">Attachment (Optional)</label>
+                            <div class="border-2 border-dashed border-border rounded-lg p-6 text-center hover:border-primary transition-colors">
+                                <input type="file" id="attachment" class="hidden" accept=".jpg,.jpeg,.png,.pdf,.doc,.docx" multiple />
+                                <label for="attachment" class="cursor-pointer">
+                                    <i class="fas fa-cloud-upload-alt text-4xl text-text-secondary mb-3"></i>
+                                    <p class="text-text-secondary mb-2">Click to upload files or drag and drop</p>
+                                    <p class="text-xs text-text-secondary">Supported formats: JPG, PNG, PDF, DOC (Max 5MB per file)</p>
+                                </label>
+                            </div>
+                            <div id="attachmentList" class="hidden mt-3 space-y-2"></div>
+                        </div>
+
+                        <div class="flex space-x-4">
+                            <button type="submit" class="btn-primary px-8 py-3">
+                                <i class="fas fa-paper-plane mr-2"></i>Submit Ticket
+                            </button>
+                            <button type="reset" class="bg-gray-200 text-text-primary px-8 py-3 rounded-lg font-medium hover:bg-gray-300 transition-colors">
+                                <i class="fas fa-redo mr-2"></i>Reset Form
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Support Ticket History -->
+                <div class="card">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-xl font-semibold text-text-primary">Your Support Tickets</h2>
+                        <div class="flex space-x-2">
+                            <select class="input-field text-sm w-auto">
+                                <option>All Tickets</option>
+                                <option>Open</option>
+                                <option>In Progress</option>
+                                <option>Resolved</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- Ticket 1 -->
+                        <div class="border border-border rounded-lg p-4 hover:border-primary transition-colors">
+                            <div class="flex items-start justify-between mb-3">
+                                <div>
+                                    <h4 class="font-semibold text-text-primary">Refund Request - RJ2025001234</h4>
+                                    <p class="text-text-secondary text-sm">Payment problem with cancelled booking</p>
+                                    <p class="text-xs text-text-secondary mt-1">Ticket ID: ST2025000123</p>
+                                </div>
+                                <div class="flex flex-col items-end space-y-2">
+                                    <span class="bg-warning-50 text-warning px-2 py-1 rounded-full text-xs font-medium">In Progress</span>
+                                    <span class="text-xs text-text-secondary">Jan 21, 2025</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-4 text-sm text-text-secondary">
+                                    <span><i class="fas fa-tag mr-1"></i>Priority: High</span>
+                                    <span><i class="fas fa-clock mr-1"></i>Response in 1 hour</span>
+                                </div>
+                                <button class="text-primary hover:underline text-sm font-medium" onclick="viewTicketDetails('ST2025000123')">
+                                    View Details <i class="fas fa-arrow-right ml-1"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Ticket 2 -->
+                        <div class="border border-border rounded-lg p-4 hover:border-primary transition-colors">
+                            <div class="flex items-start justify-between mb-3">
+                                <div>
+                                    <h4 class="font-semibold text-text-primary">Vehicle Quality Feedback</h4>
+                                    <p class="text-text-secondary text-sm">Feedback about vehicle cleanliness and maintenance</p>
+                                    <p class="text-xs text-text-secondary mt-1">Ticket ID: ST2025000122</p>
+                                </div>
+                                <div class="flex flex-col items-end space-y-2">
+                                    <span class="bg-success-50 text-success-600 px-2 py-1 rounded-full text-xs font-medium">Resolved</span>
+                                    <span class="text-xs text-text-secondary">Jan 18, 2025</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-4 text-sm text-text-secondary">
+                                    <span><i class="fas fa-tag mr-1"></i>Priority: Medium</span>
+                                    <span><i class="fas fa-check mr-1"></i>Resolved in 4 hours</span>
+                                </div>
+                                <button class="text-primary hover:underline text-sm font-medium" onclick="viewTicketDetails('ST2025000122')">
+                                    View Details <i class="fas fa-arrow-right ml-1"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- No more tickets message -->
+                        <div class="text-center py-6 text-text-secondary">
+                            <i class="fas fa-ticket-alt text-4xl text-gray-300 mb-3"></i>
+                            <p>No more support tickets to display</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Section -->
+                <div class="card">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-xl font-semibold text-text-primary">Frequently Asked Questions</h2>
+                        <div class="relative">
+                            <input type="text" id="faqSearch" class="input-field pl-10 w-64" placeholder="Search FAQ..." />
+                            <i class="fas fa-search absolute left-3 top-3 text-text-secondary"></i>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4" id="faqContainer">
+                        <!-- FAQ Category: Booking -->
+                        <div class="faq-category" data-category="booking">
+                            <h3 class="font-semibold text-text-primary mb-3 border-b border-border pb-2">
+                                <i class="fas fa-calendar-alt mr-2 text-primary"></i>Booking Questions
+                            </h3>
+                            
+                            <div class="faq-item border border-border rounded-lg mb-3" data-keywords="cancel booking refund">
+                                <button class="w-full text-left p-4 font-medium text-text-primary hover:bg-gray-50 transition-colors faq-toggle" data-target="faq-booking-1">
+                                    <div class="flex items-center justify-between">
+                                        <span>How can I cancel my booking?</span>
+                                        <i class="fas fa-chevron-down transition-transform"></i>
+                                    </div>
+                                </button>
+                                <div id="faq-booking-1" class="hidden px-4 pb-4">
+                                    <p class="text-text-secondary text-sm">You can cancel your booking up to 24 hours before the scheduled pickup time through your dashboard or by calling our support team at +91 98765 43210. Cancellation charges may apply: Free cancellation (24+ hours before), 25% charge (6-24 hours before), 50% charge (2-6 hours before), No refund (less than 2 hours or no-show).</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item border border-border rounded-lg mb-3" data-keywords="modify change booking date time">
+                                <button class="w-full text-left p-4 font-medium text-text-primary hover:bg-gray-50 transition-colors faq-toggle" data-target="faq-booking-2">
+                                    <div class="flex items-center justify-between">
+                                        <span>Can I modify my booking after confirmation?</span>
+                                        <i class="fas fa-chevron-down transition-transform"></i>
+                                    </div>
+                                </button>
+                                <div id="faq-booking-2" class="hidden px-4 pb-4">
+                                    <p class="text-text-secondary text-sm">Yes, you can modify your booking subject to vehicle availability. Changes can be made up to 6 hours before pickup time through your dashboard or by contacting support. Additional charges may apply for vehicle upgrades or extended duration.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item border border-border rounded-lg mb-3" data-keywords="confirm booking status">
+                                <button class="w-full text-left p-4 font-medium text-text-primary hover:bg-gray-50 transition-colors faq-toggle" data-target="faq-booking-3">
+                                    <div class="flex items-center justify-between">
+                                        <span>How do I know my booking is confirmed?</span>
+                                        <i class="fas fa-chevron-down transition-transform"></i>
+                                    </div>
+                                </button>
+                                <div id="faq-booking-3" class="hidden px-4 pb-4">
+                                    <p class="text-text-secondary text-sm">You'll receive a confirmation email and SMS with your booking details and unique booking ID. You can also check your booking status anytime through your dashboard. Our team will call you 2 hours before pickup to confirm details.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Category: Payment -->
+                        <div class="faq-category" data-category="payment">
+                            <h3 class="font-semibold text-text-primary mb-3 border-b border-border pb-2">
+                                <i class="fas fa-credit-card mr-2 text-primary"></i>Payment & Pricing
+                            </h3>
+
+                            <div class="faq-item border border-border rounded-lg mb-3" data-keywords="payment methods card cash">
+                                <button class="w-full text-left p-4 font-medium text-text-primary hover:bg-gray-50 transition-colors faq-toggle" data-target="faq-payment-1">
+                                    <div class="flex items-center justify-between">
+                                        <span>What payment methods do you accept?</span>
+                                        <i class="fas fa-chevron-down transition-transform"></i>
+                                    </div>
+                                </button>
+                                <div id="faq-payment-1" class="hidden px-4 pb-4">
+                                    <p class="text-text-secondary text-sm">We accept all major payment methods: Credit/Debit cards (Visa, MasterCard, American Express), Digital wallets (Paytm, PhonePe, Google Pay), Net banking, UPI payments, and cash payments (for local bookings only). All online transactions are secured with SSL encryption.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item border border-border rounded-lg mb-3" data-keywords="pricing fuel charges extra costs">
+                                <button class="w-full text-left p-4 font-medium text-text-primary hover:bg-gray-50 transition-colors faq-toggle" data-target="faq-payment-2">
+                                    <div class="flex items-center justify-between">
+                                        <span>Are fuel charges included in the price?</span>
+                                        <i class="fas fa-chevron-down transition-transform"></i>
+                                    </div>
+                                </button>
+                                <div id="faq-payment-2" class="hidden px-4 pb-4">
+                                    <p class="text-text-secondary text-sm">Fuel charges are separate and borne by the customer. For self-drive rentals, you pay for fuel used during your trip. For chauffeur-driven services, fuel costs are included within city limits, but inter-city travel fuel charges apply. All prices are clearly mentioned during booking.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item border border-border rounded-lg mb-3" data-keywords="security deposit refund">
+                                <button class="w-full text-left p-4 font-medium text-text-primary hover:bg-gray-50 transition-colors faq-toggle" data-target="faq-payment-3">
+                                    <div class="flex items-center justify-between">
+                                        <span>What about security deposit?</span>
+                                        <i class="fas fa-chevron-down transition-transform"></i>
+                                    </div>
+                                </button>
+                                <div id="faq-payment-3" class="hidden px-4 pb-4">
+                                    <p class="text-text-secondary text-sm">Security deposit varies by vehicle category: Hatchback (₹5,000), Sedan (₹10,000), SUV (₹15,000), Luxury (₹25,000). Deposit is refundable within 7 working days after vehicle return, subject to no damage or violations. It can be paid via credit card or cash.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Category: Vehicle & Driver -->
+                        <div class="faq-category" data-category="vehicle">
+                            <h3 class="font-semibold text-text-primary mb-3 border-b border-border pb-2">
+                                <i class="fas fa-car mr-2 text-primary"></i>Vehicle & Driver Policies
+                            </h3>
+
+                            <div class="faq-item border border-border rounded-lg mb-3" data-keywords="documents required license">
+                                <button class="w-full text-left p-4 font-medium text-text-primary hover:bg-gray-50 transition-colors faq-toggle" data-target="faq-vehicle-1">
+                                    <div class="flex items-center justify-between">
+                                        <span>What documents do I need for self-drive?</span>
+                                        <i class="fas fa-chevron-down transition-transform"></i>
+                                    </div>
+                                </button>
+                                <div id="faq-vehicle-1" class="hidden px-4 pb-4">
+                                    <p class="text-text-secondary text-sm">Required documents: Valid driving license (minimum 1 year old), Government-issued photo ID (Aadhar/PAN/Passport), Address proof, Credit card for security deposit. For premium vehicles, additional income proof may be required. All documents must be original and valid.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item border border-border rounded-lg mb-3" data-keywords="driver change request">
+                                <button class="w-full text-left p-4 font-medium text-text-primary hover:bg-gray-50 transition-colors faq-toggle" data-target="faq-vehicle-2">
+                                    <div class="flex items-center justify-between">
+                                        <span>Can I request a specific driver?</span>
+                                        <i class="fas fa-chevron-down transition-transform"></i>
+                                    </div>
+                                </button>
+                                <div id="faq-vehicle-2" class="hidden px-4 pb-4">
+                                    <p class="text-text-secondary text-sm">While we try to accommodate driver preferences, we cannot guarantee specific driver assignments. All our drivers are professionally trained, verified, and experienced. If you have specific requirements or concerns about an assigned driver, please contact support immediately.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item border border-border rounded-lg mb-3" data-keywords="vehicle breakdown emergency">
+                                <button class="w-full text-left p-4 font-medium text-text-primary hover:bg-gray-50 transition-colors faq-toggle" data-target="faq-vehicle-3">
+                                    <div class="flex items-center justify-between">
+                                        <span>What if the vehicle breaks down?</span>
+                                        <i class="fas fa-chevron-down transition-transform"></i>
+                                    </div>
+                                </button>
+                                <div id="faq-vehicle-3" class="hidden px-4 pb-4">
+                                    <p class="text-text-secondary text-sm">Call our 24/7 emergency support at +91 98765 00000 immediately. We provide roadside assistance and will arrange a replacement vehicle if needed. You won't be charged for breakdown time, and we'll ensure minimal disruption to your travel plans.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="lg:col-span-1 space-y-6">
+                <!-- Live Chat Widget -->
+                <div class="card">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="font-semibold text-text-primary">Live Chat Support</h3>
+                        <div class="flex items-center">
+                            <div class="w-2 h-2 bg-success rounded-full mr-2 animate-pulse"></div>
+                            <span class="text-xs text-success font-medium">Online</span>
+                        </div>
+                    </div>
+
+                    <div id="chatWidget" class="border border-border rounded-lg">
+                        <div class="bg-gray-50 p-3 rounded-t-lg border-b border-border">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                                    <i class="fas fa-headset text-white text-sm"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium text-text-primary">Support Agent</p>
+                                    <p class="text-xs text-text-secondary">Typically responds in 2 minutes</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="chatMessages" class="h-64 overflow-y-auto p-3 space-y-3">
+                            <div class="flex items-start space-x-2">
+                                <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-headset text-white text-xs"></i>
+                                </div>
+                                <div class="bg-primary-50 rounded-lg p-2 max-w-48">
+                                    <p class="text-sm text-text-primary">Hello! I'm here to help you with any questions about your booking or our services. How can I assist you today?</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-border p-3">
+                            <div class="flex space-x-2">
+                                <input type="text" id="chatInput" class="input-field text-sm flex-1" placeholder="Type your message..." />
+                                <button id="sendMessageBtn" class="btn-primary px-3 py-2">
+                                    <i class="fas fa-paper-plane text-sm"></i>
+                                </button>
+                            </div>
+                            <p class="text-xs text-text-secondary mt-1">Chat hours: 9:00 AM - 10:00 PM (Mon-Sun)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="card">
+                    <h3 class="font-semibold text-text-primary mb-4">Contact Information</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-phone text-primary"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium text-text-primary">Customer Care</p>
+                                <a href="tel:+919876543210" class="text-sm text-primary hover:underline">+91 98765 43210</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-secondary-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-exclamation-triangle text-secondary"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium text-text-primary">Emergency (24/7)</p>
+                                <a href="tel:+919876500000" class="text-sm text-secondary hover:underline">+91 98765 00000</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-accent-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-envelope text-accent"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium text-text-primary">Email Support</p>
+                                <a href="mailto:support@rjsonstavels.com" class="text-sm text-accent hover:underline">support@rjsonstavels.com</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <div class="w-10 h-10 bg-success-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-map-marker-alt text-success"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium text-text-primary">Office Address</p>
+                                <p class="text-sm text-text-secondary">123 Main Street, Colombo 07, Sri Lanka</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                        <h4 class="font-medium text-text-primary mb-2">Office Hours</h4>
+                        <div class="text-sm text-text-secondary space-y-1">
+                            <p>Monday - Friday: 9:00 AM - 7:00 PM</p>
+                            <p>Saturday: 9:00 AM - 5:00 PM</p>
+                            <p>Sunday: 10:00 AM - 4:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="card">
+                    <h3 class="font-semibold text-text-primary mb-4">Quick Actions</h3>
+                    
+                    <div class="space-y-3">
+                        <button class="w-full text-left p-3 border border-border rounded-lg hover:border-primary hover:bg-primary-50 transition-colors" onclick="fillSupportForm('booking')">
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-calendar-times text-secondary"></i>
+                                <div>
+                                    <p class="font-medium text-sm">Cancel Booking</p>
+                                    <p class="text-xs text-text-secondary">Need to cancel a reservation</p>
+                                </div>
+                            </div>
+                        </button>
+
+                        <button class="w-full text-left p-3 border border-border rounded-lg hover:border-primary hover:bg-primary-50 transition-colors" onclick="fillSupportForm('payment')">
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-undo text-accent"></i>
+                                <div>
+                                    <p class="font-medium text-sm">Refund Request</p>
+                                    <p class="text-xs text-text-secondary">Request refund for payment</p>
+                                </div>
+                            </div>
+                        </button>
+
+                        <button class="w-full text-left p-3 border border-border rounded-lg hover:border-primary hover:bg-primary-50 transition-colors" onclick="fillSupportForm('vehicle')">
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-car-crash text-warning"></i>
+                                <div>
+                                    <p class="font-medium text-sm">Vehicle Issue</p>
+                                    <p class="text-xs text-text-secondary">Report vehicle problems</p>
+                                </div>
+                            </div>
+                        </button>
+
+                        <button class="w-full text-left p-3 border border-border rounded-lg hover:border-primary hover:bg-primary-50 transition-colors" onclick="fillSupportForm('driver')">
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-user-tie text-primary"></i>
+                                <div>
+                                    <p class="font-medium text-sm">Driver Feedback</p>
+                                    <p class="text-xs text-text-secondary">Share driver experience</p>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Ticket Details Modal -->
+    <div id="ticketModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div class="bg-surface rounded-lg max-w-2xl w-full p-6 shadow-xl max-h-96 overflow-y-auto">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-xl font-semibold text-text-primary">Support Ticket Details</h3>
+                <button class="text-text-secondary hover:text-text-primary" onclick="closeTicketModal()">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+
+            <div id="ticketDetailsContent" class="space-y-6">
+                <!-- Content will be populated dynamically -->
+            </div>
+
+            <div class="flex justify-end mt-6 space-x-3">
+                <button class="bg-gray-200 text-text-primary px-6 py-2 rounded-lg hover:bg-gray-300 transition-colors" onclick="closeTicketModal()">Close</button>
+                <button class="btn-primary px-6 py-2" onclick="replyToTicket()">Add Reply</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize support page functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeSupportPage();
+        });
+
+        function initializeSupportPage() {
+            // Support form submission
+            document.getElementById('supportTicketForm').addEventListener('submit', handleSupportTicketSubmission);
+            
+            // File attachment handling
+            document.getElementById('attachment').addEventListener('change', handleFileAttachment);
+            
+            // FAQ search functionality
+            document.getElementById('faqSearch').addEventListener('input', searchFAQ);
+            
+            // FAQ toggle functionality
+            initializeFAQs();
+            
+            // Chat functionality
+            initializeChat();
+        }
+
+        // Handle support ticket form submission
+        function handleSupportTicketSubmission(e) {
+            e.preventDefault();
+            
+            // Show loading state
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Submitting...';
+            submitBtn.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Show success message
+                const successModal = document.createElement('div');
+                successModal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+                successModal.innerHTML = `
+                    <div class="bg-surface rounded-lg p-6 max-w-md mx-4">
+                        <div class="text-center">
+                            <i class="fas fa-check-circle text-success text-4xl mb-4"></i>
+                            <h3 class="text-xl font-semibold text-text-primary mb-2">Ticket Submitted Successfully!</h3>
+                            <p class="text-text-secondary mb-4">Your support ticket has been created with ID: ST2025000124</p>
+                            <p class="text-sm text-text-secondary mb-6">We'll respond within 2 hours during business hours.</p>
+                            <button class="btn-primary px-6 py-2" onclick="this.parentElement.parentElement.parentElement.remove()">OK</button>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(successModal);
+                
+                // Reset form
+                e.target.reset();
+                document.getElementById('attachmentList').classList.add('hidden');
+                document.getElementById('attachmentList').innerHTML = '';
+                
+                // Reset submit button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        }
+
+        // Handle file attachment
+        function handleFileAttachment(e) {
+            const files = e.target.files;
+            const attachmentList = document.getElementById('attachmentList');
+            
+            if (files.length > 0) {
+                attachmentList.classList.remove('hidden');
+                attachmentList.innerHTML = '';
+                
+                Array.from(files).forEach((file, index) => {
+                    const fileItem = document.createElement('div');
+                    fileItem.className = 'flex items-center justify-between p-2 bg-gray-50 rounded border';
+                    fileItem.innerHTML = `
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-file-alt text-text-secondary"></i>
+                            <span class="text-sm text-text-primary">${file.name}</span>
+                            <span class="text-xs text-text-secondary">(${(file.size / 1024).toFixed(1)}KB)</span>
+                        </div>
+                        <button class="text-secondary hover:text-secondary-700" onclick="removeAttachment(${index})">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    `;
+                    attachmentList.appendChild(fileItem);
+                });
+            }
+        }
+
+        // Remove attachment
+        function removeAttachment(index) {
+            // In a real implementation, this would remove the file from the FileList
+            // For now, just hide the attachment list if it becomes empty
+            const attachmentItems = document.querySelectorAll('#attachmentList > div');
+            if (attachmentItems.length <= 1) {
+                document.getElementById('attachmentList').classList.add('hidden');
+            }
+            attachmentItems[index].remove();
+        }
+
+        // Search FAQ functionality
+        function searchFAQ() {
+            const searchTerm = document.getElementById('faqSearch').value.toLowerCase();
+            const faqItems = document.querySelectorAll('.faq-item');
+            const categories = document.querySelectorAll('.faq-category');
+            
+            categories.forEach(category => {
+                let hasVisibleItems = false;
+                const categoryItems = category.querySelectorAll('.faq-item');
+                
+                categoryItems.forEach(item => {
+                    const keywords = item.dataset.keywords || '';
+                    const title = item.querySelector('.faq-toggle span').textContent.toLowerCase();
+                    const content = item.querySelector('[id^="faq-"]').textContent.toLowerCase();
+                    
+                    if (searchTerm === '' || 
+                        keywords.includes(searchTerm) || 
+                        title.includes(searchTerm) || 
+                        content.includes(searchTerm)) {
+                        item.style.display = 'block';
+                        hasVisibleItems = true;
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+                
+                category.style.display = hasVisibleItems ? 'block' : 'none';
+            });
+        }
+
+        // Initialize FAQ toggles
+        function initializeFAQs() {
+            document.querySelectorAll('.faq-toggle').forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    const target = document.getElementById(this.dataset.target);
+                    const icon = this.querySelector('i');
+                    
+                    if (target.classList.contains('hidden')) {
+                        target.classList.remove('hidden');
+                        icon.style.transform = 'rotate(180deg)';
+                    } else {
+                        target.classList.add('hidden');
+                        icon.style.transform = 'rotate(0deg)';
+                    }
+                });
+            });
+        }
+
+        // Initialize chat functionality
+        function initializeChat() {
+            const chatInput = document.getElementById('chatInput');
+            const sendBtn = document.getElementById('sendMessageBtn');
+            const messagesContainer = document.getElementById('chatMessages');
+            
+            // Send message on button click
+            sendBtn.addEventListener('click', sendChatMessage);
+            
+            // Send message on Enter key press
+            chatInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendChatMessage();
+                }
+            });
+            
+            function sendChatMessage() {
+                const message = chatInput.value.trim();
+                if (message === '') return;
+                
+                // Add user message
+                const userMessageDiv = document.createElement('div');
+                userMessageDiv.className = 'flex justify-end';
+                userMessageDiv.innerHTML = `
+                    <div class="bg-primary text-white rounded-lg p-2 max-w-48">
+                        <p class="text-sm">${message}</p>
+                    </div>
+                `;
+                messagesContainer.appendChild(userMessageDiv);
+                
+                // Clear input
+                chatInput.value = '';
+                
+                // Scroll to bottom
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+                
+                // Simulate agent typing
+                setTimeout(() => {
+                    const typingDiv = document.createElement('div');
+                    typingDiv.className = 'flex items-start space-x-2 typing-indicator';
+                    typingDiv.innerHTML = `
+                        <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-headset text-white text-xs"></i>
+                        </div>
+                        <div class="bg-gray-200 rounded-lg p-2">
+                            <div class="flex space-x-1">
+                                <div class="w-2 h-2 bg-gray-400 rounded-full animate-pulse"></div>
+                                <div class="w-2 h-2 bg-gray-400 rounded-full animate-pulse" style="animation-delay: 0.2s;"></div>
+                                <div class="w-2 h-2 bg-gray-400 rounded-full animate-pulse" style="animation-delay: 0.4s;"></div>
+                            </div>
+                        </div>
+                    `;
+                    messagesContainer.appendChild(typingDiv);
+                    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+                    
+                    // Remove typing indicator and add agent response
+                    setTimeout(() => {
+                        typingDiv.remove();
+                        
+                        const agentMessageDiv = document.createElement('div');
+                        agentMessageDiv.className = 'flex items-start space-x-2';
+                        agentMessageDiv.innerHTML = `
+                            <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-headset text-white text-xs"></i>
+                            </div>
+                            <div class="bg-primary-50 rounded-lg p-2 max-w-48">
+                                <p class="text-sm text-text-primary">Thank you for your message! I'll help you with that. Can you please provide your booking ID so I can assist you better?</p>
+                            </div>
+                        `;
+                        messagesContainer.appendChild(agentMessageDiv);
+                        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+                    }, 2000);
+                }, 1000);
+            }
+        }
+
+        // Fill support form based on quick action
+        function fillSupportForm(category) {
+            const categorySelect = document.querySelector('select[required]');
+            const subjectInput = document.querySelector('input[placeholder="Brief description of your issue"]');
+            const descriptionTextarea = document.querySelector('textarea[required]');
+            
+            const templates = {
+                'booking': {
+                    category: 'booking',
+                    subject: 'Request to cancel my booking',
+                    description: 'I would like to cancel my booking. Please process the cancellation and let me know about any applicable charges.'
+                },
+                'payment': {
+                    category: 'refund',
+                    subject: 'Refund request for cancelled booking',
+                    description: 'I have cancelled my booking and would like to request a refund. Please process the refund to my original payment method.'
+                },
+                'vehicle': {
+                    category: 'vehicle',
+                    subject: 'Vehicle issue during rental',
+                    description: 'I am experiencing issues with the vehicle during my rental period. Please provide immediate assistance.'
+                },
+                'driver': {
+                    category: 'driver',
+                    subject: 'Driver feedback',
+                    description: 'I would like to provide feedback about my driver and the service experience.'
+                }
+            };
+            
+            const template = templates[category];
+            if (template) {
+                categorySelect.value = template.category;
+                subjectInput.value = template.subject;
+                descriptionTextarea.value = template.description;
+                
+                // Scroll to form
+                document.getElementById('supportTicketForm').scrollIntoView({ behavior: 'smooth' });
+                subjectInput.focus();
+            }
+        }
+
+        // View ticket details
+        function viewTicketDetails(ticketId) {
+            const modal = document.getElementById('ticketModal');
+            const content = document.getElementById('ticketDetailsContent');
+            
+            // Sample ticket data - would come from API
+            const ticketData = {
+                'ST2025000123': {
+                    id: 'ST2025000123',
+                    subject: 'Refund Request - RJ2025001234',
+                    category: 'Payment Problem',
+                    priority: 'High',
+                    status: 'In Progress',
+                    created: 'Jan 21, 2025 10:30 AM',
+                    lastUpdate: 'Jan 21, 2025 2:15 PM',
+                    description: 'I cancelled my booking RJ2025001234 and need a refund processed to my original payment method. The cancellation was made within the allowed time frame.',
+                    responses: [
+                        {
+                            author: 'Support Agent',
+                            time: 'Jan 21, 2025 11:45 AM',
+                            message: 'Thank you for contacting us. I have reviewed your cancellation request and confirmed it was made within our policy timeframe. I am processing your refund now.'
+                        },
+                        {
+                            author: 'Support Agent',
+                            time: 'Jan 21, 2025 2:15 PM',
+                            message: 'Your refund of ₹23,500 has been processed and will reflect in your account within 3-5 business days. You will receive a confirmation email shortly.'
+                        }
+                    ]
+                },
+                'ST2025000122': {
+                    id: 'ST2025000122',
+                    subject: 'Vehicle Quality Feedback',
+                    category: 'Vehicle Concerns',
+                    priority: 'Medium',
+                    status: 'Resolved',
+                    created: 'Jan 18, 2025 2:00 PM',
+                    lastUpdate: 'Jan 18, 2025 6:30 PM',
+                    description: 'The vehicle I rented had some cleanliness issues and the AC was not working properly. I wanted to report this for future improvements.',
+                    responses: [
+                        {
+                            author: 'Support Agent',
+                            time: 'Jan 18, 2025 3:30 PM',
+                            message: 'Thank you for bringing this to our attention. We sincerely apologize for the inconvenience. I have forwarded your feedback to our vehicle maintenance team.'
+                        },
+                        {
+                            author: 'Support Agent',
+                            time: 'Jan 18, 2025 6:30 PM',
+                            message: 'As an apology for the inconvenience, we have credited ₹500 to your account and ensured the vehicle undergoes thorough inspection before the next rental.'
+                        }
+                    ]
+                }
+            };
+            
+            const ticket = ticketData[ticketId];
+            if (ticket) {
+                content.innerHTML = `
+                    <div class="space-y-6">
+                        <!-- Ticket Header -->
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <h4 class="font-semibold text-text-primary mb-2">${ticket.subject}</h4>
+                                    <div class="space-y-1 text-sm">
+                                        <p><span class="text-text-secondary">Ticket ID:</span> <span class="font-medium">${ticket.id}</span></p>
+                                        <p><span class="text-text-secondary">Category:</span> <span class="font-medium">${ticket.category}</span></p>
+                                        <p><span class="text-text-secondary">Priority:</span> <span class="font-medium">${ticket.priority}</span></p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-sm text-text-secondary">Status</span>
+                                        <span class="px-2 py-1 rounded-full text-xs font-medium ${ticket.status === 'Resolved' ? 'bg-success-50 text-success-600' : 'bg-warning-50 text-warning'}">${ticket.status}</span>
+                                    </div>
+                                    <div class="space-y-1 text-sm">
+                                        <p><span class="text-text-secondary">Created:</span> <span class="font-medium">${ticket.created}</span></p>
+                                        <p><span class="text-text-secondary">Last Update:</span> <span class="font-medium">${ticket.lastUpdate}</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Original Request -->
+                        <div>
+                            <h4 class="font-semibold text-text-primary mb-3">Original Request</h4>
+                            <div class="bg-gray-50 rounded-lg p-4">
+                                <p class="text-text-secondary text-sm">${ticket.description}</p>
+                            </div>
+                        </div>
+
+                        <!-- Responses -->
+                        <div>
+                            <h4 class="font-semibold text-text-primary mb-3">Responses</h4>
+                            <div class="space-y-4">
+                                ${ticket.responses.map(response => `
+                                    <div class="border-l-4 border-primary pl-4">
+                                        <div class="flex items-center justify-between mb-2">
+                                            <span class="font-medium text-text-primary">${response.author}</span>
+                                            <span class="text-xs text-text-secondary">${response.time}</span>
+                                        </div>
+                                        <p class="text-sm text-text-secondary">${response.message}</p>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                modal.classList.remove('hidden');
+            }
+        }
+
+        // Close ticket modal
+        function closeTicketModal() {
+            document.getElementById('ticketModal').classList.add('hidden');
+        }
+
+        // Reply to ticket
+        function replyToTicket() {
+            alert('Reply functionality would open a text input for customer response.');
+        }
+    </script>
+</body>
+</html>

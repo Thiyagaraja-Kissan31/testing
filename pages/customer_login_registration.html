@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer Login & Registration - RJ Sons Travels</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Frjsonstr4320back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.6"></script>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-primary-50 via-background to-accent-50 flex items-center justify-center p-4">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-5">
+        <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,<svg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;><g fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;><g fill=&quot;%23000000&quot; fill-opacity=&quot;0.1&quot;><circle cx=&quot;30&quot; cy=&quot;30&quot; r=&quot;2&quot;></circle></g></g></svg>'); background-size: 60px 60px;"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="relative w-full max-w-lg">
+        <!-- Company Branding -->
+        <div class="text-center mb-8">
+            <div class="inline-flex items-center justify-center w-20 h-20 bg-primary rounded-2xl shadow-lg mb-4">
+                <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.22.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/>
+                </svg>
+            </div>
+            <h1 class="text-3xl font-bold text-primary mb-2">RJ Sons Travels</h1>
+            <p class="text-text-secondary">Your Travel Partner</p>
+        </div>
+
+        <!-- Main Card -->
+        <div class="card shadow-xl border-0 bg-surface/95 backdrop-blur-sm">
+            <!-- Tab Navigation -->
+            <div class="flex border-b border-border-light mb-6">
+                <button id="loginTab" class="flex-1 py-3 px-4 text-center font-medium transition-colors tab-button active">
+                    <i class="fas fa-sign-in-alt mr-2"></i>Login
+                </button>
+                <button id="registerTab" class="flex-1 py-3 px-4 text-center font-medium transition-colors tab-button">
+                    <i class="fas fa-user-plus mr-2"></i>Register
+                </button>
+            </div>
+
+            <!-- Login Form -->
+            <div id="loginForm" class="tab-content">
+                <div class="text-center mb-6">
+                    <h2 class="text-2xl font-semibold text-text-primary mb-2">Welcome Back</h2>
+                    <p class="text-text-secondary">Sign in to your account to continue</p>
+                </div>
+
+                <form id="loginFormElement" class="space-y-6">
+                    <!-- Email/Phone Field -->
+                    <div>
+                        <label for="loginEmail" class="block text-sm font-medium text-text-primary mb-2">
+                            <i class="fas fa-envelope mr-2 text-primary"></i>Email or Phone
+                        </label>
+                        <div class="relative">
+                            <input type="text" id="loginEmail" name="loginEmail" class="input-field pl-10 pr-4" placeholder="Enter email or phone number" required />
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-envelope text-text-secondary"></i>
+                            </div>
+                        </div>
+                        <div id="loginEmailError" class="hidden mt-1 text-sm text-error-500">
+                            <i class="fas fa-exclamation-circle mr-1"></i>
+                            Please enter a valid email or phone number
+                        </div>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div>
+                        <label for="loginPassword" class="block text-sm font-medium text-text-primary mb-2">
+                            <i class="fas fa-lock mr-2 text-primary"></i>Password
+                        </label>
+                        <div class="relative">
+                            <input type="password" id="loginPassword" name="loginPassword" class="input-field pl-10 pr-12" placeholder="Enter your password" required />
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-lock text-text-secondary"></i>
+                            </div>
+                            <button type="button" id="toggleLoginPassword" class="absolute inset-y-0 right-0 pr-3 flex items-center text-text-secondary hover:text-primary transition-colors">
+                                <i class="fas fa-eye" id="loginEyeIcon"></i>
+                            </button>
+                        </div>
+                        <div id="loginPasswordError" class="hidden mt-1 text-sm text-error-500">
+                            <i class="fas fa-exclamation-circle mr-1"></i>
+                            Password is required
+                        </div>
+                    </div>
+
+                    <!-- Remember Me & Forgot Password -->
+                    <div class="flex items-center justify-between">
+                        <label class="flex items-center">
+                            <input type="checkbox" id="rememberMe" class="w-4 h-4 text-primary border-border rounded focus:ring-primary-500 focus:ring-2" />
+                            <span class="ml-2 text-sm text-text-secondary">Remember me</span>
+                        </label>
+                        <button type="button" id="forgotPasswordBtn" class="text-sm text-primary hover:text-primary-700 transition-colors">
+                            Forgot password?
+                        </button>
+                    </div>
+
+                    <!-- Login Button -->
+                    <button type="submit" id="loginBtn" class="w-full btn-primary py-3 text-base font-medium hover-lift disabled:opacity-50 disabled:cursor-not-allowed">
+                        <span id="loginBtnText">
+                            <i class="fas fa-sign-in-alt mr-2"></i>Sign In
+                        </span>
+                        <span id="loginSpinner" class="hidden">
+                            <i class="fas fa-spinner fa-spin mr-2"></i>Signing In...
+                        </span>
+                    </button>
+
+                    <!-- Error Message -->
+                    <div id="loginError" class="hidden p-3 bg-error-50 border border-error-100 rounded-lg">
+                        <div class="flex items-center">
+                            <i class="fas fa-exclamation-triangle text-error-500 mr-2"></i>
+                            <span class="text-sm text-error-500" id="loginErrorText">Invalid credentials. Please try again.</span>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Social Login -->
+                <div class="mt-6">
+                    <div class="relative">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-border-light"></div>
+                        </div>
+                        <div class="relative flex justify-center text-sm">
+                            <span class="px-2 bg-surface text-text-secondary">Or continue with</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 grid grid-cols-2 gap-3">
+                        <button type="button" class="w-full inline-flex justify-center py-3 px-4 border border-border rounded-lg shadow-sm bg-surface text-sm font-medium text-text-primary hover:bg-gray-50 transition-colors">
+                            <i class="fab fa-google text-red-500 mr-2"></i>Google
+                        </button>
+                        <button type="button" class="w-full inline-flex justify-center py-3 px-4 border border-border rounded-lg shadow-sm bg-surface text-sm font-medium text-text-primary hover:bg-gray-50 transition-colors">
+                            <i class="fab fa-facebook text-blue-600 mr-2"></i>Facebook
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Register Form -->
+            <div id="registerForm" class="tab-content hidden">
+                <div class="text-center mb-6">
+                    <h2 class="text-2xl font-semibold text-text-primary mb-2">Create Account</h2>
+                    <p class="text-text-secondary">Join RJ Sons Travels today</p>
+                </div>
+
+                <form id="registerFormElement" class="space-y-4">
+                    <!-- Full Name -->
+                    <div>
+                        <label for="fullName" class="block text-sm font-medium text-text-primary mb-2">
+                            <i class="fas fa-user mr-2 text-primary"></i>Full Name
+                        </label>
+                        <div class="relative">
+                            <input type="text" id="fullName" name="fullName" class="input-field pl-10 pr-4" placeholder="Enter your full name" required />
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-user text-text-secondary"></i>
+                            </div>
+                        </div>
+                        <div id="fullNameError" class="hidden mt-1 text-sm text-error-500">
+                            <i class="fas fa-exclamation-circle mr-1"></i>
+                            Please enter your full name
+                        </div>
+                    </div>
+
+                    <!-- Phone Number -->
+                    <div>
+                        <label for="phoneNumber" class="block text-sm font-medium text-text-primary mb-2">
+                            <i class="fas fa-phone mr-2 text-primary"></i>Phone Number
+                        </label>
+                        <div class="relative">
+                            <input type="tel" id="phoneNumber" name="phoneNumber" class="input-field pl-10 pr-4" placeholder="Enter your phone number" required />
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-phone text-text-secondary"></i>
+                            </div>
+                        </div>
+                        <div id="phoneNumberError" class="hidden mt-1 text-sm text-error-500">
+                            <i class="fas fa-exclamation-circle mr-1"></i>
+                            Please enter a valid phone number
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-text-primary mb-2">
+                            <i class="fas fa-envelope mr-2 text-primary"></i>Email Address
+                        </label>
+                        <div class="relative">
+                            <input type="email" id="email" name="email" class="input-field pl-10 pr-4" placeholder="Enter your email address" required />
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-envelope text-text-secondary"></i>
+                            </div>
+                        </div>
+                        <div id="emailError" class="hidden mt-1 text-sm text-error-500">
+                            <i class="fas fa-exclamation-circle mr-1"></i>
+                            Please enter a valid email address
+                        </div>
+                    </div>
+
+                    <!-- NIC Number -->
+                    <div>
+                        <label for="nicNumber" class="block text-sm font-medium text-text-primary mb-2">
+                            <i class="fas fa-id-card mr-2 text-primary"></i>NIC Number
+                        </label>
+                        <div class="relative">
+                            <input type="text" id="nicNumber" name="nicNumber" class="input-field pl-10 pr-4" placeholder="Enter your NIC number" required />
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-id-card text-text-secondary"></i>
+                            </div>
+                        </div>
+                        <div id="nicNumberError" class="hidden mt-1 text-sm text-error-500">
+                            <i class="fas fa-exclamation-circle mr-1"></i>
+                            Please enter a valid NIC number
+                        </div>
+                    </div>
+
+                    <!-- Password -->
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-text-primary mb-2">
+                            <i class="fas fa-lock mr-2 text-primary"></i>Password
+                        </label>
+                        <div class="relative">
+                            <input type="password" id="password" name="password" class="input-field pl-10 pr-12" placeholder="Create a password" required />
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-lock text-text-secondary"></i>
+                            </div>
+                            <button type="button" id="togglePassword" class="absolute inset-y-0 right-0 pr-3 flex items-center text-text-secondary hover:text-primary transition-colors">
+                                <i class="fas fa-eye" id="eyeIcon"></i>
+                            </button>
+                        </div>
+                        <!-- Password Strength Indicator -->
+                        <div class="mt-2">
+                            <div class="flex items-center space-x-2">
+                                <div class="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
+                                    <div id="passwordStrength" class="h-full transition-all duration-300"></div>
+                                </div>
+                                <span id="passwordStrengthText" class="text-xs text-text-secondary">Weak</span>
+                            </div>
+                        </div>
+                        <div id="passwordError" class="hidden mt-1 text-sm text-error-500">
+                            <i class="fas fa-exclamation-circle mr-1"></i>
+                            Password must be at least 8 characters
+                        </div>
+                    </div>
+
+                    <!-- Confirm Password -->
+                    <div>
+                        <label for="confirmPassword" class="block text-sm font-medium text-text-primary mb-2">
+                            <i class="fas fa-lock mr-2 text-primary"></i>Confirm Password
+                        </label>
+                        <div class="relative">
+                            <input type="password" id="confirmPassword" name="confirmPassword" class="input-field pl-10 pr-4" placeholder="Confirm your password" required />
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-lock text-text-secondary"></i>
+                            </div>
+                        </div>
+                        <div id="confirmPasswordError" class="hidden mt-1 text-sm text-error-500">
+                            <i class="fas fa-exclamation-circle mr-1"></i>
+                            Passwords do not match
+                        </div>
+                    </div>
+
+                    <!-- Terms and Conditions -->
+                    <div class="flex items-start">
+                        <input type="checkbox" id="agreeTerms" class="w-4 h-4 text-primary border-border rounded focus:ring-primary-500 focus:ring-2 mt-1" required />
+                        <label for="agreeTerms" class="ml-2 text-sm text-text-secondary">
+                            I agree to the <button type="button" class="text-primary hover:text-primary-700 transition-colors">Terms and Conditions</button> and <button type="button" class="text-primary hover:text-primary-700 transition-colors">Privacy Policy</button>
+                        </label>
+                    </div>
+
+                    <!-- Register Button -->
+                    <button type="submit" id="registerBtn" class="w-full btn-primary py-3 text-base font-medium hover-lift disabled:opacity-50 disabled:cursor-not-allowed">
+                        <span id="registerBtnText">
+                            <i class="fas fa-user-plus mr-2"></i>Create Account
+                        </span>
+                        <span id="registerSpinner" class="hidden">
+                            <i class="fas fa-spinner fa-spin mr-2"></i>Creating Account...
+                        </span>
+                    </button>
+
+                    <!-- Error Message -->
+                    <div id="registerError" class="hidden p-3 bg-error-50 border border-error-100 rounded-lg">
+                        <div class="flex items-center">
+                            <i class="fas fa-exclamation-triangle text-error-500 mr-2"></i>
+                            <span class="text-sm text-error-500" id="registerErrorText">Registration failed. Please try again.</span>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Social Register -->
+                <div class="mt-6">
+                    <div class="relative">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-border-light"></div>
+                        </div>
+                        <div class="relative flex justify-center text-sm">
+                            <span class="px-2 bg-surface text-text-secondary">Or register with</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 grid grid-cols-2 gap-3">
+                        <button type="button" class="w-full inline-flex justify-center py-3 px-4 border border-border rounded-lg shadow-sm bg-surface text-sm font-medium text-text-primary hover:bg-gray-50 transition-colors">
+                            <i class="fab fa-google text-red-500 mr-2"></i>Google
+                        </button>
+                        <button type="button" class="w-full inline-flex justify-center py-3 px-4 border border-border rounded-lg shadow-sm bg-surface text-sm font-medium text-text-primary hover:bg-gray-50 transition-colors">
+                            <i class="fab fa-facebook text-blue-600 mr-2"></i>Facebook
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center mt-8">
+            <p class="text-sm text-text-secondary">
+                © 2025 RJ Sons Travels. All Rights Reserved.
+            </p>
+            <div class="flex items-center justify-center mt-2 space-x-4">
+                <span class="inline-flex items-center text-xs text-success-600">
+                    <i class="fas fa-shield-alt mr-1"></i>Secure & Trusted
+                </span>
+                <span class="inline-flex items-center text-xs text-primary">
+                    <i class="fas fa-star mr-1"></i>4.8 Rating
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- OTP Verification Modal -->
+    <div id="otpModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div class="bg-surface rounded-lg max-w-md w-full p-6 shadow-xl">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-mobile-alt text-white text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-text-primary mb-2">Verify Your Phone</h3>
+                <p class="text-text-secondary mb-6">We've sent a 6-digit OTP to <span id="phoneDisplay" class="font-medium text-text-primary"></span></p>
+                
+                <!-- OTP Input -->
+                <div class="flex justify-center space-x-2 mb-6">
+                    <input type="text" class="w-12 h-12 text-center border border-border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-lg font-medium" maxlength="1" data-otp-input="0" />
+                    <input type="text" class="w-12 h-12 text-center border border-border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-lg font-medium" maxlength="1" data-otp-input="1" />
+                    <input type="text" class="w-12 h-12 text-center border border-border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-lg font-medium" maxlength="1" data-otp-input="2" />
+                    <input type="text" class="w-12 h-12 text-center border border-border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-lg font-medium" maxlength="1" data-otp-input="3" />
+                    <input type="text" class="w-12 h-12 text-center border border-border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-lg font-medium" maxlength="1" data-otp-input="4" />
+                    <input type="text" class="w-12 h-12 text-center border border-border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-lg font-medium" maxlength="1" data-otp-input="5" />
+                </div>
+
+                <!-- Timer and Resend -->
+                <div class="text-center mb-6">
+                    <p class="text-text-secondary text-sm">Didn't receive the code? 
+                        <button type="button" id="resendOTP" class="text-primary hover:text-primary-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                            Resend OTP
+                        </button>
+                    </p>
+                    <p class="text-text-secondary text-sm mt-1">Resend in <span id="otpTimer" class="font-medium text-primary">60</span> seconds</p>
+                </div>
+
+                <!-- Verify Button -->
+                <div class="space-y-3">
+                    <button type="button" id="verifyOTP" class="w-full btn-primary py-3 disabled:opacity-50 disabled:cursor-not-allowed">
+                        <span id="verifyOTPText">
+                            <i class="fas fa-check mr-2"></i>Verify OTP
+                        </span>
+                        <span id="verifyOTPSpinner" class="hidden">
+                            <i class="fas fa-spinner fa-spin mr-2"></i>Verifying...
+                        </span>
+                    </button>
+                    <button type="button" id="closeOTPModal" class="w-full bg-gray-200 text-text-primary py-3 rounded-lg hover:bg-gray-300 transition-colors">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div class="bg-surface rounded-lg max-w-md w-full p-6 shadow-xl">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-success rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-check text-white text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-text-primary mb-2">Welcome to RJ Sons Travels!</h3>
+                <p class="text-text-secondary mb-6">Your account has been created successfully. You can now start booking vehicles.</p>
+                
+                <div class="space-y-3">
+                    <button type="button" id="startBooking" class="w-full btn-primary py-3">
+                        <i class="fas fa-car mr-2"></i>Start Booking
+                    </button>
+                    <button type="button" id="closeSuccessModal" class="w-full bg-gray-200 text-text-primary py-3 rounded-lg hover:bg-gray-300 transition-colors">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching functionality
+        function initializeTabs() {
+            const loginTab = document.getElementById('loginTab');
+            const registerTab = document.getElementById('registerTab');
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+
+            loginTab.addEventListener('click', () => {
+                loginTab.classList.add('active');
+                registerTab.classList.remove('active');
+                loginForm.classList.remove('hidden');
+                registerForm.classList.add('hidden');
+            });
+
+            registerTab.addEventListener('click', () => {
+                registerTab.classList.add('active');
+                loginTab.classList.remove('active');
+                registerForm.classList.remove('hidden');
+                loginForm.classList.add('hidden');
+            });
+        }
+
+        // Password visibility toggle
+        function initializePasswordToggles() {
+            // Login password toggle
+            document.getElementById('toggleLoginPassword').addEventListener('click', function() {
+                const passwordField = document.getElementById('loginPassword');
+                const eyeIcon = document.getElementById('loginEyeIcon');
+                
+                if (passwordField.type === 'password') {
+                    passwordField.type = 'text';
+                    eyeIcon.classList.remove('fa-eye');
+                    eyeIcon.classList.add('fa-eye-slash');
+                } else {
+                    passwordField.type = 'password';
+                    eyeIcon.classList.remove('fa-eye-slash');
+                    eyeIcon.classList.add('fa-eye');
+                }
+            });
+
+            // Register password toggle
+            document.getElementById('togglePassword').addEventListener('click', function() {
+                const passwordField = document.getElementById('password');
+                const eyeIcon = document.getElementById('eyeIcon');
+                
+                if (passwordField.type === 'password') {
+                    passwordField.type = 'text';
+                    eyeIcon.classList.remove('fa-eye');
+                    eyeIcon.classList.add('fa-eye-slash');
+                } else {
+                    passwordField.type = 'password';
+                    eyeIcon.classList.remove('fa-eye-slash');
+                    eyeIcon.classList.add('fa-eye');
+                }
+            });
+        }
+
+        // Password strength indicator
+        function initializePasswordStrength() {
+            const passwordField = document.getElementById('password');
+            const strengthBar = document.getElementById('passwordStrength');
+            const strengthText = document.getElementById('passwordStrengthText');
+
+            passwordField.addEventListener('input', function() {
+                const password = this.value;
+                const strength = calculatePasswordStrength(password);
+                
+                // Update strength bar
+                strengthBar.style.width = strength.percentage + '%';
+                strengthBar.className = `h-full transition-all duration-300 ${strength.color}`;
+                strengthText.textContent = strength.text;
+            });
+        }
+
+        function calculatePasswordStrength(password) {
+            let score = 0;
+            let text = 'Weak';
+            let color = 'bg-error-500';
+            let percentage = 25;
+
+            if (password.length >= 8) score += 1;
+            if (password.match(/[a-z]/)) score += 1;
+            if (password.match(/[A-Z]/)) score += 1;
+            if (password.match(/[0-9]/)) score += 1;
+            if (password.match(/[^a-zA-Z0-9]/)) score += 1;
+
+            switch (score) {
+                case 0:
+                case 1:
+                    text = 'Weak';
+                    color = 'bg-error-500';
+                    percentage = 25;
+                    break;
+                case 2:
+                    text = 'Fair';
+                    color = 'bg-warning-500';
+                    percentage = 50;
+                    break;
+                case 3:
+                    text = 'Good';
+                    color = 'bg-accent-500';
+                    percentage = 75;
+                    break;
+                case 4:
+                case 5:
+                    text = 'Strong';
+                    color = 'bg-success-500';
+                    percentage = 100;
+                    break;
+            }
+
+            return { score, text, color, percentage };
+        }
+
+        // Form validation
+        function validateLoginForm() {
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            let isValid = true;
+
+            // Reset errors
+            document.getElementById('loginEmailError').classList.add('hidden');
+            document.getElementById('loginPasswordError').classList.add('hidden');
+
+            // Email/Phone validation
+            if (!email || (!email.includes('@') && !email.match(/^\d{10}$/))) {
+                document.getElementById('loginEmailError').classList.remove('hidden');
+                isValid = false;
+            }
+
+            // Password validation
+            if (!password) {
+                document.getElementById('loginPasswordError').classList.remove('hidden');
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        function validateRegisterForm() {
+            const fullName = document.getElementById('fullName').value;
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            const email = document.getElementById('email').value;
+            const nicNumber = document.getElementById('nicNumber').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const agreeTerms = document.getElementById('agreeTerms').checked;
+            let isValid = true;
+
+            // Reset errors
+            document.getElementById('fullNameError').classList.add('hidden');
+            document.getElementById('phoneNumberError').classList.add('hidden');
+            document.getElementById('emailError').classList.add('hidden');
+            document.getElementById('nicNumberError').classList.add('hidden');
+            document.getElementById('passwordError').classList.add('hidden');
+            document.getElementById('confirmPasswordError').classList.add('hidden');
+
+            // Full name validation
+            if (!fullName || fullName.length < 2) {
+                document.getElementById('fullNameError').classList.remove('hidden');
+                isValid = false;
+            }
+
+            // Phone number validation (Indian format)
+            if (!phoneNumber || !phoneNumber.match(/^\d{10}$/)) {
+                document.getElementById('phoneNumberError').classList.remove('hidden');
+                isValid = false;
+            }
+
+            // Email validation
+            if (!email || !email.includes('@')) {
+                document.getElementById('emailError').classList.remove('hidden');
+                isValid = false;
+            }
+
+            // NIC validation
+            if (!nicNumber || nicNumber.length < 10) {
+                document.getElementById('nicNumberError').classList.remove('hidden');
+                isValid = false;
+            }
+
+            // Password validation
+            if (!password || password.length < 8) {
+                document.getElementById('passwordError').classList.remove('hidden');
+                isValid = false;
+            }
+
+            // Confirm password validation
+            if (password !== confirmPassword) {
+                document.getElementById('confirmPasswordError').classList.remove('hidden');
+                isValid = false;
+            }
+
+            // Terms validation
+            if (!agreeTerms) {
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        // OTP Modal functionality
+        function initializeOTPModal() {
+            const otpInputs = document.querySelectorAll('[data-otp-input]');
+            const verifyButton = document.getElementById('verifyOTP');
+            const resendButton = document.getElementById('resendOTP');
+            const timerElement = document.getElementById('otpTimer');
+            let timerInterval;
+            let timeLeft = 60;
+
+            // OTP input handling
+            otpInputs.forEach((input, index) => {
+                input.addEventListener('input', function() {
+                    if (this.value.length === 1) {
+                        if (index < otpInputs.length - 1) {
+                            otpInputs[index + 1].focus();
+                        }
+                    }
+                    updateVerifyButton();
+                });
+
+                input.addEventListener('keydown', function(e) {
+                    if (e.key === 'Backspace' && this.value === '' && index > 0) {
+                        otpInputs[index - 1].focus();
+                    }
+                });
+            });
+
+            function updateVerifyButton() {
+                const otp = Array.from(otpInputs).map(input => input.value).join('');
+                verifyButton.disabled = otp.length !== 6;
+            }
+
+            function startTimer() {
+                timeLeft = 60;
+                resendButton.disabled = true;
+                timerInterval = setInterval(() => {
+                    timeLeft--;
+                    timerElement.textContent = timeLeft;
+                    if (timeLeft <= 0) {
+                        clearInterval(timerInterval);
+                        resendButton.disabled = false;
+                        timerElement.textContent = '0';
+                    }
+                }, 1000);
+            }
+
+            // Resend OTP
+            resendButton.addEventListener('click', function() {
+                startTimer();
+                // Add API call to resend OTP
+            });
+
+            // Verify OTP
+            verifyButton.addEventListener('click', function() {
+                const otp = Array.from(otpInputs).map(input => input.value).join('');
+                verifyOTP(otp);
+            });
+
+            // Close modal
+            document.getElementById('closeOTPModal').addEventListener('click', function() {
+                document.getElementById('otpModal').classList.add('hidden');
+                clearInterval(timerInterval);
+            });
+
+            // Initialize timer when modal opens
+            document.getElementById('otpModal').addEventListener('show', startTimer);
+        }
+
+        function showOTPModal(phoneNumber) {
+            document.getElementById('phoneDisplay').textContent = phoneNumber;
+            document.getElementById('otpModal').classList.remove('hidden');
+            document.getElementById('otpModal').dispatchEvent(new Event('show'));
+            
+            // Focus first OTP input
+            document.querySelector('[data-otp-input="0"]').focus();
+        }
+
+        function verifyOTP(otp) {
+            const verifyButton = document.getElementById('verifyOTP');
+            const verifyText = document.getElementById('verifyOTPText');
+            const verifySpinner = document.getElementById('verifyOTPSpinner');
+
+            verifyButton.disabled = true;
+            verifyText.classList.add('hidden');
+            verifySpinner.classList.remove('hidden');
+
+            // Simulate OTP verification
+            setTimeout(() => {
+                if (otp === '123456') { // Mock successful verification
+                    document.getElementById('otpModal').classList.add('hidden');
+                    document.getElementById('successModal').classList.remove('hidden');
+                } else {
+                    alert('Invalid OTP. Please try again.');
+                }
+                
+                verifyButton.disabled = false;
+                verifyText.classList.remove('hidden');
+                verifySpinner.classList.add('hidden');
+            }, 1500);
+        }
+
+        // Form submissions
+        function initializeFormSubmissions() {
+            // Login form
+            document.getElementById('loginFormElement').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                if (!validateLoginForm()) return;
+
+                const loginBtn = document.getElementById('loginBtn');
+                const loginBtnText = document.getElementById('loginBtnText');
+                const loginSpinner = document.getElementById('loginSpinner');
+                const loginError = document.getElementById('loginError');
+
+                loginError.classList.add('hidden');
+                loginBtn.disabled = true;
+                loginBtnText.classList.add('hidden');
+                loginSpinner.classList.remove('hidden');
+
+                // Simulate login
+                setTimeout(() => {
+                    // Mock successful login
+                    window.location.href = 'vehicle_booking.html';
+                }, 1500);
+            });
+
+            // Register form
+            document.getElementById('registerFormElement').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                if (!validateRegisterForm()) return;
+
+                const registerBtn = document.getElementById('registerBtn');
+                const registerBtnText = document.getElementById('registerBtnText');
+                const registerSpinner = document.getElementById('registerSpinner');
+                const phoneNumber = document.getElementById('phoneNumber').value;
+
+                registerBtn.disabled = true;
+                registerBtnText.classList.add('hidden');
+                registerSpinner.classList.remove('hidden');
+
+                // Simulate registration
+                setTimeout(() => {
+                    // Check if phone number is Indian format
+                    if (phoneNumber.match(/^\d{10}$/)) {
+                        showOTPModal(phoneNumber);
+                    } else {
+                        document.getElementById('successModal').classList.remove('hidden');
+                    }
+
+                    registerBtn.disabled = false;
+                    registerBtnText.classList.remove('hidden');
+                    registerSpinner.classList.add('hidden');
+                }, 1500);
+            });
+        }
+
+        // Success modal
+        function initializeSuccessModal() {
+            document.getElementById('startBooking').addEventListener('click', function() {
+                window.location.href = 'vehicle_booking.html';
+            });
+
+            document.getElementById('closeSuccessModal').addEventListener('click', function() {
+                document.getElementById('successModal').classList.add('hidden');
+            });
+        }
+
+        // Forgot password
+        function initializeForgotPassword() {
+            document.getElementById('forgotPasswordBtn').addEventListener('click', function() {
+                const email = document.getElementById('loginEmail').value;
+                if (!email) {
+                    alert('Please enter your email or phone number first.');
+                    return;
+                }
+                
+                // Simulate password reset
+                alert('Password reset instructions have been sent to your email/phone.');
+            });
+        }
+
+        // Initialize all functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeTabs();
+            initializePasswordToggles();
+            initializePasswordStrength();
+            initializeOTPModal();
+            initializeFormSubmissions();
+            initializeSuccessModal();
+            initializeForgotPassword();
+        });
+
+        // Add CSS for active tab
+        document.head.insertAdjacentHTML('beforeend', `
+            <style>
+                .tab-button {
+                    color: #6B7280;
+                    border-bottom: 2px solid transparent;
+                }
+                .tab-button.active {
+                    color: #1E40AF;
+                    border-bottom-color: #1E40AF;
+                }
+                .tab-button:hover {
+                    color: #1E40AF;
+                }
+            </style>
+        `);
+    </script>
+</body>
+</html>
